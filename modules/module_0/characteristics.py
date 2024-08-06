@@ -6,3 +6,7 @@ def get_characteristics(survey_responses):
         # Add more characteristics as needed
     }
     return characteristics
+
+if __name__ == "__main__":
+    characteristics = get_characteristics(survey_responses)
+    print("Characteristics:", characteristics)

@@ -1,4 +1,5 @@
-from modules import module_0, module_1, module_2
+from modules import module_1, module_2
+from modules.module_0 import characteristics
 
 def main():
     # Load map (Replace this with actual map loading logic)
@@ -8,7 +9,7 @@ def main():
     survey_responses = "path_to_survey_responses"
 
     # Module 0: Process survey responses to get characteristics
-    characteristics = module_0.get_characteristics(survey_responses)
+    characteristics = characteristics.get_characteristics(survey_responses)
     print("Characteristics:", characteristics)
 
     # Module 1: Generate route based on map and characteristics
