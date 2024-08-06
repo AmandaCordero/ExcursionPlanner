@@ -1,12 +1,24 @@
-def get_characteristics(survey_responses):
-    # Implement logic to process survey responses and determine characteristics
-    characteristics = {
-        "hiker_1": "instagrammer",
-        "hiker_2": "adventurer",
-        # Add more characteristics as needed
-    }
+import random
+from .gpt2 import ExplorerLLM
+
+EXPLORER_COUNT = 1
+
+def get_characteristics():
+
+    llm = ExplorerLLM()
+    characteristics = []
+
+    for i in range(EXPLORER_COUNT):
+        print(f"\n\n########################### Explorer {i} ###########################\n")
+        # Randomly select a personality and complete the survey
+        selected_personality = random.choice(list(llm.personalities.keys()))
+        survey_responses = llm.complete_survey(selected_personality)
+
+        # Analyze survey responses with the LLM
+        characteristics.append(llm.analyze_responses(survey_responses))
+        print("Extracted characteristics by LLM:", characteristics[i])
+
     return characteristics
 
 if __name__ == "__main__":
-    characteristics = get_characteristics(survey_responses)
-    print("Characteristics:", characteristics)
+    characteristics = get_characteristics()
