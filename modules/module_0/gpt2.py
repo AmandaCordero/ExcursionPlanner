@@ -5,7 +5,9 @@ class ExplorerLLM:
         # Load the model and tokenizer
         self.model = GPT2LMHeadModel.from_pretrained(model_name)
         self.tokenizer = GPT2Tokenizer.from_pretrained(model_name)
-        
+        # Set pad token to eos token
+        self.tokenizer.pad_token_id = self.tokenizer.eos_token_id
+
         # Define personalities
         self.personalities = {
             "Adventurous Explorer": "I love adventures and extreme challenges. I always seek to explore the unknown and push my limits.",
@@ -27,8 +29,11 @@ class ExplorerLLM:
             inputs,
             max_length=max_length,
             num_return_sequences=1,
-            no_repeat_ngram_size=2,
-            temperature=0.7,
+            do_sample=True,  # Enable sampling for varied responses
+            temperature=0.7,  # Adjust the temperature for randomness
+            top_k=50,  # Consider only the top-k words by probability
+            top_p=0.95,  # Consider the cumulative probability
+            pad_token_id=self.tokenizer.eos_token_id  # Use eos token as pad
         )
         response = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
         return response
@@ -47,34 +52,41 @@ class ExplorerLLM:
             "5. How many people usually accompany you on your hikes?",
             "6. What do you consider your level of experience in hiking?",
             "7. Have you participated in activities such as hiking, climbing, mountain biking, kayaking, camping, or bird watching?",
-            "8. Do you have experience navigating by GPS or maps?",
-            "9. Have you received any first aid training?",
-            "10. What type of landscape do you prefer for your hikes?",
-            "11. What is your favorite season for hiking?",
-            "12. What motivates you the most when going on a hike?",
-            "13. How important is privacy to you during a hike?",
-            "14. Which of the following aspects would you like to improve during a hike?",
-            "15. What type of accommodation do you prefer during a hike?",
-            "16. What level of comfort do you expect during the hike?",
-            "17. Which of the following facilities do you consider essential?",
-            "18. Would you like to have guides during the hike?",
-            "19. How long do you prefer a hike to last?",
-            "20. Do you have any medical conditions we should consider when planning your hike?",
-            "21. How would you rate your current physical condition?",
-            "22. Are you willing to participate in physically demanding activities?",
-            "23. Would you like to receive safety and health information before the hike?",
-            "24. Do you have any suggestions or additional comments about your hiking preferences?",
+            # "8. Do you have experience navigating by GPS or maps?",
+            # "9. Have you received any first aid training?",
+            # "10. What type of landscape do you prefer for your hikes?",
+            # "11. What is your favorite season for hiking?",
+            # "12. What motivates you the most when going on a hike?",
+            # "13. How important is privacy to you during a hike?",
+            # "14. Which of the following aspects would you like to improve during a hike?",
+            # "15. What type of accommodation do you prefer during a hike?",
+            # "16. What level of comfort do you expect during the hike?",
+            # "17. Which of the following facilities do you consider essential?",
+            # "18. Would you like to have guides during the hike?",
+            # "19. How long do you prefer a hike to last?",
+            # "20. Do you have any medical conditions we should consider when planning your hike?",
+            # "21. How would you rate your current physical condition?",
+            # "22. Are you willing to participate in physically demanding activities?",
+            # "23. Would you like to receive safety and health information before the hike?",
+            # "24. Do you have any suggestions or additional comments about your hiking preferences?",
         ]
 
         responses = []
         # Generate responses for each question
         for question in questions:
-            prompt = f"{description} {question}"
+            prompt = (
+    f"Given the mindset of a {personality}: \"{description}\", "
+    f"when asked the question \"{question}\", they would naturally say: "
+)
             response = self.generate_response(prompt)
+            response = response.replace(prompt, "").strip()
+            response = response.split("\"")[1].strip() + "."
+
             responses.append(response)
             print(f"{question}\nResponse: {response}\n")
 
         return responses
+
 
     def analyze_responses(self, responses):
         # Consolidate responses into a single text
