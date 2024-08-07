@@ -15,7 +15,7 @@ def get_characteristics():
         survey_responses = llm.complete_survey(selected_personality)
 
         # Analyze survey responses with the LLM
-        characteristics.append(llm.analyze_responses(survey_responses))
+        characteristics.append(llm.analyze_responses(survey_responses, max_length=300))
         print("Extracted characteristics by LLM:", characteristics[i])
 
     return characteristics

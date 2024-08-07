@@ -52,45 +52,50 @@ class ExplorerLLM:
             "5. How many people usually accompany you on your hikes?",
             "6. What do you consider your level of experience in hiking?",
             "7. Have you participated in activities such as hiking, climbing, mountain biking, kayaking, camping, or bird watching?",
-            # "8. Do you have experience navigating by GPS or maps?",
-            # "9. Have you received any first aid training?",
-            # "10. What type of landscape do you prefer for your hikes?",
-            # "11. What is your favorite season for hiking?",
-            # "12. What motivates you the most when going on a hike?",
-            # "13. How important is privacy to you during a hike?",
-            # "14. Which of the following aspects would you like to improve during a hike?",
-            # "15. What type of accommodation do you prefer during a hike?",
-            # "16. What level of comfort do you expect during the hike?",
-            # "17. Which of the following facilities do you consider essential?",
-            # "18. Would you like to have guides during the hike?",
-            # "19. How long do you prefer a hike to last?",
-            # "20. Do you have any medical conditions we should consider when planning your hike?",
-            # "21. How would you rate your current physical condition?",
-            # "22. Are you willing to participate in physically demanding activities?",
-            # "23. Would you like to receive safety and health information before the hike?",
-            # "24. Do you have any suggestions or additional comments about your hiking preferences?",
+            "8. Do you have experience navigating by GPS or maps?",
+            "9. Have you received any first aid training?",
+            "10. What type of landscape do you prefer for your hikes?",
+            "11. What is your favorite season for hiking?",
+            "12. What motivates you the most when going on a hike?",
+            "13. How important is privacy to you during a hike?",
+            "14. Which of the following aspects would you like to improve during a hike?",
+            "15. What type of accommodation do you prefer during a hike?",
+            "16. What level of comfort do you expect during the hike?",
+            "17. Which of the following facilities do you consider essential?",
+            "18. Would you like to have guides during the hike?",
+            "19. How long do you prefer a hike to last?",
+            "20. Do you have any medical conditions we should consider when planning your hike?",
+            "21. How would you rate your current physical condition?",
+            "22. Are you willing to participate in physically demanding activities?",
+            "23. Would you like to receive safety and health information before the hike?",
+            "24. Do you have any suggestions or additional comments about your hiking preferences?",
         ]
 
         responses = []
         # Generate responses for each question
         for question in questions:
             prompt = (
-    f"Given the mindset of a {personality}: \"{description}\", "
-    f"when asked the question \"{question}\", they would naturally say: "
-)
+                f"A {personality} who believes \"{description}\" would typically respond to "
+                f"\"{question}\" with: "
+            )
             response = self.generate_response(prompt)
             response = response.replace(prompt, "").strip()
-            response = response.split("\"")[1].strip() + "."
+            try:
+                response = response.split("\"")[1].strip()
+            except:
+                pass
+                # response = response.split(".")[0].strip()
 
-            responses.append(response)
-            print(f"{question}\nResponse: {response}\n")
+
+            responses.append(f"{question}\nResponse: {response}\n")
+            print(responses[len(responses)-1])
 
         return responses
 
 
-    def analyze_responses(self, responses):
+    def analyze_responses(self, responses, max_length=150):
         # Consolidate responses into a single text
-        responses_text = " ".join(responses)
+        responses_text = "\n\n".join(responses)
 
         # Prompt to extract characteristics from the text
         prompt = (
@@ -105,15 +110,20 @@ class ExplorerLLM:
             "Guide Usage: [value], Safety and Health: [value], Group Size: [value]."
         )
 
+        print("\n\n######### Characteristics #########\n")
+
         # Generate analyzed response by the LLM
-        characteristics_response = self.generate_response(prompt, max_length=150)
+        characteristics_response = self.generate_response(prompt, max_length)
+        characteristics_response = characteristics_response.replace(prompt, "").strip()
+
+        print(characteristics_response)
 
         # Parse the response to obtain characteristics
         characteristics = {}
-        for line in characteristics_response.split(','):
-            if ':' in line:
-                key, value = line.split(':')
-                characteristics[key.strip().lower()] = int(value.strip())
+        # for line in characteristics_response.split(','):
+            # if ':' in line:
+            #     key, value = line.split(':')
+            #     characteristics[key.strip().lower()] = int(value.strip())
 
         return characteristics
 
