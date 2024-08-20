@@ -2,12 +2,24 @@ from collections import deque
 import heapq
 import math
 
+class Point:
+    def __init__(self):
+        self.name = "" # puede que el punto tenga un nombre en particular
+        self.IsExtreme = False  # punto de entrada o salida del mapa
+        self.type = {}  # diccionario donde a cada aspecto para los turistas se le asocia un porciento de reelevancia
+        self.rest = False # lugar de descanso
+
 class Map:
     def __init__(self):
         self.points = []
         self.paths = {}
         self.slope = {}
         self.size = {}
+
+        self.createmap()
+
+    def createmap(self):
+        pass
         
     def addPoint(self, point):
         if point in self.points:

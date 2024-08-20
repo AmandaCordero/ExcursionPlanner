@@ -21,3 +21,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+    # ma = [
+    #     [1,2],
+    #     [3,4]
+    # ]
+
+    # print(ma[0][1]) 
+    # (imprime 2)
