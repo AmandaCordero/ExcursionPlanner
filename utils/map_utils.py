@@ -1,26 +1,81 @@
 from collections import deque
 import heapq
-import math
+from sympy import isprime
 
 class Point:
-    def __init__(self):
-        self.name = "" # puede que el punto tenga un nombre en particular
-        self.IsExtreme = False  # punto de entrada o salida del mapa
-        self.type = {}  # diccionario donde a cada aspecto para los turistas se le asocia un porciento de reelevancia
-        self.rest = False # lugar de descanso
+    def __init__(self, location, name="", type={}, IsRest=False):
+        self.name = name # puede que el punto tenga un nombre en particular
+        self.type = type  # diccionario donde a cada aspecto para los turistas se le asocia un porciento de reelevancia
+        self.rest = IsRest # lugar de descanso
+        self.location = location
 
 class Map:
     def __init__(self):
-        self.points = []
+        self.len_map = 15
+        self.points = {}
+        self.interest_points = [(4,0),(8,1),(13,2),(10,5),(9,12)]
+        self.start = (0,0)
+        self.exit = (14,14)
         self.paths = {}
         self.slope = {}
         self.size = {}
-
         self.createmap()
 
     def createmap(self):
-        pass
+        # Inicializar toda la matriz con 0
+        self.map_matrix = [[j*self.len_map+i for i in range(self.len_map)] for j in range(self.len_map)]
+        self._block_generate()
+
+        for i in range(self.len_map):
+            for j in range(self.len_map):
+                if self.map_matrix[i][j] != -1:
+                    self.points[self.map_matrix[i][j]] = Point((i,j))
+
+    def _block_generate(self):
+        # Generando obstáculos
         
+        for i in range(self.len_map):
+            for j in range(self.len_map):
+
+                if j > 11 and self.map_matrix[i][j] != 0 and self.map_matrix[i][j] % 6 == 0:
+                    self.map_matrix[i][j] = -1
+                
+                if j <= 11 and self.map_matrix[i][j] != 0 and self.map_matrix[i][j] % 9 == 0:
+                    self.map_matrix[i][j] = -1
+
+                if isprime(self.map_matrix[i][j]):
+                    self.map_matrix[i][j] = -1
+                
+                if abs(5-i) < 3 and abs(11-j) < 2:
+                    self.map_matrix[i][j] = -1
+
+                if i == 12 and abs(2-j) < 4:
+                    self.map_matrix[i][j] = -1
+                
+    def __repr__(self):
+        rows = []
+        for i in range(self.len_map):
+            columns = []
+            for j in range(self.len_map):
+                element = ''
+                num = str(self.map_matrix[i][j])
+                if num == '-1':
+                    num = ' # '
+                if len(num) == 1:
+                    num = '  ' + num
+                if len(num) == 2:
+                    num = ' ' + num
+                
+                columns.append(num)
+            
+            rows.append(' '.join(a for a in columns))
+
+        return '\n'.join(row for row in rows)
+
+
+
+
+
     def addPoint(self, point):
         if point in self.points:
             print("Este punto ya existe.")
@@ -65,3 +120,37 @@ class Map:
         for neighbor in self.paths[current_point]:
             if not visited[neighbor]:
                 self._dfs_recursive(neighbor, visited)
+
+    def heuristic(self, n1, n2):
+        # Esta es una heurística simple, puedes ajustarla según tus necesidades
+        # Por ejemplo, podría ser la distancia euclidiana, Manhattan, etc.
+        return abs(n1.x - n2.x) + abs(n1.y - n2.y)
+
+    def a_star(self, start_point, goal_point):
+        open_list = [(0, start_point)]
+        came_from = {}
+        g_score = {point: float('inf') for point in self.points}
+        g_score[start_point] = 0
+        f_score = {point: float('inf') for point in self.points}
+        f_score[start_point] = self.heuristic(start_point, goal_point)
+
+        while open_list:
+            _, current_point = heapq.heappop(open_list)
+
+            if current_point == goal_point:
+                path = [current_point]
+                while current_point in came_from:
+                    current_point = came_from[current_point]
+                    path.append(current_point)
+                path.reverse()
+                return path
+
+            for neighbor in self.paths[current_point]:
+                tentative_g_score = g_score[current_point] + self.size[(current_point, neighbor)]
+                if tentative_g_score < g_score[neighbor]:
+                    came_from[neighbor] = current_point
+                    g_score[neighbor] = tentative_g_score
+                    f_score[neighbor] = tentative_g_score + self.heuristic(neighbor, goal_point)
+                    heapq.heappush(open_list, (f_score[neighbor], neighbor))
+
+        return None  # No se encontró camino
