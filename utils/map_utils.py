@@ -3,23 +3,39 @@ import heapq
 from sympy import isprime
 
 class Point:
-    def __init__(self, location, name="", type={}, IsRest=False):
+    def __init__(self, location, name="", characteristics=[], IsRest=False):
         self.name = name # puede que el punto tenga un nombre en particular
-        self.type = type  # diccionario donde a cada aspecto para los turistas se le asocia un porciento de reelevancia
+        self.characteristics = characteristics  # conjunto donde a cada aspecto para los turistas se le asocia un nivel de relevancia
         self.rest = IsRest # lugar de descanso
         self.location = location
+    
+    # def set_characteristics(self, characteristics):
+    #     '''
+    #         Permite establecer características del terreno
+    #         y su relevancia. 
+            
+    #         Recibe 'characteristics' que es un array de tuplas (string,num)
+    #         donde el primer elemento es el nombre de la característica y el segundo
+    #         es el nivel de relevancia.
+    #     '''
+        
+    #     for characteristic in characteristics:
+    #         self.characteristics.append((characteristic[0],characteristic[1]))
 
 class Map:
     def __init__(self):
         self.len_map = 15
         self.points = {}
-        self.interest_points = [(4,0),(8,1),(13,2),(10,5),(9,12)]
-        self.start = (0,0)
-        self.exit = (14,14)
+        self.interest_points = [28,60,74,121,155,147,196,214]
+        self.start = 0
+        self.exit = 224
+        
         self.paths = {}
         self.slope = {}
         self.size = {}
+        
         self.createmap()
+        self.createpoints()
 
     def createmap(self):
         # Inicializar toda la matriz con 0
@@ -51,7 +67,28 @@ class Map:
 
                 if i == 12 and abs(2-j) < 4:
                     self.map_matrix[i][j] = -1
-                
+        
+    def createpoints(self):
+        for i in range(15):
+            for j in range(15):
+                element = self.map_matrix[i][j]
+                if element == -1:
+                    continue
+                else:
+                    self.points[element] = Point((i,j))
+
+        # Establecer las características a los puntos de interés
+        # Las puntuaciones irán de 1 a 10
+        # interest_points = [28,60,74,121,155,147,196,214]
+        self.points[28].characteristics = [('A',10)]
+        self.points[60].characteristics = [('A',5)]
+        self.points[74].characteristics = [('C',10)]
+        self.points[121].characteristics = [('B',7)]
+        self.points[155].characteristics = [('B',4)]
+        self.points[147].characteristics = [('C',3)]
+        self.points[196].characteristics = [('B',10)]
+        self.points[214].characteristics = [('A',9)]
+        
     def __repr__(self):
         rows = []
         for i in range(self.len_map):

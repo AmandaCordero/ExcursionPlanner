@@ -21,6 +21,28 @@ def main():
     # resources = module_2.calculate_resources(route, characteristics)
     # print("Resources needed:", resources)
 
+
+class Point:
+    def __init__(self, location, name="", characteristics=[], IsRest=False):
+        self.name = name # puede que el punto tenga un nombre en particular
+        self.characteristics = characteristics  # conjunto donde a cada aspecto para los turistas se le asocia un nivel de relevancia
+        self.rest = IsRest # lugar de descanso
+        self.location = location
+    
+    def set_characteristics(self, characteristics):
+        '''
+            Permite establecer características del terreno
+            y su relevancia. 
+            
+            Recibe 'characteristics' que es un array de tuplas (string,num)
+            donde el primer elemento es el nombre de la característica y el segundo
+            es el nivel de relevancia.
+        '''
+        
+        for characteristic in characteristics:
+            self.characteristics.append((characteristic[0],characteristic[1]))
+
+
 if __name__ == "__main__":
     main()
 
@@ -34,6 +56,7 @@ if __name__ == "__main__":
 
     # sierra = Map()
     # print(sierra)
+    
 
 
 
