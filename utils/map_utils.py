@@ -84,7 +84,7 @@ class Map:
         self.points[60].characteristics = [('A',5)]
         self.points[74].characteristics = [('C',10)]
         self.points[121].characteristics = [('B',7)]
-        self.points[155].characteristics = [('B',4)]
+        self.points[155].characteristics = [('B',4), ('C',2)]
         self.points[147].characteristics = [('C',3)]
         self.points[196].characteristics = [('B',10)]
         self.points[214].characteristics = [('A',9)]

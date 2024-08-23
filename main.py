@@ -11,7 +11,7 @@ def main():
 
     # Module 0: Process survey responses to get characteristics
     characteristics = module_0.get_characteristics()
-    # print("Characteristics:\n", characteristics, '\n')
+    print("Characteristics:\n", characteristics, '\n')
 
     # Module 1: Generate route based on map and characteristics
     route = module_1.plan_route(map_data, characteristics)

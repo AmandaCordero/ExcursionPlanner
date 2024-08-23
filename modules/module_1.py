@@ -3,7 +3,7 @@ import heapq
 def plan_route(map_data, characteristics):
     
     # characteristics: 
-    characteristics = {'A': (1, 24), 'B': (2, 14), 'C': (1, 7), 'D': (1, 5)}
+    characteristics = {'A': (1, 24), 'B': (4, 14)}
     
     #  map_data.map_matrix:
     #    0    1   #    #    4    #    6    #     8   #    10   #    #    #    14
@@ -78,10 +78,10 @@ def a_star_search(map, characteristics):
             
             location_current = map.points[current].location
             location_neighbor = map.points[neighbor].location
-            tentative_g_score = g_score[current] + 1
+            tentative_g_score = g_score[current] + 2
             # Revisar si el movimiento es en diagonal
             if location_current[0] != location_neighbor[0] and location_current[1] != location_neighbor[1]:
-                tentative_g_score = g_score[current] + 1.41
+                tentative_g_score = g_score[current] + 2.27
 
             if neighbor not in g_score or tentative_g_score < g_score[neighbor]:
                 temp_came_from[neighbor] = current
@@ -102,7 +102,6 @@ def get_goal(start, map, interest_points_unvisited, default_goal, characteristic
             goal = point
             min_f = path_to_point_f
             
-    print('goal: ', goal)
     return goal
 
 def calculate_point_value(map, point_id, tourists_characteristics):
