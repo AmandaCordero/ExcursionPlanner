@@ -60,8 +60,14 @@ class Map:
         if p2 not in self.paths[p1]:
             self.paths[p1].append(p2)
             self.paths[p2].append(p1)
-            self.paths_details[(p1,p2)] = {'characteristics':characteristics}
-            self.paths_details[(p2,p1)] = {'characteristics':characteristics}
+            
+            point1 = self.points[p1]
+            point2 = self.points[p2]
+            
+            distance = math.sqrt(abs(point1.location[0]-point2.location[0])**2 + (point1.location[1]-point2.location[1])**2)
+            
+            self.paths_details[(p1,p2)] = {'distance': distance, 'characteristics':characteristics}
+            self.paths_details[(p2,p1)] = {'distance': distance, 'characteristics':characteristics}
         else:
             print(f"El camino entre {p1} y {p2} ya existe.")
            

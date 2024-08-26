@@ -41,7 +41,7 @@ def a_star_search(map, characteristics):
         
         # De momento la implementación tendrá una unica salida, en un futuro
         # se puede implementar la entrada como una salida también
-        if current == exit:
+        if current == exit and goal == exit:
             came_from.append(temp_came_from)
             return reconstruct_path(came_from, current, map)
         elif current == goal:
@@ -81,7 +81,7 @@ def get_goal(start, map, interest_points_unvisited, default_goal, characteristic
         if path_to_point_f < min_f:
             goal = point
             min_f = path_to_point_f
-            
+    print('goal: ', goal)
     return goal
 
 # Valor estimado del punto según los intereses de los turistas
@@ -90,7 +90,9 @@ def calculate_point_value(map, point_id, tourists_characteristics):
     value = 0
     
     for i in range(6):
-        value += 1000*point.characteristics[i]*(1-abs(point.characteristics[i]-tourists_characteristics[i]))
+        if point.characteristics[i] == 0 or tourists_characteristics[i] == 0:
+            continue
+        value += 1000*(1-abs(point.characteristics[i]-tourists_characteristics[i]))
     
     return value
     
@@ -141,7 +143,8 @@ def reconstruct_path(came_from, current, map):
     for parent_dic in came_from:
         while current in parent_dic:
             current = parent_dic[current]
-            path.append(map.points[current])
+            # path.append(map.points[current])
+            path.append(current)
     
     path.reverse()
 

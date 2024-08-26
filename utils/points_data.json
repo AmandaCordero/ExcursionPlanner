@@ -73,7 +73,7 @@
         {
             "id": 10,
             "location": [147,119],
-            "characteristics": [0,0,0.3,0.4,0.4,0.1],
+            "characteristics": [0,0,0.2,0,0,0],
             "altitude": "medium",
             "height": 30
         },
@@ -136,7 +136,7 @@
         {
             "id": 19,
             "location": [721,641],
-            "characteristics": [0, 0, 0.7, 0.8, 0.4, 0.2],
+            "characteristics": [0, 0, 0, 0.8, 0, 0],
             "altitude": "high",
             "height": 55
         },
@@ -227,7 +227,7 @@
         {
             "id": 32,
             "location": [886,747],
-            "characteristics": [0, 0, 0.1, 0.2, 0.3, 0.5],
+            "characteristics": [0, 0, 0, 0.2, 0, 0],
             "altitude": "low",
             "height": 10
         },
@@ -255,7 +255,7 @@
         {
             "id": 36,
             "location": [1230,413],
-            "characteristics": [0, 0, 0.4, 0.6, 0.7, 0.9],
+            "characteristics": [0, 0, 0, 0, 0, 0.5],
             "altitude": "top",
             "height": 120
         },
@@ -269,7 +269,7 @@
         {
             "id": 38,
             "location": [1134,104],
-            "characteristics": [0, 0, 0.3, 0.2, 0.4, 0.1],
+            "characteristics": [0, 0, 0, 0, 0.5, 0],
             "altitude": "medium",
             "height": 30
         },
@@ -374,7 +374,7 @@
         {
             "id": 53,
             "location": [1650,560],
-            "characteristics": [0, 0, 0.5, 0.6, 0.3, 0.4],
+            "characteristics": [0, 0, 0, 0, 0.3, 0],
             "altitude": "medium",
             "height": 30
         },
@@ -388,7 +388,7 @@
         {
             "id": 55,
             "location": [1744,730],
-            "characteristics": [0, 0, 0.5, 0.6, 0.3, 0.2],
+            "characteristics": [0, 0, 0, 0, 0, 0.3],
             "altitude": "low",
             "height": 10
         },
@@ -423,7 +423,7 @@
         {
             "id": 60,
             "location": [1760,45],
-            "characteristics": [0, 0, 0.3, 0.1, 0.6, 0.6],
+            "characteristics": [0, 0, 0, 0, 0, 0.8],
             "altitude": "low",
             "height": 6
         },
@@ -451,21 +451,21 @@
         {
             "id": 64,
             "location": [570,480],
-            "characteristics": [0, 0, 0.6, 0.8, 0.4, 0.8],
+            "characteristics": [0, 0, 0, 0.5, 0, 0],
             "altitude": "hill_one",
             "height": 100
         },
         {
             "id": 65,
             "location": [707,303],
-            "characteristics": [0, 0, 0.8, 0.5, 0.1, 0.4],
+            "characteristics": [0, 0, 0, 0, 0.8, 0],
             "altitude": "high",
             "height": 78
         },
         {
             "id": 66,
             "location": [250,750],
-            "characteristics": [0, 0, 0.4, 0.5, 0.5, 0.6],
+            "characteristics": [0, 0, 0.8, 0, 0, 0],
             "altitude": "low",
             "height": 10
         },
