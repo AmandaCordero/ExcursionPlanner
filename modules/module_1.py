@@ -43,7 +43,7 @@ def a_star_search(map, characteristics):
         # se puede implementar la entrada como una salida también
         if current == exit:
             came_from.append(temp_came_from)
-            return reconstruct_path(came_from, current)
+            return reconstruct_path(came_from, current, map)
         elif current == goal:
             # print('accidente: ', accidently_visits)
             for point in accidently_visits:
@@ -133,7 +133,7 @@ def get_neighbors(point_id, map):
     return neighbors
 
 # Reconstruir el camino desde el inicio hasta el final
-def reconstruct_path(came_from, current):
+def reconstruct_path(came_from, current, map):
     came_from.reverse()
     
     path = [current]
@@ -141,7 +141,7 @@ def reconstruct_path(came_from, current):
     for parent_dic in came_from:
         while current in parent_dic:
             current = parent_dic[current]
-            path.append(current)
+            path.append(map.points[current])
     
     path.reverse()
 
