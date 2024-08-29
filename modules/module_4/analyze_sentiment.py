@@ -1,7 +1,6 @@
 import re
 from nltk.corpus import stopwords
 from nltk.stem import SnowballStemmer
-from sentiment_lexicon_es import sentiment_lexicon_es
 
 # Crear el lematizador y las stopwords
 stemmer = SnowballStemmer('spanish')
@@ -14,9 +13,6 @@ def lemmatize_lexicon(lexicon):
         lemmatized_word = stemmer.stem(word)
         lemmatized_lexicon[lemmatized_word] = score
     return lemmatized_lexicon
-
-# Lematizar el léxico original
-lemmatized_lexicon_es = lemmatize_lexicon(sentiment_lexicon_es)
 
 def preprocess_text(text):
     # Convertir a minúsculas
@@ -56,12 +52,12 @@ def classify_sentiment(sentiment_score):
         return "Neutral"
 
 def analyze_sentiment(text, lexicon):
-    words = preprocess_text(text)
-    sentiment_score = calculate_sentiment(words, lexicon)
-    sentiment = classify_sentiment(sentiment_score)
-    return sentiment, sentiment_score
 
-# Ejemplo de uso
-review = "La acampada fue increíble, el paisaje era hermoso y la experiencia muy relajante. Sin embargo, la tienda era incómoda y el camino estuvo peligroso."
-sentiment, score = analyze_sentiment(review, lemmatized_lexicon_es)
-print(f"Sentimiento: {sentiment}, Score: {score}")
+    # Lematizar el léxico original
+    lemmatized_lexicon_es = lemmatize_lexicon(lexicon)
+
+    words = preprocess_text(text)
+    sentiment_score = calculate_sentiment(words, lemmatized_lexicon_es)
+    sentiment = classify_sentiment(sentiment_score)
+    print(f"Sentimiento: {sentiment}, Score: {sentiment_score}")
+    return sentiment, sentiment_score
