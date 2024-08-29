@@ -1,5 +1,7 @@
 sentiment_lexicon_es = {
+    # Positivos
     "bueno": 1.5,
+    "bien": 1.2,
     "excelente": 2.0,
     "fantástico": 2.0,
     "genial": 1.8,
@@ -18,7 +20,16 @@ sentiment_lexicon_es = {
     "agradable": 1.5,
     "seguro": 1.5,
     "tranquilo": 1.7,
-    
+    "aventura": 1.5,
+    "descansar": 1.5,
+    "limpio": 1.8,
+    "organizado": 1.5,
+    "servicial": 1.5,
+    "recomendado": 1.7,
+    "perfecto": 2.0,
+    "impresionante": 2.0,
+
+    # Negativos
     "malo": -1.5,
     "terrible": -2.0,
     "horrible": -2.0,
@@ -36,29 +47,60 @@ sentiment_lexicon_es = {
     "caro": -1.5,
     "aburrido": -1.5,
     "peligroso": -2.0,
-    
-    "no": -0.5,  # Inversor de sentimiento básico
+    "mosquitos": -1.5,
+    "desorganizado": -1.8,
+    "problemático": -1.7,
+    "inaceptable": -2.0,
+    "lento": -1.2,
+    "frustrante": -1.7,
+    "insatisfactorio": -2.0,
+
+    # Intensificadores
+    "muy": 0.5,
+    "extremadamente": 0.8,
+    "totalmente": 0.7,
+    "completamente": 0.7,
+
+    # Atenuadores
+    "poco": -0.3,
+    "algo": -0.2,
+    "medianamente": -0.2,
+
+    # Inversores de Sentimiento
+    "no": -0.5,
     "nunca": -0.5,
     "jamás": -0.5,
     "menos": -0.5,
     "ni": -0.5,
     "tampoco": -0.5,
     
-    # # Palabras neutrales comunes
-    # "acampada": 0.0,
-    # "montaña": 0.0,
-    # "tienda": 0.0,
-    # "noche": 0.0,
-    # "día": 0.0,
-    # "grupo": 0.0,
-    # "lugar": 0.0,
-    # "camino": 0.0,
-    # "comida": 0.0,
-    # "agua": 0.0,
-    # "aire": 0.0,
-    # "fuego": 0.0,
-    # "amigos": 0.0,
+    # Bigrams y Trigrams
+    "muy bueno": 2.0,
+    "no está mal": 0.5,
+    "ni tan mal": 0.3,
+    "decepcionante experiencia": -2.0,
+    "extremadamente agradable": 2.5,
+    "poco recomendable": -1.5,
+
+    # Palabras Neutrales
+    "acampada": 0.0,
+    "montaña": 0.0,
+    "tienda": 0.0,
+    "noche": 0.0,
+    "día": 0.0,
+    "grupo": 0.0,
+    "lugar": 0.0,
+    "camino": 0.0,
+    "comida": 0.0,
+    "agua": 0.0,
+    "aire": 0.0,
+    "fuego": 0.0,
+    "amigos": 0.0,
+    "familia": 0.0,
+    "tiempo": 0.0,
+    "momento": 0.0,
 }
+
 
 
 

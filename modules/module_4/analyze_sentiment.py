@@ -25,19 +25,25 @@ def preprocess_text(text):
     words = [stemmer.stem(word) for word in words if word not in stop_words]
     return words
 
+def generate_ngrams(words, n=2):
+    ngrams = zip(*[words[i:] for i in range(n)])
+    return [" ".join(ngram) for ngram in ngrams]
+
 def calculate_sentiment(words, lexicon):
     total_sentiment = 0.0
     skip_next = False
-    for i, word in enumerate(words):
+    bigrams = generate_ngrams(words)
+    words_and_bigrams = words + bigrams
+
+    for i, word in enumerate(words_and_bigrams):
         if skip_next:
             skip_next = False
             continue
         if word in lexicon:
-            # Manejar negaciones e intensificadores
-            if i > 0 and words[i-1] in ["no", "nunca", "jamás", "sin embargo"]:
+            if i > 0 and words_and_bigrams[i-1] in ["no", "nunca", "jamás", "sin embargo"]:
                 total_sentiment += lexicon[word] * -1
                 skip_next = True
-            elif i > 0 and words[i-1] in ["muy", "extremadamente"]:
+            elif i > 0 and words_and_bigrams[i-1] in ["muy", "extremadamente"]:
                 total_sentiment += lexicon[word] * 1.5
             else:
                 total_sentiment += lexicon[word]
