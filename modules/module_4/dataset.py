@@ -28,6 +28,18 @@ sentiment_lexicon_es = {
     "recomendado": 1.7,
     "perfecto": 2.0,
     "impresionante": 2.0,
+    "inolvidable": 2.0,
+    "profesional": 1.5,
+    "bienvenidos": 1.5,
+    "equipado": 1.5,
+    "fascinante": 2.0,
+    "únicas": 1.8,
+    "energía": 1.5,
+    "amigable": 1.5,
+    "desconectar": 1.7,
+    "enriquecedora": 2.0,
+    "escapada": 1.5,
+    "revitalizante": 2.0,
 
     # Negativos
     "malo": -1.5,
@@ -54,6 +66,19 @@ sentiment_lexicon_es = {
     "lento": -1.2,
     "frustrante": -1.7,
     "insatisfactorio": -2.0,
+    "desastre": -2.0,
+    "perdimos": -1.5,
+    "agotador": -1.7,
+    "grosero": -1.8,
+    "pérdida": -1.8,
+    "insectos": -1.5,
+    "desinteresante": -1.5,
+    "horrible clima": -2.0,
+    "no recomendable": -2.0,
+    "concurrido": -1.2,
+    "mal estado": -1.8,
+    "difícil acceso": -1.5,
+    "arruinó": -2.0,
 
     # Intensificadores
     "muy": 0.5,
@@ -81,6 +106,13 @@ sentiment_lexicon_es = {
     "decepcionante experiencia": -2.0,
     "extremadamente agradable": 2.5,
     "poco recomendable": -1.5,
+    "bien organizado": 1.5,
+    "mal organizado": -1.8,
+    "excelente servicio": 2.0,
+    "buena compañía": 1.5,
+    "clima perfecto": 2.0,
+    "mal tiempo": -1.5,
+    "gran experiencia": 2.0,
 
     # Palabras Neutrales
     "acampada": 0.0,
@@ -99,8 +131,19 @@ sentiment_lexicon_es = {
     "familia": 0.0,
     "tiempo": 0.0,
     "momento": 0.0,
+    "paisaje": 0.0,
+    "vistas": 0.0,
+    "cima": 0.0,
+    "recorrido": 0.0,
+    "actividades": 0.0,
+    "instalaciones": 0.0,
+    "transporte": 0.0,
+    "personal": 0.0,
+    "seguridad": 0.0,
+    "fotos": 0.0,
+    "ubicación": 0.0,
+    "precio": 0.0,
 }
-
 
 
 

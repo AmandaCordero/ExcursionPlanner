@@ -33,17 +33,18 @@ def calculate_sentiment(words, lexicon):
     total_sentiment = 0.0
     skip_next = False
     bigrams = generate_ngrams(words)
-    words_and_bigrams = words + bigrams
+    trigrams = generate_ngrams(words, 3)
+    words = words + bigrams + trigrams
 
-    for i, word in enumerate(words_and_bigrams):
+    for i, word in enumerate(words):
         if skip_next:
             skip_next = False
             continue
         if word in lexicon:
-            if i > 0 and words_and_bigrams[i-1] in ["no", "nunca", "jamás", "sin embargo"]:
+            if i > 0 and words[i-1] in ["no", "nunca", "jamás", "sin embargo"]:
                 total_sentiment += lexicon[word] * -1
                 skip_next = True
-            elif i > 0 and words_and_bigrams[i-1] in ["muy", "extremadamente"]:
+            elif i > 0 and words[i-1] in ["muy", "extremadamente"]:
                 total_sentiment += lexicon[word] * 1.5
             else:
                 total_sentiment += lexicon[word]
