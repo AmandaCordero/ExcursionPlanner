@@ -1,5 +1,22 @@
 import re
+from nltk.corpus import stopwords
+from nltk.stem import SnowballStemmer
 from sentiment_lexicon_es import sentiment_lexicon_es
+
+# Crear el lematizador y las stopwords
+stemmer = SnowballStemmer('spanish')
+stop_words = set(stopwords.words('spanish'))
+
+# Lematizar el léxico
+def lemmatize_lexicon(lexicon):
+    lemmatized_lexicon = {}
+    for word, score in lexicon.items():
+        lemmatized_word = stemmer.stem(word)
+        lemmatized_lexicon[lemmatized_word] = score
+    return lemmatized_lexicon
+
+# Lematizar el léxico original
+lemmatized_lexicon_es = lemmatize_lexicon(sentiment_lexicon_es)
 
 def preprocess_text(text):
     # Convertir a minúsculas
@@ -8,16 +25,27 @@ def preprocess_text(text):
     text = re.sub(r'[^\w\s]', '', text)
     # Dividir en palabras
     words = text.split()
+    # Eliminar stop words y aplicar lematización
+    words = [stemmer.stem(word) for word in words if word not in stop_words]
     return words
-
 
 def calculate_sentiment(words, lexicon):
     total_sentiment = 0.0
+    skip_next = False
     for i, word in enumerate(words):
+        if skip_next:
+            skip_next = False
+            continue
         if word in lexicon:
-            total_sentiment += lexicon[word]
+            # Manejar negaciones e intensificadores
+            if i > 0 and words[i-1] in ["no", "nunca", "jamás", "sin embargo"]:
+                total_sentiment += lexicon[word] * -1
+                skip_next = True
+            elif i > 0 and words[i-1] in ["muy", "extremadamente"]:
+                total_sentiment += lexicon[word] * 1.5
+            else:
+                total_sentiment += lexicon[word]
     return total_sentiment
-
 
 def classify_sentiment(sentiment_score):
     if sentiment_score > 0:
@@ -27,7 +55,6 @@ def classify_sentiment(sentiment_score):
     else:
         return "Neutral"
 
-
 def analyze_sentiment(text, lexicon):
     words = preprocess_text(text)
     sentiment_score = calculate_sentiment(words, lexicon)
@@ -36,5 +63,5 @@ def analyze_sentiment(text, lexicon):
 
 # Ejemplo de uso
 review = "La acampada fue increíble, el paisaje era hermoso y la experiencia muy relajante. Sin embargo, la tienda era incómoda y el camino estuvo peligroso."
-sentiment, score = analyze_sentiment(review, sentiment_lexicon_es)
+sentiment, score = analyze_sentiment(review, lemmatized_lexicon_es)
 print(f"Sentimiento: {sentiment}, Score: {score}")
