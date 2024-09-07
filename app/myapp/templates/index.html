@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <p>{{ message }}</p>
+    <ul>
+        {% for item in items %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if items %}
+        <p>There are {{ items|length }} items.</p>
+    {% else %}
+        <p>No items found.</p>
+    {% endif %}
+</body>
+</html>
