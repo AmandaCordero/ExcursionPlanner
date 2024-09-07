@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 
 def home(request):
     context = {
@@ -8,6 +8,12 @@ def home(request):
         'items': ['Item 1', 'Item 2', 'Item 3']
     }
     return render(request, 'index.html', context)
+
+def submit_form(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        return HttpResponse(f'Thank you, {name}!')
+    return HttpResponse('Invalid request.')
 
 def my_method(request):
     data = {
