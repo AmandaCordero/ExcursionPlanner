@@ -43,7 +43,7 @@ class Map:
             data = json.load(file)
         
         for edge in data['edges']:
-            self.addPath(edge['point1'], edge['point2'], edge['characteristics'])
+            self.addPath(edge['point1'], edge['point2'], edge['distance'], edge['characteristics'])
     
     def addPoint(self, point_id, location, height, altitude, characteristics=[]):
         if point_id in self.points:
@@ -52,7 +52,7 @@ class Map:
         self.points[point_id] = Point(location, height, altitude, characteristics)
         self.paths[point_id] = []  # Inicializar el camino para este punto
         
-    def addPath(self, p1, p2, characteristics=[]):
+    def addPath(self, p1, p2, distance, characteristics=[]):
         if p1 not in self.points or p2 not in self.points:
             print("Ambos puntos deben estar definidos con anterioridad.")
             return
@@ -60,8 +60,9 @@ class Map:
         if p2 not in self.paths[p1]:
             self.paths[p1].append(p2)
             self.paths[p2].append(p1)
-            self.paths_details[(p1,p2)] = {'characteristics':characteristics}
-            self.paths_details[(p2,p1)] = {'characteristics':characteristics}
+            
+            self.paths_details[(p1,p2)] = {'distance': distance, 'characteristics':characteristics}
+            self.paths_details[(p2,p1)] = {'distance': distance, 'characteristics':characteristics}
         else:
             print(f"El camino entre {p1} y {p2} ya existe.")
            
