@@ -13,7 +13,7 @@ if __name__ == "__main__":
         'point_fauna': 0.9
     }
     waiting_time = compute_fuzzy_output(context='waiting_time', **waiting_time_inputs)
-    print(f"Computed waiting time: {waiting_time} minutes")
+    print(f"Computed waiting time: {round(waiting_time, 2)} minutes")
 
     # Example for walking speed
     walking_speed_inputs = {
