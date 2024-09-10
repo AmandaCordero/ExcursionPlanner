@@ -2,15 +2,30 @@ import heapq
 import math
 
 def plan_route(map_data, tourist_preferences):
+    """
+    Planifica una ruta basada en las preferencias de los turistas y características del mapa.
+
+    Args:
+        map_data (object): Datos del mapa, incluyendo información sobre puntos de interés y caminos.
+        tourist_preferences (list): Lista de preferencias de los turistas, donde cada elemento es una lista de 6 valores.
+
+    Returns:
+        list: Ruta planificada utilizando A* Search.
+
+    Note:
+        Este método utiliza A* Search para encontrar la mejor ruta considerando las preferencias de los turistas,
+        las características de los puntos de interés y la topografía del mapa.
+    """
     
+    # Calcular el promedio por cada caracteristica de todos los turistas
     characteristics = [0,0,0,0,0,0]
     for tourist in tourist_preferences:
         for i in range(6):
             characteristics[i] = characteristics[i]+tourist[i]
-    
     for i in range(6):
         characteristics[i] = characteristics[i]/len(tourist_preferences)
     
+    # Calcular la mejor ruta con A*
     return a_star_search(map_data, characteristics)
 
 
@@ -18,41 +33,64 @@ def a_star_search(map, characteristics):
     
     # Obtener datos de interes del mapa
     start,exit = map.start, map.exit
+    
+    # Hacer una copia de los puntos de interés para ir descartando los visitados
     interest_points_unvisited = []
     for point in map.interest_points:
         interest_points_unvisited.append(point)
 
+    # Crear la cola de prioridad para extraer en cada momento el que menor valor de f_score tenga
     open_list = []
     heapq.heappush(open_list, (0, start))
-    came_from = []
-    g_score = {start: 0}
-
-    goal = get_goal(start, map, interest_points_unvisited, map.exit, characteristics)
-    f_score = {start: heuristic(start, goal, map)}
+        
+    # Diccionario que indica de cada nodo descubierto cuál es su nodo padre
     temp_came_from = {}
     
+    # Contiene todos los diccionarios temp_came_from para cada A* hecho por cada objetivo
+    came_from = []
+    
+    # Costos ya recorridos
+    g_score = {start: 0}
+    
+    # Definir el primer objetivo entre todos los puntos de interés
+    goal = get_goal(start, map, interest_points_unvisited, map.exit, characteristics)
+    
+    # Costo general de un camino teniendo en cuenta el costo recorrido y la heurística
+    f_score = {start: heuristic(start, goal, map)}
+    
+    # Puntos de interés visitados a pesar de no ser objetivos para luego extraerlos de los puntos a visitar
     accidently_visits = []
     
     while open_list:
+        
         _, current = heapq.heappop(open_list)
         
+        # Checkear si el punto visitado es un punto de interés
         if current in interest_points_unvisited and not current in accidently_visits:
             accidently_visits.append(current)
         
-        # De momento la implementación tendrá una unica salida, en un futuro
-        # se puede implementar la entrada como una salida también
-        if current == exit:
+        
+        if current == exit and goal == exit:
+            
+            # En este punto se supone que concluyó el algoritmo
             came_from.append(temp_came_from)
             return reconstruct_path(came_from, current, map)
+        
         elif current == goal:
-            # print('accidente: ', accidently_visits)
+            
+            # Se extraen los puntos de interés accidentalmente visitados
             for point in accidently_visits:
-                # print('voy a eliminar: ', point, ', de la lista: ', interest_points_unvisited, '\n')
                 interest_points_unvisited.remove(point)
             accidently_visits = []
+            
+            # Se selecciona un nuevo punto objetivo
             goal = get_goal(goal, map, interest_points_unvisited, map.exit, characteristics)
+
+            # Se prepara el diccionario de parents
             came_from.append(temp_came_from)
             temp_came_from = {}
+            
+            # Se toma un nuevo registro de valores de g y f para los puntos a partir de este
             open_list = []
             g_score = {current: 0}
             f_score = {current: heuristic(current, goal, map)}
@@ -61,6 +99,7 @@ def a_star_search(map, characteristics):
 
 
         for neighbor in get_neighbors(current, map):
+            # Se calcula el costo hasta este nuevo vecino
             tentative_g_score = g_score[current] + heuristic(current, neighbor, map)
 
             if neighbor not in g_score or tentative_g_score < g_score[neighbor]:
@@ -81,7 +120,7 @@ def get_goal(start, map, interest_points_unvisited, default_goal, characteristic
         if path_to_point_f < min_f:
             goal = point
             min_f = path_to_point_f
-            
+    print('goal: ', goal)
     return goal
 
 # Valor estimado del punto según los intereses de los turistas
@@ -90,7 +129,9 @@ def calculate_point_value(map, point_id, tourists_characteristics):
     value = 0
     
     for i in range(6):
-        value += 1000*point.characteristics[i]*(1-abs(point.characteristics[i]-tourists_characteristics[i]))
+        if point.characteristics[i] == 0 or tourists_characteristics[i] == 0:
+            continue
+        value += 1000*(1-abs(point.characteristics[i]-tourists_characteristics[i]))
     
     return value
     
@@ -141,7 +182,8 @@ def reconstruct_path(came_from, current, map):
     for parent_dic in came_from:
         while current in parent_dic:
             current = parent_dic[current]
-            path.append(map.points[current])
+            # path.append(map.points[current])
+            path.append(current)
     
     path.reverse()
 
