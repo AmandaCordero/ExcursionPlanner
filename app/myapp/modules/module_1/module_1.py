@@ -69,8 +69,13 @@ def a_star_search(map, characteristics):
     # Costos ya recorridos
     g_score = {start: 0}
     
+    # Comtiene los puntos de interés visitados
+    goals = []
+    
     # Definir el primer objetivo entre todos los puntos de interés
     goal = get_goal(start, map, interest_points_unvisited, map.exit, characteristics)
+    if goal != exit:
+        goals.append(goal)
     
     # Costo general de un camino teniendo en cuenta el costo recorrido y la heurística
     f_score = {start: heuristic(start, goal, map)}
@@ -91,7 +96,7 @@ def a_star_search(map, characteristics):
             
             # En este punto se supone que concluyó el algoritmo
             came_from.append(temp_came_from)
-            return reconstruct_path(came_from, current, map)
+            return reconstruct_path(came_from, current, map), goals
         
         elif current == goal:
             
@@ -102,6 +107,8 @@ def a_star_search(map, characteristics):
             
             # Se selecciona un nuevo punto objetivo
             goal = get_goal(goal, map, interest_points_unvisited, map.exit, characteristics)
+            if goal != exit:
+                goals.append(goal)
 
             # Se prepara el diccionario de parents
             came_from.append(temp_came_from)

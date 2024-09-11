@@ -145,6 +145,17 @@ def plan_route_info(request):
     for tourist in tourists:
         characteristics.append(tourist['characteristics'])
     
-    route = plan_route(map_data, characteristics)
+    route, goals = plan_route(map_data, characteristics)
+    
+    interesting_points = []
+    for goal in goals:
+        interesting_points.append({
+            'id': goal,
+            'location': map_data.points[goal].location,
+            'height': map_data.points[goal].height,
+            'characteristics':map_data.points[goal].characteristics
+        })
+    
+    
     return render(request, 'route_info.html', {'data': route})
 
