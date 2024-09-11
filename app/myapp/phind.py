@@ -54,7 +54,7 @@ def phind(points):
         for point in points:
             Id = point["id"]
             location = point["location"]
-            altitude = point["altitude"]
+            height = point["height"]
             char1 = point["characteristics"][0]
             char2 = point["characteristics"][1]
             char3 = point["characteristics"][2]
@@ -66,7 +66,7 @@ def phind(points):
             historic_desc = f"con un índice de historia de {char4}"
 
             prompt += (
-                f"\nPunto {Id}: Ubicado en {location}, es un lugar a {altitude} altitud. "
+                f"\nPunto {Id}: Ubicado en {location}, es un lugar a {height}m de altitud. "
                 f"Este lugar es {fauna_desc}, {flora_desc}, {rivers_desc}, y {historic_desc}. "
                 "Un lugar que promete una experiencia enriquecedora."
             )
