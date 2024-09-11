@@ -145,7 +145,7 @@
                 <ul class="list-group">
                     {% for edge in edges %}
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Edge (Point1: {{ edge.point1.point_id }}, Point2: {{ edge.point2.point_id }}, Weight: {{ edge.weight }}, Characteristics: {{ edge.characteristics }})
+                            Arista: ({{ edge.point1.point_id }} - {{ edge.point2.point_id }}),  Distancia: {{ edge.distance }},  Características: {{ edge.characteristics }}
                             <span>
                                 <a href="{% url 'edit_edge' edge.id %}" class="btn btn-secondary btn-sm">Editar</a>
                                 <a href="#" onclick="handleDelete(event, {{ edge.id }})" class="btn btn-danger btn-sm">Eliminar</a>

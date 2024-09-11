@@ -11,7 +11,9 @@
             <p class="lead">Esta es una simple página de inicio con un botón para crear puntos.</p>
             <hr class="my-4">
             <button class="btn btn-primary btn-lg" onclick="location.href='{% url 'create_point' %}'">Crear Puntos</button>
-            <button class="btn btn-success btn-lg ml-3" onclick="location.href='{% url 'create_edge' %}'">Crear Aristas</button>
+            <button class="btn btn-primary btn-lg ml-3" onclick="location.href='{% url 'create_edge' %}'">Crear Caminos</button>
+            <button class="btn btn-success btn-lg ml-3" onclick="location.href='{% url 'plan_route' %}'">Crear Ruta</button>
+            <button class="btn btn-success btn-lg ml-3" onclick="location.href='{% url 'plan_route' %}'">Ejecutar Simulación</button>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

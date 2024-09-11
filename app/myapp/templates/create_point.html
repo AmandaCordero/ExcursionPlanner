@@ -85,7 +85,38 @@
             <h1 class="mb-4">Guardar un punto</h1>
             <form method="post" action="{% if point %}{% url 'edit_point' point.id %}{% else %}{% url 'create_point' %}{% endif %}" onsubmit="handleFormSubmit(event)" class="mb-4 text-right">
                 {% csrf_token %}
-                {{ form.as_p }}
+                <div class="form-group d-flex justify-content-end">
+                    <label class="mr-3" for="id_point_id">ID Punto</label>
+                    {{ form.point_id|add_class:"form-control w-50" }}
+                </div>
+                <div class="form-group d-flex justify-content-end">
+                    <label class="mr-3" for="id_x">Coordenada X</label>
+                    {{ form.x|add_class:"form-control w-50" }}
+                </div>
+                <div class="form-group d-flex justify-content-end">
+                    <label class="mr-3" for="id_y">Coordenada Y</label>
+                    {{ form.y|add_class:"form-control w-50" }}
+                </div>
+                <div class="form-group d-flex justify-content-end">
+                    <label class="mr-3" for="id_height">Altura</label>
+                    {{ form.height|add_class:"form-control w-50" }}
+                </div>
+                <div class="form-group d-flex justify-content-end">
+                    <label class="mr-3" for="id_characteristic_1">Característica 1</label>
+                    {{ form.characteristic_1|add_class:"form-control w-50" }}
+                </div>
+                <div class="form-group d-flex justify-content-end">
+                    <label class="mr-3" for="id_characteristic_2">Característica 2</label>
+                    {{ form.characteristic_2|add_class:"form-control w-50" }}
+                </div>
+                <div class="form-group d-flex justify-content-end">
+                    <label class="mr-3" for="id_characteristic_3">Característica 3</label>
+                    {{ form.characteristic_3|add_class:"form-control w-50" }}
+                </div>
+                <div class="form-group d-flex justify-content-end">
+                    <label class="mr-3" for="id_characteristic_4">Característica 4</label>
+                    {{ form.characteristic_4|add_class:"form-control w-50" }}
+                </div>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
         </div>

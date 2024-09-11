@@ -12,4 +12,6 @@ urlpatterns = [
     path('create_edge/<int:edgeId>/', views.create_edge, name='edit_edge'),
     path('delete_edge/<int:edgeId>/', views.delete_edge, name='delete_edge'),
     path('edges/', views.get_edges, name='get_edges'),
+    
+    path('plan_route/', views.plan_route_info, name='plan_route'),
 ]

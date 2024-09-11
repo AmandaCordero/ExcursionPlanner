@@ -6,6 +6,7 @@ from .forms import PointForm
 from django.views.generic.edit import CreateView
 from .models import Edge
 from .forms import EdgeForm
+from .modules.module_1 import plan_route
 
 def pagina_inicio(request):
     return render(request, 'index.html')
@@ -69,4 +70,7 @@ def get_edges(request):
     return JsonResponse(edges, safe=False)
 
 
+def plan_route_info(request):
+    data = plan_route()
+    return render(request, 'route_info.html', {'data': data})
 
