@@ -21,3 +21,11 @@ class Edge(models.Model):
 
     def __str__(self):
         return f"Arista({self.point1.point_id} -> {self.point2.point_id})"
+    
+class Tourist(models.Model):
+    name = models.CharField(unique=True, max_length=50)
+    characteristics = models.JSONField(default=list)
+    
+    def __str__(self):
+        return f"Nombre: {self.name}, Gustos: {self.characteristics})"
+    

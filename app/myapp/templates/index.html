@@ -10,9 +10,10 @@
             <h1 class="display-4">Bienvenido a la Página de Inicio</h1>
             <p class="lead">Esta es una simple página de inicio con un botón para crear puntos.</p>
             <hr class="my-4">
-            <button class="btn btn-primary btn-lg" onclick="location.href='{% url 'create_point' %}'">Crear Puntos</button>
+            <button class="btn btn-primary btn-lg" onclick="location.href='{% url 'create_tourist' %}'">Crear Turistas</button>
+            <button class="btn btn-primary btn-lg ml-3" onclick="location.href='{% url 'create_point' %}'">Crear Puntos</button>
             <button class="btn btn-primary btn-lg ml-3" onclick="location.href='{% url 'create_edge' %}'">Crear Caminos</button>
-            <button class="btn btn-success btn-lg ml-3" onclick="location.href='{% url 'plan_route' %}'">Crear Ruta</button>
+            <button class="btn btn-success btn-lg ml-5" onclick="location.href='{% url 'plan_route' %}'">Crear Ruta</button>
             <button class="btn btn-success btn-lg ml-3" onclick="location.href='{% url 'plan_route' %}'">Ejecutar Simulación</button>
         </div>
     </div>

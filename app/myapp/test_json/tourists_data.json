@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Alfredo Nu\u00f1o",
+        "characteristics": [
+            0.3,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "id": 3,
+        "name": "David",
+        "characteristics": [
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ]
+    }
+]

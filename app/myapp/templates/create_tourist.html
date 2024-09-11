@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Crear mapa</title>
+    <title>Crear Turistas</title>
     <script>
 
         function handleFormSubmit(event) {
@@ -20,10 +20,10 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert('Punto guardado satisfactoriamente!');
-                    window.location.href = 'http://127.0.0.1:8000/create_point';  // Redirigir a la página de creación de puntos
+                    alert('Turista guardado satisfactoriamente!');
+                    window.location.href = 'http://127.0.0.1:8000/create_tourist';
                 } else {
-                    alert('Fallo en guardar el punto: ' + JSON.stringify(data.errors));
+                    alert('Fallo en guardar el turista: ' + JSON.stringify(data.errors));
                 }
             })
             .catch(error => {
@@ -31,10 +31,10 @@
             });
         }
 
-        function handleDelete(event, pointId) {
+        function handleDelete(event, touristId) {
             event.preventDefault();
-            if (confirm('Estás seguro de querer eliminar este punto?')) {
-                fetch(`/delete_point/${pointId}/`, {
+            if (confirm('Estás seguro que deseas eliminar este turista?')) {
+                fetch(`/delete_tourist/${touristId}/`, {
                     method: 'GET',
                     headers: {
                         'X-Requested-With': 'XMLHttpRequest',
@@ -43,10 +43,10 @@
                 })
                 .then(response => {
                     if (response.ok) {
-                        alert('Punto eliminado satisfactoriamente!');
-                        location.reload();  // Recargar la página para actualizar la lista de puntos
+                        alert('Turista eliminado satisfactoriamente!');
+                        location.reload();
                     } else {
-                        alert('Fallo al eliminar el punto.');
+                        alert('Fallo en eliminar al turista.');
                     }
                 })
                 .catch(error => {
@@ -55,24 +55,26 @@
             }
         }
 
-        async function getPoints() {
-            const response = await fetch('/points');
-            const points = await response.json();
-            return points;
+        async function getTourists() {
+            const response = await fetch('/tourists');
+            const tourists = await response.json();
+            console.log(tourists)
+            return tourists;
         }
         
-        async function savePoints() {
-            const points = await getPoints();
-            const blob = new Blob([JSON.stringify(points)], { type: 'application/json' });
+        async function saveTourists() {
+            const tourists = await getTourists();
+            const blob = new Blob([JSON.stringify(tourists)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'points.json';
+            a.download = 'tourists.json';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
+
             
-            fetch(`/save_points/`, {
+            fetch(`/save_tourists/`, {
                 method: 'GET',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest',
@@ -81,7 +83,7 @@
             })
             .then(response => {
                 if (!response.ok) {
-                    alert('Fallo guardar los puntos.');
+                    alert('Fallo guardar los turistas.');
                 }
             })
             .catch(error => {
@@ -97,24 +99,12 @@
 <body class="m-5">
     <div class="row">
         <div class="col-md-4 mr-5">
-            <h1 class="mb-4">Guardar un punto</h1>
-            <form method="post" action="{% if point %}{% url 'edit_point' point.id %}{% else %}{% url 'create_point' %}{% endif %}" onsubmit="handleFormSubmit(event)" class="mb-4 text-right">
+            <h1 class="mb-4">Guardar un Turista</h1>
+            <form method="post" action="{% if tourist %}{% url 'edit_tourist' tourist.id %}{% else %}{% url 'create_tourist' %}{% endif %}" onsubmit="handleFormSubmit(event)" class="mb-4 text-right">
                 {% csrf_token %}
                 <div class="form-group d-flex justify-content-end">
-                    <label class="mr-3" for="id_point_id">ID Punto</label>
-                    {{ form.point_id|add_class:"form-control w-50" }}
-                </div>
-                <div class="form-group d-flex justify-content-end">
-                    <label class="mr-3" for="id_x">Coordenada X</label>
-                    {{ form.x|add_class:"form-control w-50" }}
-                </div>
-                <div class="form-group d-flex justify-content-end">
-                    <label class="mr-3" for="id_y">Coordenada Y</label>
-                    {{ form.y|add_class:"form-control w-50" }}
-                </div>
-                <div class="form-group d-flex justify-content-end">
-                    <label class="mr-3" for="id_height">Altura</label>
-                    {{ form.height|add_class:"form-control w-50" }}
+                    <label class="mr-3" for="id_name">Nombre</label>
+                    {{ form.name|add_class:"form-control w-50" }}
                 </div>
                 <div class="form-group d-flex justify-content-end">
                     <label class="mr-3" for="id_characteristic_1">Característica 1</label>
@@ -132,18 +122,26 @@
                     <label class="mr-3" for="id_characteristic_4">Característica 4</label>
                     {{ form.characteristic_4|add_class:"form-control w-50" }}
                 </div>
+                <div class="form-group d-flex justify-content-end">
+                    <label class="mr-3" for="id_characteristic_5">Característica 5</label>
+                    {{ form.characteristic_5|add_class:"form-control w-50" }}
+                </div>
+                <div class="form-group d-flex justify-content-end">
+                    <label class="mr-3" for="id_characteristic_6">Característica 6</label>
+                    {{ form.characteristic_6|add_class:"form-control w-50" }}
+                </div>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
         </div>
         <div class="col-md-7 ml-5">
-            <h2>Lista de puntos</h2>
+            <h2>Lista de turistas</h2>
             <ul class="list-group">
-                {% for point in points %}
+                {% for tourist in tourists %}
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Punto {{ point.point_id }}, ({{ point.x }} ; {{ point.y }}), altura: {{ point.height }}, características: {{ point.characteristics }}
+                        Nombre: "{{ tourist.name }}", características: {{ tourist.characteristics }}
                         <span>
-                            <a href="{% url 'edit_point' point.id %}" class="btn btn-secondary btn-sm">Edit</a>
-                            <a href="#" onclick="handleDelete(event, {{ point.id }})" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="{% url 'edit_tourist' tourist.id %}" class="btn btn-secondary btn-sm">Edit</a>
+                            <a href="#" onclick="handleDelete(event, {{ tourist.id }})" class="btn btn-danger btn-sm">Delete</a>
                         </span>
                     </li>
                 {% endfor %}
@@ -151,7 +149,7 @@
         </div>
         <div class="d-flex justify-content-between w-100">
             <button class="btn btn-danger" onclick="window.location.href='http://127.0.0.1:8000/'">Inicio</button>
-            <button class="btn btn-success" onclick="savePoints()">Descargar puntos</button>
+            <button class="btn btn-success" onclick="saveTourists()">Descargar turistas</button>
         </div> 
     </div>
 </body>

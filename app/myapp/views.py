@@ -1,16 +1,16 @@
+import json
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, render
-from .models import Point
-from django.shortcuts import render, redirect
-from .forms import PointForm
-from django.views.generic.edit import CreateView
-from .models import Edge
-from .forms import EdgeForm
-from .modules.module_1 import plan_route
+from django.shortcuts import get_object_or_404, render, redirect
+from .models import Point, Edge, Tourist
+from .forms import PointForm, EdgeForm, TouristForm
+from .modules.module_1.module_1 import plan_route
+from .utils.map_utils import Map
 
 def pagina_inicio(request):
     return render(request, 'index.html')
 
+
+# Points CRUD
 
 def create_point(request, point_id=None):
     if point_id:
@@ -40,6 +40,17 @@ def get_points(request):
     puntos = list(Point.objects.all().values())
     return JsonResponse(puntos, safe=False)
 
+def save_points(request):
+    points = list(Point.objects.all().values())
+    if len(points) > 0:
+        # Guardar los datos de los puntos
+        with open('./myapp/utils/points_data.json', 'w') as file:
+            json.dump(points, file, indent=4)
+        return JsonResponse({'success': True})
+    else:
+        return JsonResponse({'success': False, 'error': 'No hay turistas guardados'})
+    
+# Edges CRUD
 
 def create_edge(request, edgeId=None):
     if edgeId:
@@ -69,8 +80,67 @@ def get_edges(request):
     edges = list(Edge.objects.values())
     return JsonResponse(edges, safe=False)
 
+def save_edges(request):
+    edges = list(Edge.objects.all().values())
+    if len(edges) > 0:
+        # Guardar los datos de los caminos
+        with open('./myapp/utils/edges_data.json', 'w') as file:
+            json.dump(edges, file, indent=4)
+        return JsonResponse({'success': True})
+    else:
+        return JsonResponse({'success': False, 'error': 'No hay caminos guardados'})
+    
+# Tourists CRUD
+
+def create_tourist(request, tourist_id=None):
+    if tourist_id:
+        tourist = get_object_or_404(Tourist, id=tourist_id)
+    else:
+        tourist = None
+
+    if request.method == 'POST':
+        form = TouristForm(request.POST, instance=tourist)
+        if form.is_valid():
+            form.save()
+            return JsonResponse({'success': True})
+        else:
+            return JsonResponse({'success': False, 'errors': form.errors})
+    else:
+        form = TouristForm(instance=tourist)
+    
+    tourists = Tourist.objects.all()
+    return render(request, 'create_tourist.html', {'form': form, 'tourists': tourists, 'tourist': tourist})
+
+def delete_tourist(request, tourist_id):
+    tourist = get_object_or_404(Tourist, id=tourist_id)
+    tourist.delete()
+    return redirect('create_tourist')
+
+def get_tourists(request):
+    tourists = list(Tourist.objects.all().values())
+    return JsonResponse(tourists, safe=False)
+
+def save_tourists(request):
+    tourists = list(Tourist.objects.all().values())
+    if len(tourists) > 0:
+        # Guardar los datos de los turistas
+        with open('./myapp/utils/tourists_data.json', 'w') as file:
+            json.dump(tourists, file, indent=4)
+        return JsonResponse({'success': True})
+    else:
+        return JsonResponse({'success': False, 'error': 'No hay turistas guardados'})
+
+
 
 def plan_route_info(request):
-    data = plan_route()
-    return render(request, 'route_info.html', {'data': data})
+    
+    # Cargamos los datos del mapa
+    map_data = Map()
+    
+    # Cargamos los datos de los turistas
+    with open('./myapp/utils/tourists_data.json', 'r') as file:
+        characteristics = json.load(file)
+    
+    route = plan_route(map_data, characteristics)
+    return render(request, 'route_info.html', {'data': route})
 
