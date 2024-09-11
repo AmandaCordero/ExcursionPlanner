@@ -22,5 +22,17 @@
             1.0,
             1.0
         ]
+    },
+    {
+        "id": 4,
+        "name": "Christofer Guerra",
+        "characteristics": [
+            0.1,
+            0.0,
+            0.4,
+            1.0,
+            0.1,
+            0.0
+        ]
     }
 ]

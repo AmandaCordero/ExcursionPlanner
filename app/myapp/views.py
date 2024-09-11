@@ -139,7 +139,11 @@ def plan_route_info(request):
     
     # Cargamos los datos de los turistas
     with open('./myapp/utils/tourists_data.json', 'r') as file:
-        characteristics = json.load(file)
+        tourists = json.load(file)
+    
+    characteristics = []
+    for tourist in tourists:
+        characteristics.append(tourist['characteristics'])
     
     route = plan_route(map_data, characteristics)
     return render(request, 'route_info.html', {'data': route})

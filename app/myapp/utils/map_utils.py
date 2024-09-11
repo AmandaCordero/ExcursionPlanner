@@ -4,11 +4,10 @@ import heapq
 import math
 
 class Point:
-    def __init__(self, location, height, altitude, characteristics=[]):
+    def __init__(self, location, height, characteristics=[]):
         self.characteristics = characteristics  
         self.location = location
         self.height = height
-        self.altitude = altitude
     
     def __repr__(self) -> str:
         return 'location: ' + str(self.location) + ' , ' + 'characteristics: ' + str(self.characteristics)
@@ -35,7 +34,7 @@ class Map:
             data = json.load(file)
         
         for point in data['points']:
-            self.addPoint(point['id'], point['location'], point['height'], point['altitude'], point['characteristics'])
+            self.addPoint(point['id'], point['location'], point['height'], point['characteristics'])
         
     def _create_paths(self):
         # Cargamos los datos de los puntos
@@ -45,11 +44,11 @@ class Map:
         for edge in data['edges']:
             self.addPath(edge['point1'], edge['point2'], edge['distance'], edge['characteristics'])
     
-    def addPoint(self, point_id, location, height, altitude, characteristics=[]):
+    def addPoint(self, point_id, location, height, characteristics=[]):
         if point_id in self.points:
             print("Este punto ya existe.")
             return
-        self.points[point_id] = Point(location, height, altitude, characteristics)
+        self.points[point_id] = Point(location, height, characteristics)
         self.paths[point_id] = []  # Inicializar el camino para este punto
         
     def addPath(self, p1, p2, distance, characteristics=[]):
