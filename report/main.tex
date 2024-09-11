@@ -1,0 +1,134 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage{latexsym,amssymb,enumerate,amsmath,epsfig,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace,color}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage[english]{babel}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{url}
+\usepackage{array}
+\usepackage[toc,page]{appendix}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\tikzstyle{block} = [rectangle, draw, text width=7.5em, text centered, rounded corners,node distance=4cm, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+
+\newtheorem{eg}{Example}[section]
+\newcommand{\ds}{\displaystyle}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+	colorlinks,
+	linkcolor={red!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black}
+}
+
+\begin{document}
+	\title{Simulación de Excursionistas en una Excursión}
+	\author{
+		Amanda Cordero Lezcano\\
+		Christopher Guerra Herrero\\
+		Alfredo Nuño Oquendo\\Facultad de Matemática y Computación, Universidad de La Habana
+	}
+	\markboth{Homer Lee}{SSW Application}
+	
+	\twocolumn[
+	\begin{@twocolumnfalse}
+		\maketitle
+		\begin{abstract}
+			Esta investigación presenta una simulación de excursionistas en una excursión, donde se recolectan características de los excursionistas mediante encuestas. Posteriormente, utilizando un algoritmo A*, se planifica una ruta que maximice la satisfacción de los participantes. Finalmente, se simula la excursión con un modelo basado en agentes BDI y un controlador difuso para ajustar los tiempos de espera y velocidad de los excursionistas en diferentes puntos del recorrido. Se destacan los puntos críticos que podrían utilizarse para mejorar futuras excursiones reales.
+		\end{abstract}
+		\vspace{1cm}
+	\end{@twocolumnfalse}
+	]
+	
+	\section{Introducción}
+	
+	\subsection{Breve descripción del proyecto}
+	El objetivo de esta investigación es simular una excursión con un grupo de excursionistas basándose en sus preferencias individuales, las características del terreno y las rutas disponibles. Para ello, se recolecta información de los excursionistas a través de encuestas y se utiliza un algoritmo A* para maximizar su satisfacción durante el recorrido.
+	
+	\subsection{Objetivos y metas}
+	Los principales objetivos de esta investigación son:
+	\begin{itemize}
+		\item Planificar rutas óptimas que maximicen la satisfacción de los excursionistas.
+		\item Utilizar un modelo de agentes BDI para simular la excursión y analizar el comportamiento de los excursionistas.
+		\item Detectar puntos críticos en el recorrido que puedan mejorar la experiencia en excursiones reales.
+	\end{itemize}
+	
+	\subsection{El sistema específico a simular y las variables de interés}
+	El sistema simula una excursión en un sitio con múltiples puntos de interés y caminos. Los puntos de interés y caminos tienen características específicas que se utilizan para determinar la satisfacción de los excursionistas.
+	
+	\subsection{Variables que describen el problema}
+	Las variables que influyen en la simulación incluyen:
+	\begin{itemize}
+		\item Preferencias de los excursionistas (gustos por fauna, retos físicos, etc.).
+		\item Características de los puntos de interés (índice de ríos, sitios históricos, etc.).
+		\item Características de los caminos (índice de dificultad, variedad de flora, etc.).
+	\end{itemize}
+	
+	\section{Detalles de Implementación}
+	
+	\subsection{Pasos seguidos para la implementación}
+	Se desarrolló un sitio web en Django para aplicar encuestas a los excursionistas, obteniendo datos sobre sus preferencias. Posteriormente, un guía puede cargar un mapa del sitio con puntos de interés y caminos. Usamos A* para planificar una ruta óptima en función de las preferencias y características del terreno.
+	
+	\subsection{Descripción de la Simulación}
+	La simulación se lleva a cabo utilizando agentes BDI (Belief-Desire-Intention). Las creencias de los agentes se actualizan a medida que descubren puntos de interés y caminos. Sus deseos están determinados por los resultados de la encuesta y sus intenciones son el tiempo de espera en cada punto y la velocidad en cada camino, ajustados por un controlador difuso.
+	
+	\section{Resultados y Experimentos}
+	
+	\subsection{Hallazgos de la simulación}
+	El sistema logra planificar rutas que maximizan la satisfacción de los excursionistas. Los puntos con mayores índices de interés (fauna, flora, dificultad) resultan ser los más valorados.
+	
+	\subsection{Hipótesis extraídas de los resultados}
+	Se plantea que ajustar las rutas en función de los puntos de mayor interés puede incrementar significativamente la satisfacción de los excursionistas. Además, mantener a los excursionistas juntos utilizando la supervisión del guía reduce la dispersión del grupo.
+	
+	\subsection{Experimentos realizados para validar las hipótesis}
+	Se realizaron simulaciones con diferentes configuraciones de excursionistas y mapas para validar las hipótesis. En todos los casos, las rutas calculadas con A* maximizaron la satisfacción según las características de los puntos de interés y caminos.
+	
+	\subsection{Análisis de Parada de la Simulación}
+	
+	\subsubsection{Criterios de Parada}
+	El criterio principal es el tiempo total de la excursión. Además, se detiene cuando la ruta óptima ha sido identificada por el algoritmo A*.
+	
+	\subsubsection{Implementación del Criterio de Parada}
+	El tiempo total se computa utilizando el controlador difuso para ajustar el tiempo de espera en cada punto y la velocidad en cada camino según las características del terreno y los excursionistas.
+	
+	\section{Modelo Matemático}
+	
+	\subsection{Descripción del modelo}
+	Utilizamos el algoritmo A* para encontrar la ruta óptima. Este algoritmo evalúa los costos de recorrer cada camino y selecciona aquel que maximiza la satisfacción de los excursionistas según sus preferencias.
+	
+	\subsection{Supuestos y restricciones}
+	Se asume que el guía conoce en todo momento la ubicación de todos los excursionistas, lo que permite hacer reencuentros si es necesario. Además, se asume que las características de los caminos y puntos de interés son estáticas durante la excursión.
+	
+	\subsection{Comparación de los resultados obtenidos}
+	Los resultados de la simulación fueron comparados con rutas generadas aleatoriamente, demostrando que las rutas planificadas con A* son significativamente más eficientes en términos de satisfacción.
+	
+	\subsection{Cálculo de los Valores Teóricos}
+	El cálculo de la satisfacción teórica se realiza ponderando las características de los puntos de interés y caminos con las preferencias de los excursionistas.
+	
+	\section{Conclusiones}
+	La simulación realizada permite planificar rutas óptimas para excursiones basadas en las preferencias individuales de los excursionistas y las características del terreno. La supervisión constante del guía ayuda a mantener la cohesión del grupo, y el modelo BDI con control difuso optimiza los tiempos de espera y velocidades en cada sección del recorrido.
+	
+	\begin{thebibliography}{9}
+		\bibitem{a_star}
+		Hart, P. E., Nilsson, N. J., \& Raphael, B. (1968). \textit{A Formal Basis for the Heuristic Determination of Minimum Cost Paths}. IEEE Transactions on Systems Science and Cybernetics, 4(2), 100-107.
+		
+		\bibitem{bdi_agents}
+		Georgeff, M. P., \& Lansky, A. L. (1987). \textit{Reactive Reasoning and Planning}. In Proceedings of the Sixth National Conference on Artificial Intelligence (AAAI-87), 677-682.
+		
+		\bibitem{fuzzy_control}
+		Zadeh, L. A. (1965). \textit{Fuzzy Sets}. Information and Control, 8(3), 338-353.
+	\end{thebibliography}
+	
+\end{document}
