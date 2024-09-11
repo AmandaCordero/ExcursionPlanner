@@ -30,6 +30,7 @@
 		Christopher Guerra Herrero\\
 		Alfredo Nuño Oquendo\\Facultad de Matemática y Computación, Universidad de La Habana
 	}
+	\date{Septiembre, 2024}
 	
 	\twocolumn[
 	\begin{@twocolumnfalse}
@@ -50,7 +51,7 @@
 		\item Planificar rutas óptimas que maximicen la satisfacción de los excursionistas.
 		\item Elaborar un anuncio llamativo para los excursionistas.
 		\item Detectar puntos críticos en el recorrido que puedan mejorar la experiencia en excursiones reales.
-		\item Crear una plataforma amigable con un potencial guía de la excursión.
+		\item Crear una plataforma amigable para un potencial guía de la excursión.
 	\end{itemize}
 	
 	\section{Fundamento Matemático}
@@ -92,15 +93,16 @@
 	Un controlador difuso general consiste en cuatro módulos: una base de reglas difusas, un motor de inferencia difusa, y módulos de fuzzificación/defuzzificación. Las interconexiones entre estos módulos y el proceso controlado se muestran en la Figura \ref{fig:diagram}.
 	
 
-		\begin{figure}
-			\centering
-			\includegraphics[width=1\linewidth]{diagram}
-			\caption{Imágen extraída de \cite{fuzzy}. Esquema general de un controlador difuso}
-			\label{fig:diagram}
-		\end{figure}
+	\begin{figure*}[h]
+		\centering
+		\includegraphics[width=\linewidth]{diagram}
+		\caption{Imagen extraída de \cite{Fuzzy}. Esquema general de un controlador difuso}
+		\label{fig:diagram}
+	\end{figure*}
 	
 	
-	Un controlador difuso opera repitiendo un ciclo de los siguientes cuatro pasos. Primero, se toman mediciones de todas las variables que representan las condiciones relevantes del proceso controlado. Luego, estas mediciones se convierten en conjuntos difusos apropiados para expresar incertidumbres en las mediciones. Este paso se llama fuzzificación. Las mediciones fuzzificadas luego se utilizan por el motor de inferencia para evaluar las reglas de control almacenadas en la base de reglas difusas. El resultado de esta evaluación es un conjunto difuso (o varios conjuntos difusos) definidos en el universo de posibles acciones. Este conjunto difuso se convierte, en el paso final del ciclo, en un único valor (o un vector de valores) que, en cierto sentido, es el mejor representante del conjunto difuso (o conjuntos difusos). Esta conversión se llama defuzzificación. Los valores defuzzificados representan las acciones que toma el controlador difuso en ciclos individuales de control.\cite{Fuzzy}
+	
+	%Un controlador difuso opera repitiendo un ciclo de los siguientes cuatro pasos. Primero, se toman mediciones de todas las variables que representan las condiciones relevantes del proceso controlado. Luego, estas mediciones se convierten en conjuntos difusos apropiados para expresar incertidumbres en las mediciones. Este paso se llama fuzzificación. Las mediciones fuzzificadas luego se utilizan por el motor de inferencia para evaluar las reglas de control almacenadas en la base de reglas difusas. El resultado de esta evaluación es un conjunto difuso (o varios conjuntos difusos) definidos en el universo de posibles acciones. Este conjunto difuso se convierte, en el paso final del ciclo, en un único valor (o un vector de valores) que, en cierto sentido, es el mejor representante del conjunto difuso (o conjuntos difusos). Esta conversión se llama defuzzificación. Los valores defuzzificados representan las acciones que toma el controlador difuso en ciclos individuales de control.\cite{Fuzzy}%
 	 
 	\section{Detalles de Implementación}
 	
@@ -109,22 +111,22 @@
 	Para la simulación se modelan los excursionistas con agentes BDI. Aquí se diferencia el agente que representa al guía del resto de los excursionistas, debido a que entre los deseos del guía se encuentra también garantizar un recorrido seguro. Para los excursionistas se utiliza un controlador difuso; con las creencias de estos(características del mapa hasta el punto recorrido) y sus deseos(características recogidas en la encuesta) se aplican reglas como:
 	
 	$$
-	 \mu_{\text{gusto\_historia\_bajo}}(x) \implies \mu_{\text{tiempo\_espera\_corto}}(x)
+	 \mu_{\text{gusto\_historia\_bajo}} \implies \mu_{\text{tiempo\_espera\_corto}}
 	$$
 	Esta regla indica que si el gusto del usuario por la historia es bajo, entonces el tiempo de espera será corto.
 	
 	$$
-	\mu_{\text{gusto\_historia\_medio}}(x) \land \mu_{\text{indice\_lugares\_historicos\_bajo}}(y)$$
-	$$\implies \mu_{\text{tiempo\_espera\_corto}}(x)$$
+	\mu_{\text{gusto\_historia\_medio}} \land \mu_{\text{indice\_historia\_bajo}}$$
+	$$\implies \mu_{\text{tiempo\_espera\_corto}}$$
 	
 	
 	Aquí se establece que si el gusto del usuario por la historia es medio y el índice de lugares históricos en el lugar es bajo, entonces el tiempo de espera será corto.
 	
 	$$
-		\mu_{\text{gusto\_historia\_medio}}(x)  \land $$
-		 $$ \left( \mu_{\text{indice\_lugares\_historicos\_medio}}(y)	
-		 \lor \mu_{\text{indice\_lugares\_historicos\_alto}}(y) \right)$$
-		$$\implies \mu_{\text{tiempo\_espera\_medio}}(x)$$
+		\mu_{\text{gusto\_historia\_medio}}  \land $$
+		 $$ \left( \mu_{\text{indice\_historia\_medio}}	
+		 \lor \mu_{\text{indice\_historia\_alto}} \right)$$
+		$$\implies \mu_{\text{tiempo\_espera\_medio}}$$
 
 	Esta regla señala que si el gusto del usuario por la historia es medio y el índice de lugares históricos en el lugar es medio o alto, entonces el tiempo de espera será medio.
 	
@@ -132,13 +134,13 @@
 	
 	\textbf{Descripción de Variables}
 	\begin{itemize}
-		\item \(\mu_{\text{gusto\_historia\_bajo}}(x)\): Función de pertenencia que describe un bajo gusto del usuario por la historia \(x\).
-		\item \(\mu_{\text{gusto\_historia\_medio}}(x)\): Función de pertenencia que describe un gusto medio del usuario por la historia \(x\).
-		\item \(\mu_{\text{indice\_lugares\_historicos\_bajo}}(y)\): Función de pertenencia que describe un índice bajo de lugares históricos \(y\) en el lugar.
-		\item \(\mu{\text{indice\_lugares\_historicos\_medio}}(y)\): Función de pertenencia que describe un índice medio de lugares históricos \(y\) en el lugar.
-		\item \(\mu_{\text{indice\_lugares\_historicos\_alto}}(y)\): Función de pertenencia que describe un índice alto de lugares históricos \(y\) en el lugar.
-		\item \(\mu_{\text{tiempo\_espera\_corto}}(x)\): Función de pertenencia que describe un tiempo de espera corto para el usuario \(x\).
-		\item \(\mu_{\text{tiempo\_espera\_medio}}(x)\): Función de pertenencia que describe un tiempo de espera medio para el usuario \(x\).
+		\item \(\mu_{\text{gusto\_historia\_bajo}}\): Función de pertenencia que describe un bajo gusto del usuario por la historia.
+		\item \(\mu_{\text{gusto\_historia\_medio}}\): Función de pertenencia que describe un gusto medio del usuario por la historia.
+		\item \(\mu_{\text{indice\_historia\_bajo}}\): Función de pertenencia que describe un índice bajo de sitios históricos en el lugar.
+		\item \(\mu{\text{indice\_historia\_medio}}\): Función de pertenencia que describe un índice medio de sitios históricos en el lugar.
+		\item \(\mu_{\text{indice\_historia\_alto}}\): Función de pertenencia que describe un índice alto de sitios históricos en el lugar.
+		\item \(\mu_{\text{tiempo\_espera\_corto}}\): Función de pertenencia que describe un tiempo de espera corto para el usuario.
+		\item \(\mu_{\text{tiempo\_espera\_medio}}\): Función de pertenencia que describe un tiempo de espera medio para el usuario.
 	\end{itemize}
 	
 	\section{Resultados y Experimentos}
