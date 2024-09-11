@@ -1,6 +1,6 @@
 from skfuzzy import control as ctrl
-from fuzzification_module import define_fuzzy_variables
-from fuzzy_rule_base import define_fuzzy_rules
+from .fuzzification_module import define_fuzzy_variables
+from .fuzzy_rule_base import define_fuzzy_rules
 
 def create_fuzzy_controller(context='waiting_time'):
     """

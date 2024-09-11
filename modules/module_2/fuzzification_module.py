@@ -77,9 +77,9 @@ def define_fuzzy_variables(context='waiting_time'):
             var['medium'] = fuzz.trimf(var.universe, [0.3, 0.5, 0.7])
             var['high'] = fuzz.trimf(var.universe, [0.6, 1, 1])
 
-        walking_speed['slow'] = fuzz.trimf(walking_speed.universe, [0, 0, 3])
-        walking_speed['moderate'] = fuzz.trimf(walking_speed.universe, [2, 5, 7])
-        walking_speed['fast'] = fuzz.trimf(walking_speed.universe, [6, 8, 10])
+        walking_speed['slow'] = fuzz.trimf(walking_speed.universe, [0, 0, 0.6])
+        walking_speed['moderate'] = fuzz.trimf(walking_speed.universe, [0.4, 1, 1.4])
+        walking_speed['fast'] = fuzz.trimf(walking_speed.universe, [1.2, 1.6, 2])
 
         return {
             'user_fauna': user_fauna,
