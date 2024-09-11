@@ -12,7 +12,7 @@ def phind(points):
     service = Service(executable_path='/bin/chromedriver')
     options = webdriver.ChromeOptions()
     options.binary_location = "/bin/google-chrome"
-    # options.add_argument('--headless')  # Ejecutar en segundo plano
+    options.add_argument('--headless')  # Ejecutar en segundo plano
     options.add_argument("--window-size=1920,1080")  # Simular tamaño de ventana normal
     options.add_argument("--disable-gpu")  # Desactivar GPU en modo headless
     options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3")
@@ -95,7 +95,7 @@ def phind(points):
         if answer_section:
             answer_divs = answer_section.find_next_siblings("div", class_="fs-5")
             for div in answer_divs:
-                answer = div.get_text(strip=True)
+                answer += div.get_text(strip=True)
         else:
             print("No se encontró la respuesta.")
 
