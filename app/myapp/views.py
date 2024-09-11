@@ -1,18 +1,21 @@
+import json
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, render
 
+from django.shortcuts import get_object_or_404, render
+from .models import Point, Edge, Tourist
 from .phind import phind
-from .models import Point
 from django.shortcuts import render, redirect
-from .forms import PointForm
+from .forms import PointForm, EdgeForm, TouristForm
 from django.views.generic.edit import CreateView
-from .models import Edge
-from .forms import EdgeForm
-from .modules.module_1 import plan_route
+from .utils.map_utils import Map
+from .modules.module_1.module_1 import plan_route
+
 
 def pagina_inicio(request):
     return render(request, 'index.html')
 
+
+# Points CRUD
 
 def create_point(request, point_id=None):
     if point_id:
@@ -42,6 +45,17 @@ def get_points(request):
     puntos = list(Point.objects.all().values())
     return JsonResponse(puntos, safe=False)
 
+def save_points(request):
+    points = list(Point.objects.all().values())
+    if len(points) > 0:
+        # Guardar los datos de los puntos
+        with open('./myapp/utils/points_data.json', 'w') as file:
+            json.dump(points, file, indent=4)
+        return JsonResponse({'success': True})
+    else:
+        return JsonResponse({'success': False, 'error': 'No hay turistas guardados'})
+    
+# Edges CRUD
 
 def create_edge(request, edgeId=None):
     if edgeId:
@@ -71,40 +85,82 @@ def get_edges(request):
     edges = list(Edge.objects.values())
     return JsonResponse(edges, safe=False)
 
+def save_edges(request):
+    edges = list(Edge.objects.all().values())
+    if len(edges) > 0:
+        # Guardar los datos de los caminos
+        with open('./myapp/utils/edges_data.json', 'w') as file:
+            json.dump(edges, file, indent=4)
+        return JsonResponse({'success': True})
+    else:
+        return JsonResponse({'success': False, 'error': 'No hay caminos guardados'})
+    
+# Tourists CRUD
+
+def create_tourist(request, tourist_id=None):
+    if tourist_id:
+        tourist = get_object_or_404(Tourist, id=tourist_id)
+    else:
+        tourist = None
+
+    if request.method == 'POST':
+        form = TouristForm(request.POST, instance=tourist)
+        if form.is_valid():
+            form.save()
+            return JsonResponse({'success': True})
+        else:
+            return JsonResponse({'success': False, 'errors': form.errors})
+    else:
+        form = TouristForm(instance=tourist)
+    
+    tourists = Tourist.objects.all()
+    return render(request, 'create_tourist.html', {'form': form, 'tourists': tourists, 'tourist': tourist})
+
+def delete_tourist(request, tourist_id):
+    tourist = get_object_or_404(Tourist, id=tourist_id)
+    tourist.delete()
+    return redirect('create_tourist')
+
+def get_tourists(request):
+    tourists = list(Tourist.objects.all().values())
+    return JsonResponse(tourists, safe=False)
+
+def save_tourists(request):
+    tourists = list(Tourist.objects.all().values())
+    if len(tourists) > 0:
+        # Guardar los datos de los turistas
+        with open('./myapp/utils/tourists_data.json', 'w') as file:
+            json.dump(tourists, file, indent=4)
+        return JsonResponse({'success': True})
+    else:
+        return JsonResponse({'success': False, 'error': 'No hay turistas guardados'})
+
+
 
 def plan_route_info(request):
-    data = plan_route()
+    # Cargamos los datos del mapa
+    map_data = Map()
+    
+    # Cargamos los datos de los turistas
+    with open('./myapp/utils/tourists_data.json', 'r') as file:
+        tourists = json.load(file)
+    
+    characteristics = []
+    for tourist in tourists:
+        characteristics.append(tourist['characteristics'])
+    
+    route, goals = plan_route(map_data, characteristics)
+    
+    interesting_points = []
+    for goal in goals:
+        interesting_points.append({
+            'id': goal,
+            'location': map_data.points[goal].location,
+            'height': map_data.points[goal].height,
+            'characteristics':map_data.points[goal].characteristics
+        }) 
 
-    points = [{
-        "id": 32,
-        "location": [886,747],
-        "characteristics": [0.6, 0.4, 0, 0.2, 0, 0],
-        "altitude": "low",
-        "height": 10
-    },
-    {
-        "id": 36,
-        "location": [1230,413],
-        "characteristics": [0.9, 0.8, 0.4, 0, 0, 0.5],
-        "altitude": "top",
-        "height": 120
-    },
-    {
-        "id": 55,
-        "location": [1744,730],
-        "characteristics": [0.9, 0.4, 0.3, 0.7, 0, 0.3],
-        "altitude": "low",
-        "height": 10
-    },
-    {
-        "id": 60,
-        "location": [1760,45],
-        "characteristics": [0.8, 0.1, 0, 0.2, 0, 0.8],
-        "altitude": "low",
-        "height": 6
-    }]
-
-    info = phind(points)
+    info = phind(interesting_points)
     
     return render(request, 'route_info.html', {'data': data, 'info': info})
 
