@@ -1,10 +1,15 @@
 import json
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, render, redirect
+
+from django.shortcuts import get_object_or_404, render
 from .models import Point, Edge, Tourist
+from .phind import phind
+from django.shortcuts import render, redirect
 from .forms import PointForm, EdgeForm, TouristForm
-from .modules.module_1.module_1 import plan_route
+from django.views.generic.edit import CreateView
 from .utils.map_utils import Map
+from .modules.module_1.module_1 import plan_route
+
 
 def pagina_inicio(request):
     return render(request, 'index.html')
@@ -133,7 +138,6 @@ def save_tourists(request):
 
 
 def plan_route_info(request):
-    
     # Cargamos los datos del mapa
     map_data = Map()
     
@@ -154,8 +158,9 @@ def plan_route_info(request):
             'location': map_data.points[goal].location,
             'height': map_data.points[goal].height,
             'characteristics':map_data.points[goal].characteristics
-        })
+        }) 
+
+    info = phind(interesting_points)
     
-    
-    return render(request, 'route_info.html', {'data': route})
+    return render(request, 'route_info.html', {'data': data, 'info': info})
 
