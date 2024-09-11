@@ -42,7 +42,20 @@ class GuideAgent:
         yield env.timeout(ma.size[point1]/self.vel)
         print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {env.now}")
         if point2 != len(ma.points) -1:
-            env.process(self.move(point2, point2 + 1, env,ma))
+            self.intentions = []
+            self.update_beliefs()
+            self.generate_desires()
+            self.form_intentions()
+            if "keep_walking" in self.intentions:
+                self.enviroment.mark[point2] = "continue"
+                env.process(self.move(point2, point2 + 1, env,ma)) ########
+            elif "setup_camp" in self.intentions:
+                self.enviroment.mark[point2] = "camp"
+            elif "lunch" in self.intentions:
+                self.enviroment.mark[point2] = "lunch"
+            elif "regroup" in self.intentions:
+                self.enviroment.mark[point2] = "regroup"
+            
     
     def update_beliefs(self):
         self.beliefs["current_position"] = environment.get_current_position(self)
@@ -64,13 +77,6 @@ class GuideAgent:
         if len(self.intentions) == 0:
             self.intentions.append("keep_walking")
 
-    def act(self):
-        self.intentions = []
-        self.update_beliefs()
-        self.generate_desires()
-        self.form_intentions()
-        # if "keep_walking" in self.intentions:
-            
 
 class ExcursionAgent:
     def __init__(self, name):
@@ -96,9 +102,6 @@ class ExcursionAgent:
     def form_intentions(self):
         pass
 
-    def act(self, environment):
-        pass
-    
 class Path:
     def __init__(self):
         self.points = []
