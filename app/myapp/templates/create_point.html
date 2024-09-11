@@ -132,6 +132,18 @@
                     <label class="mr-3" for="id_characteristic_4">Característica 4</label>
                     {{ form.characteristic_4|add_class:"form-control w-50" }}
                 </div>
+                <div class="form-group d-flex justify-content-end">
+                    <label class="mr-3" for="id_begin">Entrada</label>
+                    {{ form.begin|add_class:"form-control w-50" }}
+                </div>
+                <div class="form-group d-flex justify-content-end">
+                    <label class="mr-3" for="id_finish">Salida</label>
+                    {{ form.finish|add_class:"form-control w-50" }}
+                </div>
+                <div class="form-group d-flex justify-content-end">
+                    <label class="mr-3" for="id_interesting">Interesante</label>
+                    {{ form.interesting|add_class:"form-control w-50" }}
+                </div>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
         </div>
@@ -139,13 +151,21 @@
             <h2>Lista de puntos</h2>
             <ul class="list-group">
                 {% for point in points %}
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Punto {{ point.point_id }}, ({{ point.x }} ; {{ point.y }}), altura: {{ point.height }}, características: {{ point.characteristics }}
-                        <span>
-                            <a href="{% url 'edit_point' point.id %}" class="btn btn-secondary btn-sm">Edit</a>
-                            <a href="#" onclick="handleDelete(event, {{ point.id }})" class="btn btn-danger btn-sm">Delete</a>
-                        </span>
-                    </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Punto {{ point.point_id }}, ({{ point.x }} ; {{ point.y }}), altura: {{ point.height }}, características: {{ point.characteristics }}
+                    {% if point.begin %}
+                        <span class="badge bg-success text-light">Entrada</span>
+                    {% elif point.finish %}
+                        <span class="badge bg-danger text-light">Salida</span>
+                    {% elif point.interesting %}
+                        <span class="badge bg-primary text-light">Interesante</span>
+                    {% endif %}
+                    <span>
+                        <a href="{% url 'edit_point' point.id %}" class="btn btn-secondary btn-sm">Edit</a>
+                        <a href="#" onclick="handleDelete(event, {{ point.id }})" class="btn btn-danger btn-sm">Delete</a>
+                    </span>
+                </li>
+                
                 {% endfor %}
             </ul>
         </div>

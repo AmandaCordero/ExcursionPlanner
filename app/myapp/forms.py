@@ -14,7 +14,7 @@ class PointForm(forms.ModelForm):
 
     class Meta:
         model = Point
-        fields = ['x', 'y', 'height', 'point_id']
+        fields = ['x', 'y', 'height', 'point_id', 'begin', 'finish', 'interesting']
 
     def __init__(self, *args, **kwargs):
         super(PointForm, self).__init__(*args, **kwargs)
@@ -24,7 +24,18 @@ class PointForm(forms.ModelForm):
             self.fields['characteristic_2'].initial = characteristics[1] if len(characteristics) > 1 else None
             self.fields['characteristic_3'].initial = characteristics[2] if len(characteristics) > 2 else None
             self.fields['characteristic_4'].initial = characteristics[3] if len(characteristics) > 3 else None
+    
+    def clean(self):
+        cleaned_data = super().clean()
+        begin = cleaned_data.get('begin')
+        finish = cleaned_data.get('finish')
+        interesting = cleaned_data.get('interesting')
 
+        if sum([bool(begin), bool(finish), bool(interesting)]) > 1:
+            raise ValidationError('Solo se puede marcar uno de los campos: begin, finish, interesting.')
+
+        return cleaned_data
+    
     def save(self, commit=True):
         instance = super(PointForm, self).save(commit=False)
         instance.characteristics = [

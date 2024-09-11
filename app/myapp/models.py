@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ValidationError
 
 class Point(models.Model):
     x = models.FloatField()
@@ -6,9 +7,21 @@ class Point(models.Model):
     height = models.FloatField()
     point_id = models.IntegerField(unique=True)
     characteristics = models.JSONField(default=list)
+    begin = models.BooleanField()
+    finish = models.BooleanField()
+    interesting = models.BooleanField()
 
     def __str__(self):
         return f"Point: {self.point_id}, location: ({self.x} ; {self.y})"
+    
+    def clean(self):
+        if self.begin:
+            if Point.objects.filter(begin=True).exclude(id=self.id).exists():
+                raise ValidationError('Solo puede haber una entidad de Punto con begin en True.')
+
+    def save(self, *args, **kwargs):
+        self.clean()
+        super(Point, self).save(*args, **kwargs)
     
 class Edge(models.Model):
     point1 = models.ForeignKey(Point, related_name='edges_from', on_delete=models.CASCADE)

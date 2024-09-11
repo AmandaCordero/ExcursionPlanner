@@ -15,8 +15,8 @@ class Point:
 class Map:
     def __init__(self):
         self.start = 0
-        self.exit = 58
-        self.interest_points = [10,66,19,64,32,38,36,60,53,65,55]
+        self.exit = 0
+        self.interest_points = []
         
         self.points = {}
         self.paths = {}
@@ -33,8 +33,16 @@ class Map:
         with open('./myapp/utils/points_data.json', 'r') as file:
             data = json.load(file)
         
-        for point in data['points']:
-            self.addPoint(point['id'], point['location'], point['height'], point['characteristics'])
+        for point in data:
+            
+            if point['begin']:
+                self.start = point['point_id']
+            elif point['finish']:
+                self.exit = point['point_id']
+            elif point['interesting']:
+                self.interest_points.append(point['point_id'])
+            
+            self.addPoint(point['point_id'], [point['x'],point['y']], point['height'], point['characteristics'])
         
     def _create_paths(self):
         # Cargamos los datos de los puntos

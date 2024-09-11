@@ -124,8 +124,15 @@ def a_star_search(map, characteristics):
 
         for neighbor in get_neighbors(current, map):
             
+            if map.paths_details[(current,neighbor)]['characteristics'][0]==0 and map.paths_details[(current,neighbor)]['characteristics'][1] == 0:
+                coeficient_tourists_like = 1
+            else:
+                coeficient_tourists_like = abs(map.paths_details[(current,neighbor)]['characteristics'][0]-characteristics[0])
+                coeficient_tourists_like += abs(map.paths_details[(current,neighbor)]['characteristics'][1]-characteristics[1])
+                coeficient_tourists_like = coeficient_tourists_like/2
+            
             # Se calcula el costo hasta este nuevo vecino
-            tentative_g_score = g_score[current] + map.paths_details[(current,neighbor)]['distance']
+            tentative_g_score = g_score[current] + (1+coeficient_tourists_like)*map.paths_details[(current,neighbor)]['distance']
 
             if neighbor not in g_score or tentative_g_score < g_score[neighbor]:
                 temp_came_from[neighbor] = current
@@ -218,6 +225,7 @@ def heuristic2(start, midpoint, end, characteristics, map):
         start (num): Id del punto inicial del recorrido
         midpoint (num): Id del punto intermedio del recorrido
         end (num): Id del punto final del recorrido
+        characteristics (list): Características de los turistas
         map (object): Datos del mapa, incluyendo información sobre puntos de interés y caminos.
 
     Returns:
@@ -232,10 +240,10 @@ def heuristic2(start, midpoint, end, characteristics, map):
     # Calcular el valor de este punto
     point = map.points[midpoint]
     value = 0
-    for i in range(6):
-        if point.characteristics[i] == 0 or characteristics[i] == 0:
+    for i in range(4):
+        if point.characteristics[i] == 0 or characteristics[i+2] == 0:
             continue
-        value += 1000*(1-abs(point.characteristics[i]-characteristics[i]))
+        value += 1000*(1-abs(point.characteristics[i]-characteristics[i+2]))
         
     return heuristic(start, midpoint, map) + heuristic(midpoint, end, map) - value
 
