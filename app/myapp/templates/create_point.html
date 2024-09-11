@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Create/Edit Point</title>
+    <title>Crear mapa</title>
     <script>
+
         function handleFormSubmit(event) {
             event.preventDefault();
             const form = event.target;
@@ -19,14 +20,14 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert('Point created/updated successfully!');
-                    window.location.href = 'http://127.0.0.1:8000/';  // Redirigir a la página de creación de puntos
+                    alert('Punto guardado satisfactoriamente!');
+                    window.location.href = 'http://127.0.0.1:8000/create_point';  // Redirigir a la página de creación de puntos
                 } else {
-                    alert('Failed to create/update point: ' + JSON.stringify(data.errors));
+                    alert('Fallo en guardar el punto: ' + JSON.stringify(data.errors));
                 }
             })
             .catch(error => {
-                alert('An error occurred: ' + error);
+                alert('Ocurrió un error: ' + error);
             });
         }
 
@@ -53,26 +54,47 @@
                 });
             }
         }
+
+        async function obtenerPuntos() {
+            const response = await fetch('/points');
+            const puntos = await response.json();
+            console.log(puntos)
+            return puntos;
+        }
+        
+        async function guardarPuntos() {
+            const puntos = await obtenerPuntos();
+            const blob = new Blob([JSON.stringify(puntos)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'puntos.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+        
     </script>
     <!-- Incluir Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    {% load widget_tweaks %}
 </head>
-<body class="container mt-5">
-    <h1 class="mb-4">Create/Edit a Point</h1>
+<body class="m-5">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 mr-5">
+            <h1 class="mb-4">Guardar un punto</h1>
             <form method="post" action="{% if point %}{% url 'edit_point' point.id %}{% else %}{% url 'create_point' %}{% endif %}" onsubmit="handleFormSubmit(event)" class="mb-4 text-right">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="btn btn-primary">Save Point</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
         </div>
-        <div class="col-md-8">
-            <h2>List of Points</h2>
+        <div class="col-md-7 ml-5">
+            <h2>Lista de puntos</h2>
             <ul class="list-group">
                 {% for point in points %}
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Point (x: {{ point.x }}, y: {{ point.y }}, height: {{ point.height }}, point_id: {{ point.point_id }}, characteristics: {{ point.characteristics }})
+                        Punto {{ point.point_id }}, ({{ point.x }} ; {{ point.y }}), altura: {{ point.height }}, características: {{ point.characteristics }}
                         <span>
                             <a href="{% url 'edit_point' point.id %}" class="btn btn-secondary btn-sm">Edit</a>
                             <a href="#" onclick="handleDelete(event, {{ point.id }})" class="btn btn-danger btn-sm">Delete</a>
@@ -81,6 +103,10 @@
                 {% endfor %}
             </ul>
         </div>
+        <div class="d-flex justify-content-between w-100">
+            <button class="btn btn-danger" onclick="window.location.href='http://127.0.0.1:8000/'">Inicio</button>
+            <button class="btn btn-success" onclick="guardarPuntos()">Descargar puntos</button>
+        </div> 
     </div>
 </body>
 </html>

@@ -8,4 +8,16 @@ class Point(models.Model):
     characteristics = models.JSONField(default=list)
 
     def __str__(self):
-        return f"Point({self.x}, {self.y}, point_id={self.point_id}"
+        return f"Point: {self.point_id}, location: ({self.x} ; {self.y})"
+    
+class Edge(models.Model):
+    point1 = models.ForeignKey(Point, related_name='edges_from', on_delete=models.CASCADE)
+    point2 = models.ForeignKey(Point, related_name='edges_to', on_delete=models.CASCADE)
+    distance = models.FloatField()
+    characteristics = models.JSONField(default=list)
+
+    class Meta:
+        unique_together = ('point1', 'point2')
+
+    def __str__(self):
+        return f"Arista({self.point1.point_id} -> {self.point2.point_id})"
