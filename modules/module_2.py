@@ -17,11 +17,26 @@ class Enviroment:
         self.excur = excur
         self.weather = weather
         self.path = path
+        self.mark = [""] * len(self.path)
+        self.lunch = False
+        
+        def get_current_position(self, agent):
+            pass
+        
+        def get_time_of_day(self):
+            pass
+        
+        def calculate_dispersion(self):
+            pass
         
 class GuideAgent:
-    def __init__(self):
+    def __init__(self, enviroment):
         self.name = "el guia"
         self.vel = np.random.uniform(2, 4)
+        self.beliefs = {}
+        self.desires = {}
+        self.intentions = []
+        self.enviroment = enviroment
         
     def move(self, point1, point2, env, ma):
         yield env.timeout(ma.size[point1]/self.vel)
@@ -29,8 +44,33 @@ class GuideAgent:
         if point2 != len(ma.points) -1:
             env.process(self.move(point2, point2 + 1, env,ma))
     
-    def perceive(self,enviroment):
-        pass
+    def update_beliefs(self):
+        self.beliefs["current_position"] = environment.get_current_position(self)
+        self.beliefs["time_of_day"] = environment.get_time_of_day()
+        self.beliefs["dispersion"] = environment.calculate_dispersion()
+
+    def generate_desires(self):
+        self.desires["keep_together"] = self.beliefs["time_of_day"] < 18
+        self.desires["lunch"] = self.beliefs["time_of_day"] > 12 and not self.enviroment.lunch
+        self.desires["camp"] = self.beliefs["time_of_day"] > 18
+
+    def form_intentions(self):
+        if self.desires["camp"]:
+            self.intentions.append("setup_camp")
+        if self.desires["lunch"]:
+            self.intentions.append("have_lunch")
+        if self.desires["keep_together"] and self.beliefs["dispersion"] > 5:
+            self.intentions.append("regroup")
+        if len(self.intentions) == 0:
+            self.intentions.append("keep_walking")
+
+    def act(self):
+        self.intentions = []
+        self.update_beliefs()
+        self.generate_desires()
+        self.form_intentions()
+        # if "keep_walking" in self.intentions:
+            
 
 class ExcursionAgent:
     def __init__(self, name):
