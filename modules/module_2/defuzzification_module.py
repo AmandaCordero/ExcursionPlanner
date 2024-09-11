@@ -1,4 +1,4 @@
-from fuzzy_interface_engine import create_fuzzy_controller
+from .fuzzy_interface_engine import create_fuzzy_controller
 
 def compute_fuzzy_output(context='waiting_time', **inputs):
     """
