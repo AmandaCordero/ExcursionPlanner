@@ -1,5 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
+
+from .phind import phind
 from .models import Point
 from django.shortcuts import render, redirect
 from .forms import PointForm
@@ -72,5 +74,37 @@ def get_edges(request):
 
 def plan_route_info(request):
     data = plan_route()
-    return render(request, 'route_info.html', {'data': data})
+
+    points = [{
+        "id": 32,
+        "location": [886,747],
+        "characteristics": [0.6, 0.4, 0, 0.2, 0, 0],
+        "altitude": "low",
+        "height": 10
+    },
+    {
+        "id": 36,
+        "location": [1230,413],
+        "characteristics": [0.9, 0.8, 0.4, 0, 0, 0.5],
+        "altitude": "top",
+        "height": 120
+    },
+    {
+        "id": 55,
+        "location": [1744,730],
+        "characteristics": [0.9, 0.4, 0.3, 0.7, 0, 0.3],
+        "altitude": "low",
+        "height": 10
+    },
+    {
+        "id": 60,
+        "location": [1760,45],
+        "characteristics": [0.8, 0.1, 0, 0.2, 0, 0.8],
+        "altitude": "low",
+        "height": 6
+    }]
+
+    info = phind(points)
+    
+    return render(request, 'route_info.html', {'data': data, 'info': info})
 
