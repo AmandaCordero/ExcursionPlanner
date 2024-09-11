@@ -162,5 +162,5 @@ def plan_route_info(request):
 
     info = phind(interesting_points)
     
-    return render(request, 'route_info.html', {'data': data, 'info': info})
+    return render(request, 'route_info.html', {'data': route, 'info': info})
 
