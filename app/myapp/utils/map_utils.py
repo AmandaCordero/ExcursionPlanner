@@ -49,7 +49,7 @@ class Map:
         with open('./myapp/utils/edges_data.json', 'r') as file:
             data = json.load(file)
         
-        for edge in data['edges']:
+        for edge in data:
             self.addPath(edge['point1'], edge['point2'], edge['distance'], edge['characteristics'])
     
     def addPoint(self, point_id, location, height, characteristics=[]):

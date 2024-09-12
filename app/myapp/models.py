@@ -18,6 +18,9 @@ class Point(models.Model):
         if self.begin:
             if Point.objects.filter(begin=True).exclude(id=self.id).exists():
                 raise ValidationError('Solo puede haber una entidad de Punto con begin en True.')
+        if self.finish:
+            if Point.objects.filter(finish=True).exclude(id=self.id).exists():
+                raise ValidationError('Solo puede haber una entidad de Punto con finish en True.')
 
     def save(self, *args, **kwargs):
         self.clean()

@@ -18,42 +18,29 @@ import json
     #     "interesting": false
     # }
 
-new_points = []
-with open('./points_data.json', 'r') as file:
-    points = json.load(file)['points']
+new_edges = []
+with open('./edges_data.json', 'r') as file:
+    edges = json.load(file)['edges']
 i = 0
-for point in points:
+for edge in edges:
     
-    begin = False
-    finish = False
-    interesting = False
-    
-    characteristics = [0,0,0,0]
-    if point['characteristics']:
-        characteristics = point['characteristics'][2:]
+    characteristics = [0,0]
+    if edge['characteristics']:
+        characteristics = edge['characteristics'][:2]
         interesting = True
     
-    if point['id'] == 58:
-        finish = True
-    elif point['id'] == 0:
-        begin = True
-        
-    new_points.append(
+    new_edges.append(
         {
             'id': i,
-            'point_id': point['id'],
-            'x': point['location'][0],
-            'y': point['location'][1],
-            'height': point['height'],
-            'characteristics': characteristics,
-            'begin': begin,
-            'finish': finish,
-            'interesting': interesting
+            'point1': edge['point1'],
+            'point2': edge['point2'],
+            'distance': edge['distance'],
+            'characteristics': characteristics
         }
     )
     
     i += 1
 
 
-with open('./new_points_data.json', 'w') as file:
-    json.dump(new_points, file, indent=4)
+with open('./new_edges_data.json', 'w') as file:
+    json.dump(new_edges, file, indent=4)
