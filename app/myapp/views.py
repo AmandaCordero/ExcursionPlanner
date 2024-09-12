@@ -165,11 +165,27 @@ def plan_route_info(request):
             'height': map_data.points[goal].height,
             'characteristics':map_data.points[goal].characteristics
         }) 
-
-    # info = phind(interesting_points)
-    info = 'lorem'
     
-    return render(request, 'route_info.html', {'data': route, 'info': info})
+    return render(request, 'route_info.html', {'data': route})
+
+def view_route_description(request):
+    # Cargamos los datos del mapa
+    map_data = Map()
+    
+    with open('./myapp/utils/route_data.json', 'r') as file:
+        route = json.load(file)
+    
+    interesting_points = []
+    for goal in goals:
+        interesting_points.append({
+            'id': goal,
+            'location': map_data.points[goal].location,
+            'height': map_data.points[goal].height,
+            'characteristics':map_data.points[goal].characteristics
+        }) 
+    
+    # info = phind(interesting_points)
+    
 
 def run_simulate(request):
 
