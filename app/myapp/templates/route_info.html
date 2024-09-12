@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Ruta planificada</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="container mt-5">
-    <h2 class="mb-4">Puntos en la ruta</h2>
-    <p>{{ data }}</p>
-    <h2 class="mb-4">Información de la ruta</h2>
-    <p>{{ info }}</p>
-</body>
+    <head>
+        <title>Ruta planificada</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <script>
+            async function fillInfo() {
+                // Mostrar el texto "Cargando..."
+                document.getElementById('info').innerText = 'Cargando...';
+
+                try {
+                    // Hacer la petición fetch a la URL
+                    const response = await fetch('get_info/');
+                    const data = await response.json();
+                    console.log(data)
+
+                    // Actualizar el contenido con la información obtenida
+                    document.getElementById('info').innerText = data;
+                } catch (error) {
+                    console.error('Error al obtener la información:', error);
+                    document.getElementById('info').innerText = 'Error al cargar la información';
+                }
+            }
+        </script>
+    </head>
+    <body class="container mt-5">
+        <h2 class="mb-4">Puntos en la ruta</h2>
+        <p id="data">{{ data }}</p>
+        <div class="d-flex">
+            <h2 class="mr-3">Información de la ruta</h2>
+            <button class="btn btn-primary ml-4" onclick="fillInfo()">Rellenar Información</button>
+        </div>
+        <p class="mt-4" id="info"></p>
+    </body>
 </html>

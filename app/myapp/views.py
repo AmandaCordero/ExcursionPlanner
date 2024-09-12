@@ -3,7 +3,7 @@ from django.http import JsonResponse
 
 from django.shortcuts import get_object_or_404, render
 
-from .modules.module_2.module_2_main import simulate_excursion
+# from .modules.module_2.module_2_main import simulate_excursion
 
 from .models import Point, Edge, Tourist
 # from .phind import phind
@@ -12,6 +12,7 @@ from .forms import PointForm, EdgeForm, TouristForm
 from django.views.generic.edit import CreateView
 from .utils.map_utils import Map
 from .modules.module_1.module_1 import plan_route
+import time
 
 
 def pagina_inicio(request):
@@ -172,8 +173,15 @@ def view_route_description(request):
     # Cargamos los datos del mapa
     map_data = Map()
     
-    with open('./myapp/utils/route_data.json', 'r') as file:
-        route = json.load(file)
+    # Cargamos los datos de los turistas
+    with open('./myapp/utils/tourists_data.json', 'r') as file:
+        tourists = json.load(file)
+    
+    characteristics = []
+    for tourist in tourists:
+        characteristics.append(tourist['characteristics'])
+        
+    route, goals = plan_route(map_data, characteristics)
     
     interesting_points = []
     for goal in goals:
@@ -184,7 +192,10 @@ def view_route_description(request):
             'characteristics':map_data.points[goal].characteristics
         }) 
     
+    time.sleep(5)
     # info = phind(interesting_points)
+    info = 'Llegó la info esperada'
+    return JsonResponse(info, safe=False)
     
 
 def run_simulate(request):
