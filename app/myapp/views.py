@@ -3,7 +3,7 @@ from django.http import JsonResponse
 
 from django.shortcuts import get_object_or_404, render
 
-# from .modules.module_2.module_2_main import simulate_excursion
+from .modules.module_2.module_2_main import simulate_excursion
 
 from .models import Point, Edge, Tourist
 from .phind import phind
