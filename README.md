@@ -37,28 +37,28 @@ En esta sección se presentan los fundamentos matemáticos de las técnicas util
 
 ### 🔍 Algoritmo A*
 
-El algoritmo A* es un método de búsqueda de caminos óptimos en un grafo ponderado. Se utiliza para encontrar la ruta más corta desde un punto de inicio hasta un destino, minimizando una función de evaluación /[ f(n) /] que combina el costo actual y una estimación heurística:
+El algoritmo A* es un método de búsqueda de caminos óptimos en un grafo ponderado. Se utiliza para encontrar la ruta más corta desde un punto de inicio hasta un destino, minimizando una función de evaluación $f(n)$ que combina el costo actual y una estimación heurística:
 
-/[ f(n) = g(n) + h(n) /]
+$$ f(n) = g(n) + h(n) $$
 
 Donde:
 
-- /[ g(n) /] es el costo acumulado desde el inicio hasta el nodo /[ n /],
-- /[ h(n) /] es la heurística que estima el costo restante desde /[ n /] hasta el destino.
+- $g(n)$ es el costo acumulado desde el inicio hasta el nodo $n$,
+- $h(n)$ es la heurística que estima el costo restante desde $n$ hasta el destino.
 
 La heurística debe ser admisible, es decir, nunca debe sobrestimar el costo real para asegurar la optimalidad del algoritmo:
 
-/[ h(n) \leq h^*(n) \quad \forall n /]
+$$ h(n) \leq h^*(n) \quad \forall n $$
 
 ### 🤖 Modelo de Agentes BDI
 
 El modelo BDI (Belief-Desire-Intention) se basa en la lógica modal para representar el comportamiento racional de los agentes. Los agentes tienen:
 
-- **Creencias (/B/)**: Representan lo que el agente sabe o cree acerca del mundo.
-- **Deseos (/D/)**: Los objetivos que el agente intenta alcanzar.
-- **Intenciones (/I/)**: Los planes o acciones que el agente ha decidido ejecutar para lograr sus deseos.
+- **Creencias ($B$)**: Representan lo que el agente sabe o cree acerca del mundo.
+- **Deseos ($D$)**: Los objetivos que el agente intenta alcanzar.
+- **Intenciones ($I$)**: Los planes o acciones que el agente ha decidido ejecutar para lograr sus deseos.
 
-Matemáticamente, el comportamiento de los agentes se puede describir usando una estructura modal /[ \langle B, D, I \rangle /], donde cada componente se actualiza según las reglas del sistema. La lógica BDI sigue el principio de que las intenciones deben ser consistentes con las creencias y deseos actuales.
+Matemáticamente, el comportamiento de los agentes se puede describir usando una estructura modal $\langle B, D, I \rangle$, donde cada componente se actualiza según las reglas del sistema. La lógica BDI sigue el principio de que las intenciones deben ser consistentes con las creencias y deseos actuales.
 
 ### ⚙️ Controlador Difuso
 
@@ -76,33 +76,33 @@ Se desarrolló un sitio web en Django para interactuar con el guía de la excurs
 
 Para la simulación se modelan los excursionistas con agentes BDI. Aquí se diferencia el agente que representa al guía del resto de los excursionistas, debido a que entre los deseos del guía se encuentra también garantizar un recorrido seguro. Para los excursionistas se utiliza un controlador difuso; con las creencias de estos (características del mapa hasta el punto recorrido) y sus deseos (características recogidas en la encuesta) se aplican reglas como:
 
-/[
+$$
  \mu_{\text{gusto\_historia\_bajo}} \implies \mu_{\text{tiempo\_espera\_corto}}
-/]
+$$
 
 Esta regla indica que si el gusto del usuario por la historia es bajo, entonces el tiempo de espera será corto.
 
-/[
+$$
 \mu_{\text{gusto\_historia\_medio}} \land \mu_{\text{indice\_historia\_bajo}} \implies \mu_{\text{tiempo\_espera\_corto}}
-/]
+$$
 
 Aquí se establece que si el gusto del usuario por la historia es medio y el índice de lugares históricos en el lugar es bajo, entonces el tiempo de espera será corto.
 
-/[
+$$
 \mu_{\text{gusto\_historia\_medio}}  \land (\mu_{\text{indice\_historia\_medio}} \lor \mu_{\text{indice\_historia\_alto}}) \implies \mu_{\text{tiempo\_espera\_medio}}
-/]
+$$
 
 Esta regla señala que si el gusto del usuario por la historia es medio y el índice de lugares históricos en el lugar es medio o alto, entonces el tiempo de espera será medio.
 
 **📊 Descripción de Variables**
 
-- /[ \mu_{\text{gusto\_historia\_bajo}} /]: Función de pertenencia que describe un bajo gusto del usuario por la historia.
-- /[ \mu_{\text{gusto\_historia\_medio}} /]: Función de pertenencia que describe un gusto medio del usuario por la historia.
-- /[ \mu_{\text{indice\_historia\_bajo}} /]: Función de pertenencia que describe un índice bajo de sitios históricos en el lugar.
-- /[ \mu_{\text{indice\_historia\_medio}} /]: Función de pertenencia que describe un índice medio de sitios históricos en el lugar.
-- /[ \mu_{\text{indice\_historia\_alto}} /]: Función de pertenencia que describe un índice alto de sitios históricos en el lugar.
-- /[ \mu_{\text{tiempo\_espera\_corto}} /]: Función de pertenencia que describe un tiempo de espera corto para el usuario.
-- /[ \mu_{\text{tiempo\_espera\_medio}} /]: Función de pertenencia que describe un tiempo de espera medio para el usuario.
+- $\mu_{\text{gusto\_historia\_bajo}}$: Función de pertenencia que describe un bajo gusto del usuario por la historia.
+- $\mu_{\text{gusto\_historia\_medio}}$: Función de pertenencia que describe un gusto medio del usuario por la historia.
+- $\mu_{\text{indice\_historia\_bajo}}$: Función de pertenencia que describe un índice bajo de sitios históricos en el lugar.
+- $\mu_{\text{indice\_historia\_medio}}$: Función de pertenencia que describe un índice medio de sitios históricos en el lugar.
+- $\mu_{\text{indice\_historia\_alto}}$: Función de pertenencia que describe un índice alto de sitios históricos en el lugar.
+- $\mu_{\text{tiempo\_espera\_corto}}$: Función de pertenencia que describe un tiempo de espera corto para el usuario.
+- $\mu_{\text{tiempo\_espera\_medio}}$: Función de pertenencia que describe un tiempo de espera medio para el usuario.
 
 ---
 
