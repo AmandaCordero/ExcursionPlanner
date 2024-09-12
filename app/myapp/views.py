@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404, render
 from .modules.module_2.module_2_main import simulate_excursion
 
 from .models import Point, Edge, Tourist
-from .phind import phind
+# from .phind import phind
 from django.shortcuts import render, redirect
 from .forms import PointForm, EdgeForm, TouristForm
 from django.views.generic.edit import CreateView
@@ -166,7 +166,8 @@ def plan_route_info(request):
             'characteristics':map_data.points[goal].characteristics
         }) 
 
-    info = phind(interesting_points)
+    # info = phind(interesting_points)
+    info = 'lorem'
     
     return render(request, 'route_info.html', {'data': route, 'info': info})
 
