@@ -2,6 +2,9 @@ import json
 from django.http import JsonResponse
 
 from django.shortcuts import get_object_or_404, render
+
+from .modules.module_2.module_2_main import simulate_excursion
+
 from .models import Point, Edge, Tourist
 from .phind import phind
 from django.shortcuts import render, redirect
@@ -151,6 +154,9 @@ def plan_route_info(request):
     
     route, goals = plan_route(map_data, characteristics)
     
+    with open('./myapp/utils/route_data.json', 'w') as file:
+            json.dump(route, file, indent=4)
+
     interesting_points = []
     for goal in goals:
         interesting_points.append({
@@ -164,3 +170,25 @@ def plan_route_info(request):
     
     return render(request, 'route_info.html', {'data': route, 'info': info})
 
+def run_simulate(request):
+
+    with open('./myapp/utils/route_data.json', 'r') as file:
+        points = json.load(file)
+    
+    with open('./myapp/utils/tourists_data.json', 'r') as file:
+        tourists = json.load(file)
+
+    map_data = Map()
+    
+    desires = [person['characteristics'] for person in tourists]
+
+    map = {
+        points:[],
+        edges:{}
+    }
+    # simulate_excursion(desires, points, map)
+
+    map.points = [point.characteristics for point in map_data.points]
+
+    info = desires
+    return render(request, 'run_simulate.html', {'info': info})

@@ -1,7 +1,7 @@
 import simpy
 import numpy as np
 # from ..utils.map_utils import Map
-from module_2.defuzzification_module import compute_fuzzy_output
+from .defuzzification_module import compute_fuzzy_output
 
 
 def simulate_excursion(map_data, weather, excursionists):
