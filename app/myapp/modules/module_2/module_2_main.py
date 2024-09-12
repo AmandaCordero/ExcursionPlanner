@@ -4,26 +4,27 @@ import numpy as np
 from .defuzzification_module import compute_fuzzy_output
 
 
-def simulate_excursion(desires, points, map):
+def simulate_excursion(desires, route, map):
         
     # Configuración del entorno y ejecución de la simulación
     env = simpy.Environment()
 
     path = Path()
     # Ampliar la cantidad de puntos y tamaños en el camino
-    path.points = points
+    path.points = route
     path.size = []  # Distancias entre los puntos
-    for i in range(len(points)):
+    for i in range(len(route)):
         if i == 0:
             continue
-        path.size.append(map.edges[(points[i-1], points[i])])
+        my_tuple = (route[i-1], route[i])
+        path.size.append(map.edges_size[my_tuple])
 
     # Crear más excursionistas para un caso más grande
     guide = GuideAgent(None)  # El entorno aún no se asigna
     excursion_agents = []
 
     for i in range(len(desires)):
-       excursion_agents.append(ExcursionAgent(f'exc{i}', desires[i]))
+       excursion_agents.append(ExcursionAgent(f'exc{i}', None,desires[i]))
 
 
     environment = Enviroment(guide, excursion_agents, path, env, map)
@@ -33,6 +34,7 @@ def simulate_excursion(desires, points, map):
     for exc in excursion_agents:
         exc.enviroment = environment
 
+    # print(path.size)
     # Ejecutar los procesos de movimiento
     env.process(guide.move(0, 1, env, path))
     for exc in excursion_agents:
@@ -69,7 +71,7 @@ class Enviroment:
         # Verificar si todos los excursionistas han llegado al punto de reagrupación
         self.regroup_count += 1
         if self.regroup_count == len(self.excur)+1:
-            print(f"Todos los excursionistas han llegado al punto de reagrupación {point}.")
+            log_trace(f"Todos los excursionistas han llegado al punto de reagrupación {point}.")
             self.regroup_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
             self.env.process(self.guide.move(point, point +1, self.env,self.path))
@@ -80,7 +82,7 @@ class Enviroment:
         # Verificar si todos los excursionistas han llegado al punto de almuerzo
         self.lunch_count += 1
         if self.lunch_count == len(self.excur)+1:
-            print(f"Todos los excursionistas han llegado al punto de almuerzo {point}.")
+            log_trace(f"Todos los excursionistas han llegado al punto de almuerzo {point}.")
             self.had_lunch = True
             self.lunch_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
@@ -94,7 +96,7 @@ class Enviroment:
         # Verificar si todos los excursionistas han llegado al punto de campamento
         self.camp_count += 1
         if self.camp_count == len(self.excur) +1:
-            print(f"Todos los excursionistas han llegado al campamento en {point}.")
+            log_trace(f"Todos los excursionistas han llegado al campamento en {point}.")
             self.camp_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
             
@@ -117,7 +119,7 @@ class GuideAgent:
         
     def move(self, point1, point2, env, ma):
         yield env.timeout(ma.size[point1] / self.vel)
-        print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
+        log_trace(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
         self.current_position = point2
         if point2 != len(ma.points) - 1:
             self.intentions = []
@@ -182,7 +184,7 @@ class ExcursionAgent:
 
     def move(self, point1, point2, env, ma):
         yield env.timeout(ma.size[point1] / self.vel)
-        print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
+        log_trace(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
         self.current_position = point2
         if point2 != len(ma.points) - 1:
             self.update_beliefs(self.enviroment.map.points[ma.points[point2]], self.enviroment.map.edges[(ma.points[point2], ma.points[point2+1])])
@@ -202,7 +204,7 @@ class ExcursionAgent:
 
     def reanudar(self, env, point1, point2, ma):
         # Reanudar el movimiento después de reagruparse, almorzar o acampar
-        print(f"{self.name} reanuda el movimiento desde {ma.points[point1]} hacia {ma.points[point2]}.")
+        log_trace(f"{self.name} reanuda el movimiento desde {ma.points[point1]} hacia {ma.points[point2]}.")
         env.process(self.move(point1, point2, env, ma))
 
     def update_beliefs(self, point_c, edge_c):
@@ -229,3 +231,6 @@ class Path:
         self.points = []
         self.size = []  
 
+def log_trace(message):
+    with open("./myapp/utils/trace.txt", "a") as log_file:
+        log_file.write(message + "\n")

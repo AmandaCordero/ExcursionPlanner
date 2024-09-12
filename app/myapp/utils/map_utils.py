@@ -4,7 +4,7 @@ import heapq
 import math
 
 class Point:
-    def __init__(self, location, height, characteristics=[]):
+    def __init__(self, location, height, characteristics):
         self.characteristics = characteristics  
         self.location = location
         self.height = height
@@ -72,29 +72,4 @@ class Map:
             self.paths_details[(p2,p1)] = {'distance': distance, 'characteristics':characteristics}
         else:
             print(f"El camino entre {p1} y {p2} ya existe.")
-           
-    def bfs(self, start_point):
-        visited = {point: False for point in self.points}
-        queue = deque([start_point])
-        visited[start_point] = True
-        
-        while queue:
-            current_point = queue.popleft()
-            print(current_point)  # Puedes hacer lo que necesites con el punto visitado
-            
-            for neighbor in self.paths[current_point]:
-                if not visited[neighbor]:
-                    queue.append(neighbor)
-                    visited[neighbor] = True
-    
-    def dfs(self, start_point):
-        visited = {point: False for point in self.points}
-        self._dfs_recursive(start_point, visited)
-    
-    def _dfs_recursive(self, current_point, visited):
-        visited[current_point] = True
-        print(current_point)  # Puedes hacer lo que necesites con el punto visitado
-        
-        for neighbor in self.paths[current_point]:
-            if not visited[neighbor]:
-                self._dfs_recursive(neighbor, visited)
+   
