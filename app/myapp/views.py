@@ -4,10 +4,10 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 import markdown
 
-# from .modules.module_2.module_2_main import simulate_excursion
+from .modules.module_2.module_2_main import simulate_excursion
 
 from .models import Point, Edge, Tourist
-# from .phind import phind
+from .phind import phind
 from django.shortcuts import render, redirect
 from .forms import PointForm, EdgeForm, TouristForm
 from django.views.generic.edit import CreateView
@@ -194,8 +194,7 @@ def view_route_description(request):
         }) 
     
     time.sleep(5)
-    # info = phind(interesting_points)
-    info = 'hola'
+    info = phind(interesting_points)
     return JsonResponse(info, safe=False)
     
 
