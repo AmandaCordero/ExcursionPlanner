@@ -5,7 +5,10 @@ from .defuzzification_module import compute_fuzzy_output
 
 
 def simulate_excursion(desires, route, map):
-        
+    
+    with open("./myapp/utils/trace.txt", "w") as log_file:
+        log_file.write("")
+
     # Configuración del entorno y ejecución de la simulación
     env = simpy.Environment()
 
@@ -34,7 +37,6 @@ def simulate_excursion(desires, route, map):
     for exc in excursion_agents:
         exc.enviroment = environment
 
-    # print(path.size)
     # Ejecutar los procesos de movimiento
     env.process(guide.move(0, 1, env, path))
     for exc in excursion_agents:
@@ -58,7 +60,7 @@ class Enviroment:
         self.map = map
 
     def get_time_of_day(self):
-        return (self.env.now + 7) % 24
+        return round((self.env.now + 7) % 24, 2)
     
     def calculate_dispersion(self):
         firstexc = self.guide.current_position
@@ -232,5 +234,6 @@ class Path:
         self.size = []  
 
 def log_trace(message):
+    print(message)
     with open("./myapp/utils/trace.txt", "a") as log_file:
         log_file.write(message + "\n")

@@ -56,7 +56,8 @@ class Map:
         if point_id in self.points:
             print("Este punto ya existe.")
             return
-        self.points[point_id] = Point(location, height, characteristics)
+        info = [0, 0] + characteristics
+        self.points[point_id] = Point(location, height, info)
         self.paths[point_id] = []  # Inicializar el camino para este punto
         
     def addPath(self, p1, p2, distance, characteristics=[]):

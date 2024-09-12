@@ -1,2 +1,180 @@
-el guia llegó a 7 en el tiempo 4.68753188291079
-exc1 llegó a 7 en el tiempo 9.36884310088395
+el guia llegó a 7 en el tiempo 6.9
+exc2 llegó a 7 en el tiempo 4.86
+el guia llegó a 8 en el tiempo 17.47
+exc1 llegó a 7 en el tiempo 23.29
+exc0 llegó a 7 en el tiempo 2.03
+exc2 llegó a 8 en el tiempo 12.13
+exc1 llegó a 8 en el tiempo 22.47
+exc0 llegó a 8 en el tiempo 7.17
+Todos los excursionistas han llegado al punto de almuerzo 2.
+exc0 reanuda el movimiento desde 8 hacia 13.
+exc1 reanuda el movimiento desde 8 hacia 13.
+exc2 reanuda el movimiento desde 8 hacia 13.
+el guia llegó a 13 en el tiempo 21.07
+exc2 llegó a 13 en el tiempo 3.3
+exc1 llegó a 13 en el tiempo 22.47
+exc0 llegó a 13 en el tiempo 4.91
+Todos los excursionistas han llegado al campamento en 3.
+exc0 reanuda el movimiento desde 13 hacia 14.
+exc1 reanuda el movimiento desde 13 hacia 14.
+exc2 reanuda el movimiento desde 13 hacia 14.
+el guia llegó a 14 en el tiempo 17.16
+exc2 llegó a 14 en el tiempo 18.78
+exc1 llegó a 14 en el tiempo 4.79
+exc0 llegó a 14 en el tiempo 13.44
+Todos los excursionistas han llegado al punto de almuerzo 4.
+exc0 reanuda el movimiento desde 14 hacia 64.
+exc1 reanuda el movimiento desde 14 hacia 64.
+exc2 reanuda el movimiento desde 14 hacia 64.
+el guia llegó a 64 en el tiempo 11.94
+el guia llegó a 21 en el tiempo 18.15
+exc2 llegó a 64 en el tiempo 23.21
+exc1 llegó a 64 en el tiempo 4.31
+exc0 llegó a 64 en el tiempo 12.23
+exc2 llegó a 21 en el tiempo 14.81
+exc1 llegó a 21 en el tiempo 15.67
+exc0 llegó a 21 en el tiempo 3.56
+Todos los excursionistas han llegado al campamento en 6.
+exc0 reanuda el movimiento desde 21 hacia 20.
+exc1 reanuda el movimiento desde 21 hacia 20.
+exc2 reanuda el movimiento desde 21 hacia 20.
+el guia llegó a 20 en el tiempo 5.39
+el guia llegó a 19 en el tiempo 13.77
+exc2 llegó a 20 en el tiempo 8.27
+exc1 llegó a 20 en el tiempo 2.19
+exc0 llegó a 20 en el tiempo 22.74
+exc2 llegó a 19 en el tiempo 11.51
+exc1 llegó a 19 en el tiempo 5.9
+exc0 llegó a 19 en el tiempo 4.6
+Todos los excursionistas han llegado al punto de almuerzo 8.
+exc0 reanuda el movimiento desde 19 hacia 20.
+exc1 reanuda el movimiento desde 19 hacia 20.
+exc2 reanuda el movimiento desde 19 hacia 20.
+el guia llegó a 20 en el tiempo 13.49
+el guia llegó a 21 en el tiempo 5.31
+el guia llegó a 28 en el tiempo 18.97
+exc2 llegó a 20 en el tiempo 8.33
+exc1 llegó a 20 en el tiempo 8.8
+exc0 llegó a 20 en el tiempo 10.95
+exc2 llegó a 21 en el tiempo 8.7
+exc1 llegó a 21 en el tiempo 2.45
+exc0 llegó a 21 en el tiempo 21.58
+exc2 llegó a 28 en el tiempo 18.95
+exc1 llegó a 28 en el tiempo 18.0
+exc0 llegó a 28 en el tiempo 8.31
+Todos los excursionistas han llegado al campamento en 11.
+exc0 reanuda el movimiento desde 28 hacia 29.
+exc1 reanuda el movimiento desde 28 hacia 29.
+exc2 reanuda el movimiento desde 28 hacia 29.
+el guia llegó a 29 en el tiempo 14.47
+exc2 llegó a 29 en el tiempo 21.33
+exc1 llegó a 29 en el tiempo 22.94
+exc0 llegó a 29 en el tiempo 14.36
+Todos los excursionistas han llegado al punto de almuerzo 12.
+exc0 reanuda el movimiento desde 29 hacia 34.
+exc1 reanuda el movimiento desde 29 hacia 34.
+exc2 reanuda el movimiento desde 29 hacia 34.
+el guia llegó a 34 en el tiempo 19.37
+exc2 llegó a 34 en el tiempo 1.94
+exc1 llegó a 34 en el tiempo 16.58
+exc0 llegó a 34 en el tiempo 4.39
+Todos los excursionistas han llegado al campamento en 13.
+exc0 reanuda el movimiento desde 34 hacia 61.
+exc1 reanuda el movimiento desde 34 hacia 61.
+exc2 reanuda el movimiento desde 34 hacia 61.
+el guia llegó a 61 en el tiempo 8.82
+el guia llegó a 36 en el tiempo 8.93
+el guia llegó a 67 en el tiempo 15.65
+exc2 llegó a 61 en el tiempo 1.93
+exc1 llegó a 61 en el tiempo 9.15
+exc0 llegó a 61 en el tiempo 0.36
+exc2 llegó a 36 en el tiempo 2.73
+exc1 llegó a 36 en el tiempo 5.29
+exc0 llegó a 36 en el tiempo 20.42
+exc2 llegó a 67 en el tiempo 3.26
+exc1 llegó a 67 en el tiempo 13.77
+exc0 llegó a 67 en el tiempo 18.09
+Todos los excursionistas han llegado al punto de almuerzo 16.
+exc0 reanuda el movimiento desde 67 hacia 41.
+exc1 reanuda el movimiento desde 67 hacia 41.
+exc2 reanuda el movimiento desde 67 hacia 41.
+el guia llegó a 41 en el tiempo 2.53
+el guia llegó a 42 en el tiempo 10.2
+el guia llegó a 62 en el tiempo 22.54
+exc2 llegó a 41 en el tiempo 23.27
+exc1 llegó a 41 en el tiempo 2.12
+exc0 llegó a 41 en el tiempo 0.35
+exc2 llegó a 42 en el tiempo 22.92
+exc1 llegó a 42 en el tiempo 23.57
+exc0 llegó a 42 en el tiempo 7.17
+exc2 llegó a 62 en el tiempo 0.25
+exc1 llegó a 62 en el tiempo 15.47
+exc0 llegó a 62 en el tiempo 8.98
+Todos los excursionistas han llegado al campamento en 19.
+exc0 reanuda el movimiento desde 62 hacia 47.
+exc1 reanuda el movimiento desde 62 hacia 47.
+exc2 reanuda el movimiento desde 62 hacia 47.
+el guia llegó a 47 en el tiempo 23.64
+exc2 llegó a 47 en el tiempo 4.57
+exc1 llegó a 47 en el tiempo 3.69
+exc0 llegó a 47 en el tiempo 18.87
+Todos los excursionistas han llegado al campamento en 20.
+exc0 reanuda el movimiento desde 47 hacia 53.
+exc1 reanuda el movimiento desde 47 hacia 53.
+exc2 reanuda el movimiento desde 47 hacia 53.
+el guia llegó a 53 en el tiempo 12.89
+exc2 llegó a 53 en el tiempo 13.09
+exc1 llegó a 53 en el tiempo 5.96
+exc0 llegó a 53 en el tiempo 2.57
+Todos los excursionistas han llegado al punto de almuerzo 21.
+exc0 reanuda el movimiento desde 53 hacia 54.
+exc1 reanuda el movimiento desde 53 hacia 54.
+exc2 reanuda el movimiento desde 53 hacia 54.
+el guia llegó a 54 en el tiempo 23.76
+exc2 llegó a 54 en el tiempo 0.43
+exc1 llegó a 54 en el tiempo 1.64
+exc0 llegó a 54 en el tiempo 18.79
+Todos los excursionistas han llegado al campamento en 22.
+exc0 reanuda el movimiento desde 54 hacia 55.
+exc1 reanuda el movimiento desde 54 hacia 55.
+exc2 reanuda el movimiento desde 54 hacia 55.
+el guia llegó a 55 en el tiempo 15.53
+exc2 llegó a 55 en el tiempo 17.96
+exc1 llegó a 55 en el tiempo 8.54
+exc0 llegó a 55 en el tiempo 5.11
+Todos los excursionistas han llegado al punto de almuerzo 23.
+exc0 reanuda el movimiento desde 55 hacia 56.
+exc1 reanuda el movimiento desde 55 hacia 56.
+exc2 reanuda el movimiento desde 55 hacia 56.
+el guia llegó a 56 en el tiempo 4.03
+el guia llegó a 57 en el tiempo 1.68
+el guia llegó a 58 en el tiempo 17.44
+el guia llegó a 59 en el tiempo 5.85
+el guia llegó a 60 en el tiempo 19.48
+exc2 llegó a 56 en el tiempo 2.17
+exc1 llegó a 56 en el tiempo 12.52
+exc0 llegó a 56 en el tiempo 12.28
+exc2 llegó a 57 en el tiempo 1.67
+exc1 llegó a 57 en el tiempo 12.2
+exc0 llegó a 57 en el tiempo 5.61
+exc2 llegó a 58 en el tiempo 8.61
+exc1 llegó a 58 en el tiempo 11.0
+exc0 llegó a 58 en el tiempo 16.56
+exc2 llegó a 59 en el tiempo 15.1
+exc1 llegó a 59 en el tiempo 15.54
+exc0 llegó a 59 en el tiempo 11.37
+exc2 llegó a 60 en el tiempo 16.89
+exc1 llegó a 60 en el tiempo 12.3
+exc0 llegó a 60 en el tiempo 10.68
+Todos los excursionistas han llegado al campamento en 28.
+exc0 reanuda el movimiento desde 60 hacia 59.
+exc1 reanuda el movimiento desde 60 hacia 59.
+exc2 reanuda el movimiento desde 60 hacia 59.
+el guia llegó a 59 en el tiempo 10.3
+el guia llegó a 58 en el tiempo 22.71
+exc2 llegó a 59 en el tiempo 22.45
+exc1 llegó a 59 en el tiempo 17.42
+exc0 llegó a 59 en el tiempo 19.96
+exc2 llegó a 58 en el tiempo 8.77
+exc1 llegó a 58 en el tiempo 10.19
+exc0 llegó a 58 en el tiempo 21.12
