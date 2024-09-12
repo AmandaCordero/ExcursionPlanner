@@ -4,26 +4,30 @@ import numpy as np
 from .defuzzification_module import compute_fuzzy_output
 
 
-def simulate_excursion(desires, points, map):
-        
+def simulate_excursion(desires, route, map):
+    
+    with open("./myapp/utils/trace.txt", "w") as log_file:
+        log_file.write("")
+
     # Configuración del entorno y ejecución de la simulación
     env = simpy.Environment()
 
     path = Path()
     # Ampliar la cantidad de puntos y tamaños en el camino
-    path.points = points
+    path.points = route
     path.size = []  # Distancias entre los puntos
-    for i in range(len(points)):
+    for i in range(len(route)):
         if i == 0:
             continue
-        path.size.append(map.edges[(points[i-1], points[i])])
+        my_tuple = (route[i-1], route[i])
+        path.size.append(map.edges_size[my_tuple])
 
     # Crear más excursionistas para un caso más grande
     guide = GuideAgent(None)  # El entorno aún no se asigna
     excursion_agents = []
 
     for i in range(len(desires)):
-       excursion_agents.append(ExcursionAgent(f'exc{i}', desires[i]))
+       excursion_agents.append(ExcursionAgent(f'exc{i}', None,desires[i]))
 
 
     environment = Enviroment(guide, excursion_agents, path, env, map)
@@ -56,7 +60,7 @@ class Enviroment:
         self.map = map
 
     def get_time_of_day(self):
-        return (self.env.now + 7) % 24
+        return round((self.env.now + 7) % 24, 2)
     
     def calculate_dispersion(self):
         firstexc = self.guide.current_position
@@ -197,7 +201,7 @@ class ExcursionAgent:
             else:
                 # Si no es reagrupación, camp o almuerzo, continuar el movimiento normal
                 yield env.timeout(self.intentions["rest"]/60)
-                self.vel = self.vel * self.intentions["walk"]
+                # self.vel = self.vel * self.intentions["walk"]
                 env.process(self.move(point2, point2 + 1, env, ma))
 
     def reanudar(self, env, point1, point2, ma):
@@ -229,3 +233,7 @@ class Path:
         self.points = []
         self.size = []  
 
+def log_trace(message):
+    print(message)
+    with open("./myapp/utils/trace.txt", "a") as log_file:
+        log_file.write(message + "\n")

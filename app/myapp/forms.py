@@ -51,6 +51,8 @@ class PointForm(forms.ModelForm):
 class EdgeForm(forms.ModelForm):
     characteristic_1 = forms.FloatField(label='Characteristic 1', validators=[validate_decimal_range])
     characteristic_2 = forms.FloatField(label='Characteristic 2', validators=[validate_decimal_range])
+    characteristic_3 = forms.FloatField(label='Characteristic 3', validators=[validate_decimal_range])
+    characteristic_4 = forms.FloatField(label='Characteristic 4', validators=[validate_decimal_range])
 
     class Meta:
         model = Edge
@@ -62,12 +64,16 @@ class EdgeForm(forms.ModelForm):
             characteristics = self.instance.characteristics
             self.fields['characteristic_1'].initial = characteristics[0] if len(characteristics) > 0 else None
             self.fields['characteristic_2'].initial = characteristics[1] if len(characteristics) > 1 else None
+            self.fields['characteristic_3'].initial = characteristics[2] if len(characteristics) > 2 else None
+            self.fields['characteristic_4'].initial = characteristics[3] if len(characteristics) > 3 else None
 
     def save(self, commit=True):
         instance = super(EdgeForm, self).save(commit=False)
         instance.characteristics = [
             self.cleaned_data['characteristic_1'],
             self.cleaned_data['characteristic_2'],
+            self.cleaned_data['characteristic_3'],
+            self.cleaned_data['characteristic_4'],
         ]
         if commit:
             instance.save()

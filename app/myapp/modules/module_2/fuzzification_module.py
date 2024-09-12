@@ -65,7 +65,7 @@ def define_fuzzy_variables(context='waiting_time'):
         path_isolation = ctrl.Antecedent(np.arange(0, 1.1, 0.1), 'path_isolation')
         path_challenge = ctrl.Antecedent(np.arange(0, 1.1, 0.1), 'path_challenge')
 
-        walking_speed = ctrl.Consequent(np.arange(0, 10, 1), 'walking_speed')
+        walking_speed = ctrl.Consequent(np.arange(0, 2, 1), 'walking_speed')
 
         for var in [user_fauna, user_flora, user_isolation, user_challenge]:
             var['low'] = fuzz.trimf(var.universe, [0, 0, 0.4])

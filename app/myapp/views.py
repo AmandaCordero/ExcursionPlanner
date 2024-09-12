@@ -201,7 +201,7 @@ def view_route_description(request):
 def run_simulate(request):
 
     with open('./myapp/utils/route_data.json', 'r') as file:
-        points = json.load(file)
+        route = json.load(file)
     
     with open('./myapp/utils/tourists_data.json', 'r') as file:
         tourists = json.load(file)
@@ -210,13 +210,29 @@ def run_simulate(request):
     
     desires = [person['characteristics'] for person in tourists]
 
-    map = {
-        points:[],
-        edges:{}
-    }
-    # simulate_excursion(desires, points, map)
+    edges = {}
+    edges_size = {}
+    points = {}
+    for key in map_data.paths_details.keys():
+        edges[key] = map_data.paths_details[key]["characteristics"] 
+        edges_size[key] = map_data.paths_details[key]["distance"]
+    
+    for key in map_data.points.keys():
+        points[key] = map_data.points[key].characteristics
 
-    map.points = [point.characteristics for point in map_data.points]
+    map = Mapa(points, edges_size, edges=edges)
+    
+    simulate_excursion(desires, route, map)
 
-    info = desires
+    with open('./myapp/utils/trace.txt', 'r') as log_file:
+        trace = log_file.read()
+
+    info = trace
     return render(request, 'run_simulate.html', {'info': info})
+
+
+class Mapa:
+    def __init__(self, points, edges_size, edges):
+        self.points = points
+        self.edges_size = edges_size
+        self.edges = edges
