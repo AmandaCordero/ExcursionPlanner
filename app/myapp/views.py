@@ -2,6 +2,7 @@ import json
 from django.http import JsonResponse
 
 from django.shortcuts import get_object_or_404, render
+import markdown
 
 from .modules.module_2.module_2_main import simulate_excursion
 
@@ -228,6 +229,17 @@ def run_simulate(request):
 
     info = trace
     return render(request, 'run_simulate.html', {'info': info})
+
+def ver_encuesta(request):
+    # Leer el contenido del archivo Markdown
+    with open('./myapp/modules/module_0/info.md', 'r', encoding='utf-8') as file:
+        contenido_markdown = file.read()
+
+    # Convertir el contenido Markdown a HTML
+    contenido_html = markdown.markdown(contenido_markdown)
+
+    # Pasar el contenido HTML al template
+    return render(request, 'survey.html', {'contenido_html': contenido_html})
 
 
 class Mapa:
