@@ -73,7 +73,7 @@ class Enviroment:
         # Verificar si todos los excursionistas han llegado al punto de reagrupación
         self.regroup_count += 1
         if self.regroup_count == len(self.excur)+1:
-            log_trace(f"Todos los excursionistas han llegado al punto de reagrupación {point}.")
+            print(f"Todos los excursionistas han llegado al punto de reagrupación {point}.")
             self.regroup_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
             self.env.process(self.guide.move(point, point +1, self.env,self.path))
@@ -84,7 +84,7 @@ class Enviroment:
         # Verificar si todos los excursionistas han llegado al punto de almuerzo
         self.lunch_count += 1
         if self.lunch_count == len(self.excur)+1:
-            log_trace(f"Todos los excursionistas han llegado al punto de almuerzo {point}.")
+            print(f"Todos los excursionistas han llegado al punto de almuerzo {point}.")
             self.had_lunch = True
             self.lunch_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
@@ -98,7 +98,7 @@ class Enviroment:
         # Verificar si todos los excursionistas han llegado al punto de campamento
         self.camp_count += 1
         if self.camp_count == len(self.excur) +1:
-            log_trace(f"Todos los excursionistas han llegado al campamento en {point}.")
+            print(f"Todos los excursionistas han llegado al campamento en {point}.")
             self.camp_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
             
@@ -121,7 +121,7 @@ class GuideAgent:
         
     def move(self, point1, point2, env, ma):
         yield env.timeout(ma.size[point1] / self.vel)
-        log_trace(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
+        print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
         self.current_position = point2
         if point2 != len(ma.points) - 1:
             self.intentions = []
@@ -186,7 +186,7 @@ class ExcursionAgent:
 
     def move(self, point1, point2, env, ma):
         yield env.timeout(ma.size[point1] / self.vel)
-        log_trace(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
+        print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
         self.current_position = point2
         if point2 != len(ma.points) - 1:
             self.update_beliefs(self.enviroment.map.points[ma.points[point2]], self.enviroment.map.edges[(ma.points[point2], ma.points[point2+1])])
@@ -201,12 +201,12 @@ class ExcursionAgent:
             else:
                 # Si no es reagrupación, camp o almuerzo, continuar el movimiento normal
                 yield env.timeout(self.intentions["rest"]/60)
-                self.vel = self.vel * self.intentions["walk"]
+                # self.vel = self.vel * self.intentions["walk"]
                 env.process(self.move(point2, point2 + 1, env, ma))
 
     def reanudar(self, env, point1, point2, ma):
         # Reanudar el movimiento después de reagruparse, almorzar o acampar
-        log_trace(f"{self.name} reanuda el movimiento desde {ma.points[point1]} hacia {ma.points[point2]}.")
+        print(f"{self.name} reanuda el movimiento desde {ma.points[point1]} hacia {ma.points[point2]}.")
         env.process(self.move(point1, point2, env, ma))
 
     def update_beliefs(self, point_c, edge_c):

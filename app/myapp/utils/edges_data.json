@@ -3,7 +3,7 @@
         "id": 0,
         "point1": 0,
         "point2": 1,
-        "distance": 143.94147114027967,
+        "distance": 1.4394147114027966,
         "characteristics": [
             0,
             0.4,
@@ -17,7 +17,7 @@
         "id": 1,
         "point1": 0,
         "point2": 7,
-        "distance": 182.21462653327893,
+        "distance": 1.8221462653327893,
         "characteristics": [
             0,
             0,
@@ -31,7 +31,7 @@
         "id": 2,
         "point1": 1,
         "point2": 10,
-        "distance": 233.00259065618783,
+        "distance": 2.3300259065618785,
         "characteristics": [
             0.1,
             0,
@@ -45,7 +45,7 @@
         "id": 3,
         "point1": 2,
         "point2": 3,
-        "distance": 138.48857801796106,
+        "distance": 1.3848857801796106,
         "characteristics": [
             0,
             0,
@@ -59,7 +59,7 @@
         "id": 4,
         "point1": 3,
         "point2": 4,
-        "distance": 155.10864433221337,
+        "distance": 1.5510864433221336,
         "characteristics": [
             0,
             0,
@@ -73,7 +73,7 @@
         "id": 5,
         "point1": 3,
         "point2": 6,
-        "distance": 113.07764064044152,
+        "distance": 1.1307764064044152,
         "characteristics": [
             0,
             0,
@@ -87,7 +87,7 @@
         "id": 6,
         "point1": 4,
         "point2": 5,
-        "distance": 125.524865872714,
+        "distance": 1.25524865872714,
         "characteristics": [
             0.4,
             0,
@@ -101,7 +101,7 @@
         "id": 7,
         "point1": 5,
         "point2": 66,
-        "distance": 155.3993620398445,
+        "distance": 1.553993620398445,
         "characteristics": [
             0.4,
             0,
@@ -115,7 +115,7 @@
         "id": 8,
         "point1": 6,
         "point2": 8,
-        "distance": 188.12494725737457,
+        "distance": 1.8812494725737456,
         "characteristics": [
             0,
             0,
@@ -129,7 +129,7 @@
         "id": 9,
         "point1": 6,
         "point2": 17,
-        "distance": 157.0875632579411,
+        "distance": 1.570875632579411,
         "characteristics": [
             0,
             0,
@@ -143,7 +143,7 @@
         "id": 10,
         "point1": 7,
         "point2": 8,
-        "distance": 131.51681487560518,
+        "distance": 1.3151681487560518,
         "characteristics": [
             0,
             0,
@@ -157,7 +157,7 @@
         "id": 11,
         "point1": 7,
         "point2": 9,
-        "distance": 146.72617529928752,
+        "distance": 1.467261752992875,
         "characteristics": [
             0.4,
             0.3,
@@ -171,7 +171,7 @@
         "id": 12,
         "point1": 8,
         "point2": 13,
-        "distance": 142.27622613304328,
+        "distance": 1.4227622613304327,
         "characteristics": [
             0,
             0,
@@ -185,7 +185,7 @@
         "id": 13,
         "point1": 9,
         "point2": 10,
-        "distance": 232.62658175859323,
+        "distance": 2.3262658175859325,
         "characteristics": [
             0,
             0,
@@ -199,7 +199,7 @@
         "id": 14,
         "point1": 9,
         "point2": 11,
-        "distance": 147.2953021774598,
+        "distance": 1.472953021774598,
         "characteristics": [
             0,
             0,
@@ -213,7 +213,7 @@
         "id": 15,
         "point1": 10,
         "point2": 24,
-        "distance": 277.1919054268084,
+        "distance": 2.771919054268084,
         "characteristics": [
             0,
             0,
@@ -227,7 +227,7 @@
         "id": 16,
         "point1": 11,
         "point2": 12,
-        "distance": 135.67627241573788,
+        "distance": 1.3567627241573788,
         "characteristics": [
             0,
             0.2,
@@ -241,7 +241,7 @@
         "id": 17,
         "point1": 11,
         "point2": 24,
-        "distance": 154.32618388738553,
+        "distance": 1.5432618388738553,
         "characteristics": [
             0,
             0,
@@ -255,7 +255,7 @@
         "id": 18,
         "point1": 12,
         "point2": 22,
-        "distance": 202.10851389715174,
+        "distance": 2.021085138971517,
         "characteristics": [
             0,
             0,
@@ -269,7 +269,7 @@
         "id": 19,
         "point1": 12,
         "point2": 23,
-        "distance": 211.90120444270946,
+        "distance": 2.1190120444270946,
         "characteristics": [
             0,
             0,
@@ -283,7 +283,7 @@
         "id": 20,
         "point1": 13,
         "point2": 14,
-        "distance": 191.1736519326464,
+        "distance": 1.9117365193264642,
         "characteristics": [
             0,
             0.4,
@@ -297,7 +297,7 @@
         "id": 21,
         "point1": 14,
         "point2": 64,
-        "distance": 175.0,
+        "distance": 1.75,
         "characteristics": [
             0.9,
             0,
@@ -311,7 +311,7 @@
         "id": 22,
         "point1": 16,
         "point2": 17,
-        "distance": 235.05896544378575,
+        "distance": 2.3505896544378575,
         "characteristics": [
             0,
             0,
@@ -325,7 +325,7 @@
         "id": 23,
         "point1": 16,
         "point2": 18,
-        "distance": 171.75795661885923,
+        "distance": 1.7175795661885922,
         "characteristics": [
             0,
             0,
@@ -339,7 +339,7 @@
         "id": 24,
         "point1": 16,
         "point2": 64,
-        "distance": 130.67971810589327,
+        "distance": 1.3067971810589327,
         "characteristics": [
             0,
             0,
@@ -353,7 +353,7 @@
         "id": 25,
         "point1": 17,
         "point2": 31,
-        "distance": 220.23236501624805,
+        "distance": 2.2023236501624806,
         "characteristics": [
             0.7,
             0,
@@ -367,7 +367,7 @@
         "id": 26,
         "point1": 19,
         "point2": 20,
-        "distance": 123.19855767980596,
+        "distance": 1.2319855767980596,
         "characteristics": [
             0,
             0,
@@ -381,7 +381,7 @@
         "id": 27,
         "point1": 20,
         "point2": 21,
-        "distance": 151.49485585818027,
+        "distance": 1.5149485585818028,
         "characteristics": [
             0.8,
             0,
@@ -395,7 +395,7 @@
         "id": 28,
         "point1": 21,
         "point2": 28,
-        "distance": 234.54809671194118,
+        "distance": 2.345480967119412,
         "characteristics": [
             0,
             0.7,
@@ -409,7 +409,7 @@
         "id": 29,
         "point1": 21,
         "point2": 64,
-        "distance": 206.20819440733575,
+        "distance": 2.0620819440733573,
         "characteristics": [
             0,
             0,
@@ -423,7 +423,7 @@
         "id": 30,
         "point1": 22,
         "point2": 23,
-        "distance": 173.0,
+        "distance": 1.73,
         "characteristics": [
             0,
             0,
@@ -437,7 +437,7 @@
         "id": 31,
         "point1": 23,
         "point2": 25,
-        "distance": 165.7179382586272,
+        "distance": 1.6571793825862722,
         "characteristics": [
             0,
             0,
@@ -451,7 +451,7 @@
         "id": 32,
         "point1": 24,
         "point2": 25,
-        "distance": 299.07227866625385,
+        "distance": 2.9907227866625385,
         "characteristics": [
             0,
             0,
@@ -465,7 +465,7 @@
         "id": 33,
         "point1": 25,
         "point2": 26,
-        "distance": 263.486017459706,
+        "distance": 2.6348601745970597,
         "characteristics": [
             0,
             0,
@@ -479,7 +479,7 @@
         "id": 34,
         "point1": 26,
         "point2": 27,
-        "distance": 189.8311609167624,
+        "distance": 1.898311609167624,
         "characteristics": [
             0,
             0,
@@ -493,7 +493,7 @@
         "id": 35,
         "point1": 26,
         "point2": 38,
-        "distance": 349.1070042643602,
+        "distance": 3.491070042643602,
         "characteristics": [
             0,
             0,
@@ -507,7 +507,7 @@
         "id": 36,
         "point1": 26,
         "point2": 63,
-        "distance": 198.11144452742334,
+        "distance": 1.9811144452742335,
         "characteristics": [
             0,
             0,
@@ -521,7 +521,7 @@
         "id": 37,
         "point1": 27,
         "point2": 65,
-        "distance": 106.87620966986684,
+        "distance": 1.0687620966986684,
         "characteristics": [
             0,
             0,
@@ -535,7 +535,7 @@
         "id": 38,
         "point1": 28,
         "point2": 29,
-        "distance": 168.00362314084367,
+        "distance": 1.6800362314084367,
         "characteristics": [
             0,
             0,
@@ -549,7 +549,7 @@
         "id": 39,
         "point1": 28,
         "point2": 63,
-        "distance": 178.73616430514,
+        "distance": 1.7873616430513999,
         "characteristics": [
             0,
             0,
@@ -563,7 +563,7 @@
         "id": 40,
         "point1": 29,
         "point2": 33,
-        "distance": 187.88686666919483,
+        "distance": 1.8788686666919483,
         "characteristics": [
             0,
             0,
@@ -577,7 +577,7 @@
         "id": 41,
         "point1": 29,
         "point2": 34,
-        "distance": 199.7779709471866,
+        "distance": 1.997779709471866,
         "characteristics": [
             0,
             0,
@@ -591,7 +591,7 @@
         "id": 42,
         "point1": 30,
         "point2": 33,
-        "distance": 149.80981915623332,
+        "distance": 1.4980981915623333,
         "characteristics": [
             0,
             0,
@@ -605,7 +605,7 @@
         "id": 43,
         "point1": 31,
         "point2": 32,
-        "distance": 391.22172026263144,
+        "distance": 3.9122172026263144,
         "characteristics": [
             0,
             0,
@@ -619,7 +619,7 @@
         "id": 44,
         "point1": 32,
         "point2": 33,
-        "distance": 139.0,
+        "distance": 1.39,
         "characteristics": [
             0,
             0,
@@ -633,7 +633,7 @@
         "id": 45,
         "point1": 32,
         "point2": 45,
-        "distance": 494.0011013202501,
+        "distance": 4.940011013202501,
         "characteristics": [
             0,
             0,
@@ -647,7 +647,7 @@
         "id": 46,
         "point1": 34,
         "point2": 61,
-        "distance": 161.3968295572929,
+        "distance": 1.613968295572929,
         "characteristics": [
             0,
             0,
@@ -661,7 +661,7 @@
         "id": 47,
         "point1": 35,
         "point2": 36,
-        "distance": 167.2731853408954,
+        "distance": 1.672731853408954,
         "characteristics": [
             0,
             0,
@@ -675,7 +675,7 @@
         "id": 48,
         "point1": 35,
         "point2": 61,
-        "distance": 96.96752561957543,
+        "distance": 0.9696752561957542,
         "characteristics": [
             0,
             0,
@@ -689,7 +689,7 @@
         "id": 49,
         "point1": 36,
         "point2": 61,
-        "distance": 91.71709649683788,
+        "distance": 0.9171709649683788,
         "characteristics": [
             0,
             0,
@@ -703,7 +703,7 @@
         "id": 50,
         "point1": 36,
         "point2": 67,
-        "distance": 116.87620966986684,
+        "distance": 1.1687620966986685,
         "characteristics": [
             0,
             0,
@@ -717,7 +717,7 @@
         "id": 51,
         "point1": 37,
         "point2": 51,
-        "distance": 162.8397853963424,
+        "distance": 1.6283978539634238,
         "characteristics": [
             0,
             0,
@@ -731,7 +731,7 @@
         "id": 52,
         "point1": 37,
         "point2": 63,
-        "distance": 134.0701538527936,
+        "distance": 1.340701538527936,
         "characteristics": [
             0,
             0,
@@ -745,7 +745,7 @@
         "id": 53,
         "point1": 38,
         "point2": 39,
-        "distance": 245.85836269662454,
+        "distance": 2.4585836269662455,
         "characteristics": [
             0,
             0,
@@ -759,7 +759,7 @@
         "id": 54,
         "point1": 38,
         "point2": 51,
-        "distance": 146.7040599250805,
+        "distance": 1.4670405992508049,
         "characteristics": [
             0,
             0,
@@ -773,7 +773,7 @@
         "id": 55,
         "point1": 39,
         "point2": 40,
-        "distance": 224.11212016137713,
+        "distance": 2.241121201613771,
         "characteristics": [
             0,
             0,
@@ -787,7 +787,7 @@
         "id": 56,
         "point1": 39,
         "point2": 50,
-        "distance": 179.5313584826006,
+        "distance": 1.795313584826006,
         "characteristics": [
             0,
             0,
@@ -801,7 +801,7 @@
         "id": 57,
         "point1": 39,
         "point2": 60,
-        "distance": 420.0597517435721,
+        "distance": 4.200597517435721,
         "characteristics": [
             0,
             0,
@@ -815,7 +815,7 @@
         "id": 58,
         "point1": 40,
         "point2": 41,
-        "distance": 160.356688476182,
+        "distance": 1.60356688476182,
         "characteristics": [
             0,
             0,
@@ -829,7 +829,7 @@
         "id": 59,
         "point1": 40,
         "point2": 67,
-        "distance": 134.84390253432485,
+        "distance": 1.3484390253432486,
         "characteristics": [
             0,
             0,
@@ -843,7 +843,7 @@
         "id": 60,
         "point1": 41,
         "point2": 42,
-        "distance": 120.45361017187261,
+        "distance": 1.2045361017187262,
         "characteristics": [
             0,
             0,
@@ -857,7 +857,7 @@
         "id": 61,
         "point1": 41,
         "point2": 48,
-        "distance": 173.22011031974526,
+        "distance": 1.7322011031974527,
         "characteristics": [
             0,
             0,
@@ -871,7 +871,7 @@
         "id": 62,
         "point1": 41,
         "point2": 67,
-        "distance": 121.51847122568385,
+        "distance": 1.2151847122568384,
         "characteristics": [
             0,
             0,
@@ -885,7 +885,7 @@
         "id": 63,
         "point1": 42,
         "point2": 62,
-        "distance": 138.26818553942798,
+        "distance": 1.3826818553942797,
         "characteristics": [
             0,
             0,
@@ -899,7 +899,7 @@
         "id": 64,
         "point1": 43,
         "point2": 44,
-        "distance": 177.90621564255585,
+        "distance": 1.7790621564255584,
         "characteristics": [
             0,
             0,
@@ -913,7 +913,7 @@
         "id": 65,
         "point1": 44,
         "point2": 45,
-        "distance": 114.93807697875924,
+        "distance": 1.1493807697875924,
         "characteristics": [
             0,
             0,
@@ -927,7 +927,7 @@
         "id": 66,
         "point1": 45,
         "point2": 55,
-        "distance": 454.31670754496406,
+        "distance": 4.543167075449641,
         "characteristics": [
             0,
             0,
@@ -941,7 +941,7 @@
         "id": 67,
         "point1": 46,
         "point2": 54,
-        "distance": 170.80137613954986,
+        "distance": 1.7080137613954987,
         "characteristics": [
             0,
             0,
@@ -955,7 +955,7 @@
         "id": 68,
         "point1": 46,
         "point2": 62,
-        "distance": 187.2800050864699,
+        "distance": 1.8728000508646991,
         "characteristics": [
             0,
             0,
@@ -969,7 +969,7 @@
         "id": 69,
         "point1": 47,
         "point2": 53,
-        "distance": 121.80339887498948,
+        "distance": 1.2180339887498948,
         "characteristics": [
             0,
             0,
@@ -983,7 +983,7 @@
         "id": 70,
         "point1": 47,
         "point2": 57,
-        "distance": 173.41664064126334,
+        "distance": 1.7341664064126334,
         "characteristics": [
             0,
             0,
@@ -997,7 +997,7 @@
         "id": 71,
         "point1": 47,
         "point2": 62,
-        "distance": 109.00505037623081,
+        "distance": 1.090050503762308,
         "characteristics": [
             0,
             0,
@@ -1011,7 +1011,7 @@
         "id": 72,
         "point1": 48,
         "point2": 49,
-        "distance": 148.72657663724664,
+        "distance": 1.4872657663724664,
         "characteristics": [
             0,
             0,
@@ -1025,7 +1025,7 @@
         "id": 73,
         "point1": 48,
         "point2": 62,
-        "distance": 175.08062419270823,
+        "distance": 1.7508062419270822,
         "characteristics": [
             0,
             0,
@@ -1039,7 +1039,7 @@
         "id": 74,
         "point1": 49,
         "point2": 50,
-        "distance": 162.3411395205195,
+        "distance": 1.623411395205195,
         "characteristics": [
             0,
             0,
@@ -1053,7 +1053,7 @@
         "id": 75,
         "point1": 49,
         "point2": 52,
-        "distance": 176.73200069437868,
+        "distance": 1.7673200069437869,
         "characteristics": [
             0,
             0,
@@ -1067,7 +1067,7 @@
         "id": 76,
         "point1": 52,
         "point2": 58,
-        "distance": 213.5755975068582,
+        "distance": 2.135755975068582,
         "characteristics": [
             0,
             0,
@@ -1081,7 +1081,7 @@
         "id": 77,
         "point1": 52,
         "point2": 59,
-        "distance": 149.12378292562994,
+        "distance": 1.4912378292562993,
         "characteristics": [
             0,
             0,
@@ -1095,7 +1095,7 @@
         "id": 78,
         "point1": 53,
         "point2": 54,
-        "distance": 170.0,
+        "distance": 1.7,
         "characteristics": [
             0,
             0,
@@ -1109,7 +1109,7 @@
         "id": 79,
         "point1": 54,
         "point2": 55,
-        "distance": 132.1567423129771,
+        "distance": 1.321567423129771,
         "characteristics": [
             0,
             0,
@@ -1123,7 +1123,7 @@
         "id": 80,
         "point1": 55,
         "point2": 56,
-        "distance": 176.57408897558773,
+        "distance": 1.7657408897558773,
         "characteristics": [
             0,
             0,
@@ -1137,7 +1137,7 @@
         "id": 81,
         "point1": 56,
         "point2": 57,
-        "distance": 173.65583872575453,
+        "distance": 1.7365583872575454,
         "characteristics": [
             0,
             0,
@@ -1151,7 +1151,7 @@
         "id": 82,
         "point1": 57,
         "point2": 58,
-        "distance": 151.24404748406687,
+        "distance": 1.5124404748406688,
         "characteristics": [
             0,
             0,
@@ -1165,7 +1165,7 @@
         "id": 83,
         "point1": 58,
         "point2": 59,
-        "distance": 229.79988876526036,
+        "distance": 2.2979988876526036,
         "characteristics": [
             0,
             0,
@@ -1179,7 +1179,7 @@
         "id": 84,
         "point1": 59,
         "point2": 60,
-        "distance": 234.43969204051496,
+        "distance": 2.3443969204051496,
         "characteristics": [
             0,
             0,

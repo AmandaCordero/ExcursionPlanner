@@ -19,23 +19,18 @@ import json
     # }
 
 new_edges = []
-with open('./edges_data.json', 'r') as file:
+with open('./app/myapp/utils/edges_data.json', 'r') as file:
     edges = json.load(file)
 i = 0
 for edge in edges:
-    
-    characteristics = [0,0]
-    if edge['characteristics']:
-        characteristics = edge['characteristics'][:2]
-        interesting = True
     
     new_edges.append(
         {
             'id': i,
             'point1': edge['point1'],
             'point2': edge['point2'],
-            'distance': edge['distance'],
-            'characteristics': characteristics+ [0,0,0,0]
+            'distance': edge['distance']/100,
+            'characteristics': edge['characteristics']
         }
     )
     
