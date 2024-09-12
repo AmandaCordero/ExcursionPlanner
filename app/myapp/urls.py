@@ -26,5 +26,6 @@ urlpatterns = [
     path('save_tourists/', views.save_tourists, name='save_tourists'),
     
     path('plan_route/', views.plan_route_info, name='plan_route'),
+    path('plan_route/get_info/', views.view_route_description, name='get_info'),
     path('run_simulate/', views.run_simulate, name='run_simulate'),
 ]
