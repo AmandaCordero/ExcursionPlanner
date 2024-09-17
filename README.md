@@ -18,7 +18,7 @@ Esta investigación presenta una simulación de un grupo de personas en una excu
 
 ### Breve descripción del proyecto
 
-El objetivo de esta investigación es simular una excursión con un grupo de excursionistas basándose en sus preferencias individuales, las características del terreno y las rutas disponibles. Para ello, se recolecta información de los excursionistas a través de encuestas y se utiliza un algoritmo A* para maximizar su satisfacción durante el recorrido. Se elabora un anuncio usando el modelo de lenguaje Phind-34B. Se simula mediante agentes BDI, usando un controlador difuso para computar el tiempo de espera de los campistas.
+El objetivo de esta investigación es simular una excursión con un grupo de excursionistas basándose en sus preferencias individuales, las características del terreno y las rutas disponibles. Para ello, se recolecta información de los excursionistas a través de encuestas y se utiliza un algoritmo A* para maximizar su satisfacción durante el recorrido. Se elabora un anuncio usando el modelo de lenguaje Mistralai y se simula mediante agentes BDI, usando un controlador difuso para computar el tiempo de espera de los campistas.
 
 ### 🎯 Objetivos
 
@@ -72,7 +72,7 @@ Un controlador difuso general consiste en cuatro módulos: una base de reglas di
 
 ### Pasos seguidos para la implementación
 
-Se desarrolló un sitio web en Django para interactuar con el guía de la excursión. En el mismo se encuentra una encuesta para los excursionistas, con la cual se obtendrán datos sobre sus preferencias. Posteriormente, el guía puede introducir en la plataforma el mapa de la región de interés. Usamos A* para planificar una ruta óptima en función de las preferencias y características del terreno. Luego se muestra en la web un anuncio elaborado por el modelo de lenguaje Phind-34B, a partir de las características del camino seleccionado.
+Se desarrolló un sitio web en Django para interactuar con el guía de la excursión. En el mismo se encuentra una encuesta para los excursionistas, con la cual se obtendrán datos sobre sus preferencias. Posteriormente, el guía puede introducir en la plataforma el mapa de la región de interés. Usamos A* para planificar una ruta óptima en función de las preferencias y características del terreno. Luego se muestra en la web un anuncio elaborado por el modelo de lenguaje Mistralai, a partir de las características del camino seleccionado.
 
 Para la simulación se modelan los excursionistas con agentes BDI. Aquí se diferencia el agente que representa al guía del resto de los excursionistas, debido a que entre los deseos del guía se encuentra también garantizar un recorrido seguro. Para los excursionistas se utiliza un controlador difuso; con las creencias de estos (características del mapa hasta el punto recorrido) y sus deseos (características recogidas en la encuesta) se aplican reglas como:
 
