@@ -3,36 +3,24 @@
         "id": 1,
         "name": "Alfredo Nu\u00f1o",
         "characteristics": [
+            0.1,
             0.3,
-            1.0,
-            1.0,
-            1.0,
-            1.0,
-            1.0
+            0.0,
+            0.0,
+            0.0,
+            0.8
         ]
     },
     {
-        "id": 3,
-        "name": "David",
+        "id": 2,
+        "name": "Amanda",
         "characteristics": [
+            0.2,
             0.0,
-            1.0,
-            1.0,
-            1.0,
-            1.0,
-            1.0
-        ]
-    },
-    {
-        "id": 4,
-        "name": "Christofer Guerra",
-        "characteristics": [
-            0.1,
             0.0,
-            0.4,
-            1.0,
-            0.1,
-            0.0
+            0.0,
+            0.8,
+            0.3
         ]
     }
 ]

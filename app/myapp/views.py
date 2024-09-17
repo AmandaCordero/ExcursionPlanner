@@ -193,7 +193,7 @@ def view_route_description(request):
             'characteristics':map_data.points[goal].characteristics
         }) 
     
-    time.sleep(5)
+    # time.sleep(2)
     info = phind(interesting_points)
     return JsonResponse(info, safe=False)
     
