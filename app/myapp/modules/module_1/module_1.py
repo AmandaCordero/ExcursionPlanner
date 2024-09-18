@@ -1,4 +1,5 @@
 import heapq
+import numpy as np
 import math
 
 def plan_route(map_data, tourist_preferences):
@@ -118,9 +119,6 @@ def a_star_search(map, characteristics):
             open_list = []
             g_score = {current: 0}
             f_score = {current: heuristic(current, goal, map)}
-        # else:
-        #     goal = get_goal(current, map, interest_points_unvisited, goal, characteristics)
-
 
         for neighbor in get_neighbors(current, map):
             
@@ -209,11 +207,7 @@ def heuristic(start, end, map):
     # Calculamos la distancia real entre los puntos teniendo en cuenta la altura
     real_distance = math.sqrt(distance**2 + elevation**2)
     
-    cost = 0
-    if elevation <= 0:
-        cost = real_distance * (1-elevation/distance)
-    else:
-        cost = real_distance * (1+elevation/distance)
+    cost = real_distance * (1+elevation/real_distance)
     
     return cost
 
@@ -239,13 +233,12 @@ def heuristic2(start, midpoint, end, characteristics, map):
     
     # Calcular el valor de este punto
     point = map.points[midpoint]
-    value = 0
+    sim = 0
     for i in range(4):
-        if point.characteristics[i] == 0 or characteristics[i+2] == 0:
-            continue
-        value += 1000*(1-abs(point.characteristics[i]-characteristics[i+2]))
+        sim += abs(point.characteristics[i+2]-characteristics[i+2])
+    sim = sim/4
         
-    return heuristic(start, midpoint, map) + heuristic(midpoint, end, map) - value
+    return (heuristic(start, midpoint, map) + heuristic(midpoint, end, map))*sim
 
 def get_neighbors(point_id, map):
     """
