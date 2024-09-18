@@ -1,6 +1,5 @@
 import simpy
 import numpy as np
-# from ..utils.map_utils import Map
 from .defuzzification_module import compute_fuzzy_output
 
 
@@ -8,6 +7,9 @@ def simulate_excursion(desires, route, map):
     
     with open("./myapp/utils/trace.txt", "w") as log_file:
         log_file.write("")
+
+    # Precompute all data before starting the simulation
+    precomputed_data = precompute_excursion_data(desires, route, map)
 
     # Configuración del entorno y ejecución de la simulación
     env = simpy.Environment()
@@ -27,7 +29,7 @@ def simulate_excursion(desires, route, map):
     excursion_agents = []
 
     for i in range(len(desires)):
-       excursion_agents.append(ExcursionAgent(f'exc{i}', None,desires[i]))
+       excursion_agents.append(ExcursionAgent(f'exc{i}', None,desires[i], precomputed_data[i]))
 
 
     environment = Enviroment(guide, excursion_agents, path, env, map)
@@ -44,6 +46,41 @@ def simulate_excursion(desires, route, map):
 
     env.run()
 
+def precompute_excursion_data(desires, route, map):
+    # Precompute the waiting times and intentions for each tourist at each point
+    precomputed_data = []
+    
+    for i in range(len(desires)):
+        agent_data = []
+        for point in route:
+            point_data = map.points[point]
+            beliefs = {
+                "point_flora": point_data[2],
+                "point_fauna": point_data[3],
+                "point_history": point_data[4],
+                "point_rivers": point_data[5]
+            }
+            his_desires = {}
+            his_desires["point"] = {
+            'user_flora': desires[i][2],
+            'user_fauna': desires[i][3],
+            'user_history': desires[i][4],
+            'user_rivers':desires[i][5]
+            }
+            his_desires["path"] = {
+            'user_isolation': desires[i][0],
+            'user_challenge':desires[i][1],
+            'user_flora': desires[i][2],
+            'user_fauna': desires[i][3]
+            }
+
+            waiting_time = compute_fuzzy_output(context='waiting_time', **(beliefs | his_desires["point"]))
+            agent_data.append({
+                "waiting_time": waiting_time
+            })
+        precomputed_data.append(agent_data)
+    
+    return precomputed_data
 
 
 class Enviroment:
@@ -162,7 +199,7 @@ class GuideAgent:
 
 
 class ExcursionAgent:
-    def __init__(self, name, enviroment, desires):
+    def __init__(self, name, enviroment, desires, precomputed_data):
         self.name = name
         self.vel = np.random.uniform(2, 3)
         self.beliefs = {}
@@ -183,14 +220,15 @@ class ExcursionAgent:
         self.intentions = {}
         self.current_position = 0
         self.enviroment = enviroment
+        self.precomputed_data = precomputed_data
 
     def move(self, point1, point2, env, ma):
+        waiting_time = self.precomputed_data[point1]["waiting_time"]
+
         yield env.timeout(ma.size[point1] / self.vel)
         print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
         self.current_position = point2
         if point2 != len(ma.points) - 1:
-            self.update_beliefs(self.enviroment.map.points[ma.points[point2]], self.enviroment.map.edges[(ma.points[point2], ma.points[point2+1])])
-            self.form_intentions()
             
             if self.enviroment.mark[point2] == "regroup":
                 self.enviroment.regroup(point2)
@@ -200,8 +238,7 @@ class ExcursionAgent:
                 env.process(self.enviroment.camp(point2))
             else:
                 # Si no es reagrupación, camp o almuerzo, continuar el movimiento normal
-                yield env.timeout(self.intentions["rest"]/60)
-                # self.vel = self.vel * self.intentions["walk"]
+                yield env.timeout(waiting_time/60)
                 env.process(self.move(point2, point2 + 1, env, ma))
 
     def reanudar(self, env, point1, point2, ma):
@@ -223,17 +260,7 @@ class ExcursionAgent:
             'path_fauna': edge_c[3]
         }
 
-    def form_intentions(self):
-        self.intentions["walk"] = compute_fuzzy_output(context='walking_speed', **(self.beliefs["path"] | self.desires["path"]))
-        self.intentions["rest"] = compute_fuzzy_output(context='waiting_time', **(self.beliefs["point"] | self.desires["point"]))
-
-
 class Path:
     def __init__(self):
         self.points = []
         self.size = []  
-
-def log_trace(message):
-    print(message)
-    with open("./myapp/utils/trace.txt", "a") as log_file:
-        log_file.write(message + "\n")
