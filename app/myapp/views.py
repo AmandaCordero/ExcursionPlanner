@@ -17,6 +17,7 @@ from .utils.map_utils import Map
 from .modules.module_1.module_1 import plan_route
 import networkx as nx
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 def pagina_inicio(request):
@@ -239,11 +240,22 @@ def run_simulate(request):
         reagroup_points_data.append(reagroup_points)
         launch_points_data.append(launch_points)
 
-    info = {
-        'camp_points_data': camp_points_data,
-        'reagroup_points_data': reagroup_points_data,
-        'launch_points_data': launch_points_data
-    }
+    camp_stats = calculate_statistics(camp_points_data)
+    reagroup_stats = calculate_statistics(reagroup_points_data)
+    launch_stats = calculate_statistics(launch_points_data)
+
+    info = ""
+    info += "Camp Points Data Statistics:"
+    for stat, value in camp_stats.items():
+        info += f"{stat}: {value}"
+
+    info += "\nReagroup Points Data Statistics:"
+    for stat, value in reagroup_stats.items():
+        info += f"{stat}: {value}"
+
+    info += "\nLaunch Points Data Statistics:"
+    for stat, value in launch_stats.items():
+        info += f"{stat}: {value}" 
     return render(request, 'run_simulate.html', {'info': info})
 
 def ver_encuesta(request):
@@ -348,3 +360,31 @@ def precompute_excursion_data(desires, route, map):
         precomputed_data.append(agent_data)
     
     return precomputed_data
+
+
+def calculate_statistics(data):
+    all_points = [point for sublist in data for point in sublist]
+    total_points = len(all_points)
+    unique_points = len(set(all_points))
+    mean_point = np.mean(all_points)
+
+    median_point = np.median(all_points)
+    if len(all_points) > 0:
+        mode_point = np.argmax(np.bincount(all_points))  # Punto más común (moda)
+        min_point = np.min(all_points)
+        max_point = np.max(all_points)
+    else:
+        mode_point = None
+        min_point = None
+        max_point = None
+
+    
+    return {
+        "Total points": total_points,
+        "Unique points": unique_points,
+        "Mean point": mean_point,
+        "Median point": median_point,
+        "Mode point": mode_point,
+        "Min point": min_point,
+        "Max point": max_point
+    }
