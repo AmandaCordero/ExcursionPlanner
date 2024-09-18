@@ -4,6 +4,8 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 import markdown
 
+from .modules.module_2.defuzzification_module import compute_fuzzy_output
+
 from .modules.module_2.module_2_main import simulate_excursion
 
 from .models import Point, Edge, Tourist
@@ -221,8 +223,10 @@ def run_simulate(request):
         points[key] = map_data.points[key].characteristics
 
     map = Mapa(points, edges_size, edges=edges)
+
+    precomputed_data = precompute_excursion_data(desires, route, map)
     
-    simulate_excursion(desires, route, map)
+    simulate_excursion(desires, route, map, precomputed_data)
 
     with open('./myapp/utils/trace.txt', 'r') as log_file:
         trace = log_file.read()
@@ -247,3 +251,41 @@ class Mapa:
         self.points = points
         self.edges_size = edges_size
         self.edges = edges
+
+
+
+def precompute_excursion_data(desires, route, map):
+    # Precompute the waiting times and intentions for each tourist at each point
+    precomputed_data = []
+    
+    for i in range(len(desires)):
+        agent_data = []
+        for point in route:
+            point_data = map.points[point]
+            beliefs = {
+                "point_flora": point_data[2],
+                "point_fauna": point_data[3],
+                "point_history": point_data[4],
+                "point_rivers": point_data[5]
+            }
+            his_desires = {}
+            his_desires["point"] = {
+            'user_flora': desires[i][2],
+            'user_fauna': desires[i][3],
+            'user_history': desires[i][4],
+            'user_rivers':desires[i][5]
+            }
+            his_desires["path"] = {
+            'user_isolation': desires[i][0],
+            'user_challenge':desires[i][1],
+            'user_flora': desires[i][2],
+            'user_fauna': desires[i][3]
+            }
+
+            waiting_time = compute_fuzzy_output(context='waiting_time', **(beliefs | his_desires["point"]))
+            agent_data.append({
+                "waiting_time": waiting_time
+            })
+        precomputed_data.append(agent_data)
+    
+    return precomputed_data

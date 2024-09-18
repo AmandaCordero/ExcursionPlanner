@@ -3,13 +3,10 @@ import numpy as np
 from .defuzzification_module import compute_fuzzy_output
 
 
-def simulate_excursion(desires, route, map):
+def simulate_excursion(desires, route, map, precomputed_data):
     
     with open("./myapp/utils/trace.txt", "w") as log_file:
         log_file.write("")
-
-    # Precompute all data before starting the simulation
-    precomputed_data = precompute_excursion_data(desires, route, map)
 
     # Configuración del entorno y ejecución de la simulación
     env = simpy.Environment()
@@ -45,42 +42,6 @@ def simulate_excursion(desires, route, map):
         env.process(exc.move(0, 1, env, path))
 
     env.run()
-
-def precompute_excursion_data(desires, route, map):
-    # Precompute the waiting times and intentions for each tourist at each point
-    precomputed_data = []
-    
-    for i in range(len(desires)):
-        agent_data = []
-        for point in route:
-            point_data = map.points[point]
-            beliefs = {
-                "point_flora": point_data[2],
-                "point_fauna": point_data[3],
-                "point_history": point_data[4],
-                "point_rivers": point_data[5]
-            }
-            his_desires = {}
-            his_desires["point"] = {
-            'user_flora': desires[i][2],
-            'user_fauna': desires[i][3],
-            'user_history': desires[i][4],
-            'user_rivers':desires[i][5]
-            }
-            his_desires["path"] = {
-            'user_isolation': desires[i][0],
-            'user_challenge':desires[i][1],
-            'user_flora': desires[i][2],
-            'user_fauna': desires[i][3]
-            }
-
-            waiting_time = compute_fuzzy_output(context='waiting_time', **(beliefs | his_desires["point"]))
-            agent_data.append({
-                "waiting_time": waiting_time
-            })
-        precomputed_data.append(agent_data)
-    
-    return precomputed_data
 
 
 class Enviroment:
