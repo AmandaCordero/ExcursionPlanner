@@ -2,46 +2,55 @@ import simpy
 import numpy as np
 from .defuzzification_module import compute_fuzzy_output
 
+class Simulation:
 
-def simulate_excursion(desires, route, map, precomputed_data):
-    
-    with open("./myapp/utils/trace.txt", "w") as log_file:
-        log_file.write("")
+    def __init__(self):
+        self.camp_points = []
+        self.reagroup_points = []
+        self.launch_points = []
 
-    # Configuración del entorno y ejecución de la simulación
-    env = simpy.Environment()
+    def simulate_excursion(self, desires, route, map, precomputed_data):
 
-    path = Path()
-    # Ampliar la cantidad de puntos y tamaños en el camino
-    path.points = route
-    path.size = []  # Distancias entre los puntos
-    for i in range(len(route)):
-        if i == 0:
-            continue
-        my_tuple = (route[i-1], route[i])
-        path.size.append(map.edges_size[my_tuple])
+        self.camp_points = []
+        self.reagroup_points = []
+        self.launch_points = []
+        
+        # Configuración del entorno y ejecución de la simulación
+        env = simpy.Environment()
 
-    # Crear más excursionistas para un caso más grande
-    guide = GuideAgent(None)  # El entorno aún no se asigna
-    excursion_agents = []
+        path = Path()
+        # Ampliar la cantidad de puntos y tamaños en el camino
+        path.points = route
+        path.size = []  # Distancias entre los puntos
+        for i in range(len(route)):
+            if i == 0:
+                continue
+            my_tuple = (route[i-1], route[i])
+            path.size.append(map.edges_size[my_tuple])
 
-    for i in range(len(desires)):
-       excursion_agents.append(ExcursionAgent(f'exc{i}', None,desires[i], precomputed_data[i]))
+        # Crear más excursionistas para un caso más grande
+        guide = GuideAgent(None, self)  # El entorno aún no se asigna
+        excursion_agents = []
+
+        for i in range(len(desires)):
+            excursion_agents.append(ExcursionAgent(f'exc{i}', None,desires[i], precomputed_data[i]))
 
 
-    environment = Enviroment(guide, excursion_agents, path, env, map)
+        environment = Enviroment(guide, excursion_agents, path, env, map)
 
-    # Asignar el entorno a los agentes
-    guide.enviroment = environment
-    for exc in excursion_agents:
-        exc.enviroment = environment
+        # Asignar el entorno a los agentes
+        guide.enviroment = environment
+        for exc in excursion_agents:
+            exc.enviroment = environment
 
-    # Ejecutar los procesos de movimiento
-    env.process(guide.move(0, 1, env, path))
-    for exc in excursion_agents:
-        env.process(exc.move(0, 1, env, path))
+        # Ejecutar los procesos de movimiento
+        env.process(guide.move(0, 1, env, path))
+        for exc in excursion_agents:
+            env.process(exc.move(0, 1, env, path))
 
-    env.run()
+        env.run()
+
+        return self.camp_points,self.reagroup_points, self.launch_points
 
 
 class Enviroment:
@@ -108,7 +117,7 @@ class Enviroment:
 
 
 class GuideAgent:
-    def __init__(self, enviroment):
+    def __init__(self, enviroment, simulation):
         self.name = "el guia"
         self.vel = np.random.uniform(3, 4)
         self.beliefs = {}
@@ -116,6 +125,7 @@ class GuideAgent:
         self.intentions = []
         self.enviroment = enviroment
         self.current_position = 0
+        self.simulation = simulation
         
     def move(self, point1, point2, env, ma):
         yield env.timeout(ma.size[point1] / self.vel)
@@ -132,12 +142,15 @@ class GuideAgent:
             elif "setup_camp" in self.intentions:
                 self.enviroment.mark[point2] = "camp"
                 env.process(self.enviroment.camp(point2))  # Lógica para acampar
+                self.simulation.camp_points.append(point2)
             elif "have_lunch" in self.intentions:
                 self.enviroment.mark[point2] = "lunch"
                 env.process(self.enviroment.lunch(point2))  # Lógica para almorzar
+                self.simulation.launch_points.append(point2)
             elif "regroup" in self.intentions:
                 self.enviroment.mark[point2] = "regroup"
                 self.enviroment.regroup(point2)  # Reagrupar
+                self.simulation.reagroup_points.append(point2)
 
     def update_beliefs(self):
         self.beliefs["time_of_day"] = self.enviroment.get_time_of_day()
@@ -207,19 +220,6 @@ class ExcursionAgent:
         print(f"{self.name} reanuda el movimiento desde {ma.points[point1]} hacia {ma.points[point2]}.")
         env.process(self.move(point1, point2, env, ma))
 
-    def update_beliefs(self, point_c, edge_c):
-        self.beliefs["point"] = {
-            'point_flora': point_c[2],
-            'point_fauna':point_c[3],
-            'point_history': point_c[4],
-            'point_rivers': point_c[5]
-        }
-        self.beliefs["path"] = {
-            'path_isolation': edge_c[0],
-            'path_challenge':edge_c[1],
-            'path_flora': edge_c[2],
-            'path_fauna': edge_c[3]
-        }
 
 class Path:
     def __init__(self):

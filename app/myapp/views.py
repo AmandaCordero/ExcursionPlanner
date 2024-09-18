@@ -6,7 +6,7 @@ import markdown
 
 from .modules.module_2.defuzzification_module import compute_fuzzy_output
 
-from .modules.module_2.module_2_main import simulate_excursion
+from .modules.module_2.module_2_main import Simulation
 
 from .models import Point, Edge, Tourist
 from .phind import phind
@@ -226,12 +226,22 @@ def run_simulate(request):
 
     precomputed_data = precompute_excursion_data(desires, route, map)
     
-    simulate_excursion(desires, route, map, precomputed_data)
+    simulate = Simulation()
 
-    with open('./myapp/utils/trace.txt', 'r') as log_file:
-        trace = log_file.read()
+    camp_points_data = []
+    reagroup_points_data = []
+    launch_points_data = []
+    for _ in range(100):
+        camp_points, reagroup_points,  launch_points = simulate.simulate_excursion(desires, route, map, precomputed_data)
+        camp_points_data.append(camp_points)
+        reagroup_points_data.append(reagroup_points)
+        launch_points_data.append(launch_points)
 
-    info = trace
+    info = {
+        'camp_points_data': camp_points_data,
+        'reagroup_points_data': reagroup_points_data,
+        'launch_points_data': launch_points_data
+    }
     return render(request, 'run_simulate.html', {'info': info})
 
 def ver_encuesta(request):
