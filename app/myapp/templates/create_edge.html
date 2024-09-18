@@ -130,7 +130,8 @@
     <body class="p-5">
         <div class="row">
             <div class="col-md-4 mr-5">
-                <h1 class="mb-4">Guardar un camino</h1>
+                <h1>Guardar un camino</h1>
+                <p class="mb-4">Los valores de las características deben estar entre 0 y 1</p>
                 <form method="post" action="{% if edge %}{% url 'edit_edge' edge.id %}{% else %}{% url 'create_edge' %}{% endif %}" onsubmit="handleFormSubmit(event)" class="mb-4 text-right">
                     {% csrf_token %}
                     <div class="form-group d-flex justify-content-end">
