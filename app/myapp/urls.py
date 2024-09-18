@@ -1,5 +1,8 @@
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('', views.pagina_inicio, name='pagina_inicio'),
@@ -30,3 +33,6 @@ urlpatterns = [
     path('mostrar_markdown/', views.ver_encuesta, name='mostrar_markdown'),
     path('run_simulate/', views.run_simulate, name='run_simulate'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

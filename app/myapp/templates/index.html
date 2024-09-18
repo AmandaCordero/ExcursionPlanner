@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {% load static %}
     <title>Página de Inicio</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -15,8 +16,16 @@
             <button class="btn btn-success btn-lg ml-3" onclick="location.href='{% url 'mostrar_markdown' %}'">Encuesta</button>
             <button class="btn btn-success btn-lg ml-3" onclick="location.href='{% url 'plan_route' %}'">Crear Ruta</button>
             <button class="btn btn-success btn-lg ml-3" onclick="location.href='{% url 'run_simulate' %}'">Ejecutar Simulación</button>
-        <div>
+        </div>
     </div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <img src="{% static 'images/map.svg' %}" alt="Mapa de Excursión" class="img-fluid w-100 h-auto">
+            </div>
+        </div>
+    </div>
+    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

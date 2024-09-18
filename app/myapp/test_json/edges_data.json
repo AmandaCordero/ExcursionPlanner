@@ -1,521 +1,1206 @@
-{
-  "edges": [
-    {
-      "point1": 0,
-      "point2": 1,
-      "characteristics": [],
-      "distance": 143.94147114027967
-    },
-    {
-      "point1": 0,
-      "point2": 7,
-      "characteristics": [],
-      "distance": 182.21462653327893
-    },
-    {
-      "point1": 1,
-      "point2": 10,
-      "characteristics": [],
-      "distance": 233.00259065618783
-    },
-    {
-      "point1": 2,
-      "point2": 3,
-      "characteristics": [],
-      "distance": 138.48857801796106
-    },
-    {
-      "point1": 3,
-      "point2": 4,
-      "characteristics": [],
-      "distance": 155.10864433221337
-    },
-    {
-      "point1": 3,
-      "point2": 6,
-      "characteristics": [],
-      "distance": 113.07764064044152
-    },
-    {
-      "point1": 4,
-      "point2": 5,
-      "characteristics": [],
-      "distance": 125.524865872714
-    },
-    {
-      "point1": 5,
-      "point2": 66,
-      "characteristics": [],
-      "distance": 155.3993620398445
-    },
-    {
-      "point1": 6,
-      "point2": 8,
-      "characteristics": [],
-      "distance": 188.12494725737457
-    },
-    {
-      "point1": 6,
-      "point2": 17,
-      "characteristics": [],
-      "distance": 157.0875632579411
-    },
-    {
-      "point1": 7,
-      "point2": 8,
-      "characteristics": [],
-      "distance": 131.51681487560518
-    },
-    {
-      "point1": 7,
-      "point2": 9,
-      "characteristics": [
-        0.4,
-        0.3,
-        0,
-        0,
-        0,
-        0
-      ],
-      "distance": 146.72617529928752
-    },
-    {
-      "point1": 8,
-      "point2": 13,
-      "characteristics": [],
-      "distance": 142.27622613304328
-    },
-    {
-      "point1": 9,
-      "point2": 10,
-      "characteristics": [],
-      "distance": 232.62658175859323
-    },
-    {
-      "point1": 9,
-      "point2": 11,
-      "characteristics": [],
-      "distance": 147.2953021774598
-    },
-    {
-      "point1": 10,
-      "point2": 24,
-      "characteristics": [],
-      "distance": 277.1919054268084
-    },
-    {
-      "point1": 11,
-      "point2": 12,
-      "characteristics": [],
-      "distance": 135.67627241573788
-    },
-    {
-      "point1": 11,
-      "point2": 24,
-      "characteristics": [],
-      "distance": 154.32618388738553
-    },
-    {
-      "point1": 12,
-      "point2": 22,
-      "characteristics": [],
-      "distance": 202.10851389715174
-    },
-    {
-      "point1": 12,
-      "point2": 23,
-      "characteristics": [],
-      "distance": 211.90120444270946
-    },
-    {
-      "point1": 13,
-      "point2": 14,
-      "characteristics": [],
-      "distance": 191.1736519326464
-    },
-    {
-      "point1": 14,
-      "point2": 64,
-      "characteristics": [],
-      "distance": 175.0
-    },
-    {
-      "point1": 16,
-      "point2": 17,
-      "characteristics": [],
-      "distance": 235.05896544378575
-    },
-    {
-      "point1": 16,
-      "point2": 18,
-      "characteristics": [],
-      "distance": 171.75795661885923
-    },
-    {
-      "point1": 16,
-      "point2": 64,
-      "characteristics": [],
-      "distance": 130.67971810589327
-    },
-    {
-      "point1": 17,
-      "point2": 31,
-      "characteristics": [],
-      "distance": 220.23236501624805
-    },
-    {
-      "point1": 19,
-      "point2": 20,
-      "characteristics": [],
-      "distance": 123.19855767980596
-    },
-    {
-      "point1": 20,
-      "point2": 21,
-      "characteristics": [],
-      "distance": 151.49485585818027
-    },
-    {
-      "point1": 21,
-      "point2": 28,
-      "characteristics": [],
-      "distance": 234.54809671194118
-    },
-    {
-      "point1": 21,
-      "point2": 64,
-      "characteristics": [],
-      "distance": 206.20819440733575
-    },
-    {
-      "point1": 22,
-      "point2": 23,
-      "characteristics": [],
-      "distance": 173.0
-    },
-    {
-      "point1": 23,
-      "point2": 25,
-      "characteristics": [],
-      "distance": 165.7179382586272
-    },
-    {
-      "point1": 24,
-      "point2": 25,
-      "characteristics": [],
-      "distance": 299.07227866625385
-    },
-    {
-      "point1": 25,
-      "point2": 26,
-      "characteristics": [],
-      "distance": 263.486017459706
-    },
-    {
-      "point1": 26,
-      "point2": 27,
-      "characteristics": [],
-      "distance": 189.8311609167624
-    },
-    {
-      "point1": 26,
-      "point2": 38,
-      "characteristics": [],
-      "distance": 349.1070042643602
-    },
-    {
-      "point1": 26,
-      "point2": 63,
-      "characteristics": [],
-      "distance": 198.11144452742334
-    },
-    {
-      "point1": 27,
-      "point2": 65,
-      "characteristics": [],
-      "distance": 106.87620966986684
-    },
-    {
-      "point1": 28,
-      "point2": 29,
-      "characteristics": [],
-      "distance": 168.00362314084367
-    },
-    {
-      "point1": 28,
-      "point2": 63,
-      "characteristics": [],
-      "distance": 178.73616430514
-    },
-    {
-      "point1": 29,
-      "point2": 33,
-      "characteristics": [],
-      "distance": 187.88686666919483
-    },
-    {
-      "point1": 29,
-      "point2": 34,
-      "characteristics": [],
-      "distance": 199.7779709471866
-    },
-    {
-      "point1": 30,
-      "point2": 33,
-      "characteristics": [],
-      "distance": 149.80981915623332
-    },
-    {
-      "point1": 31,
-      "point2": 32,
-      "characteristics": [],
-      "distance": 391.22172026263144
-    },
-    {
-      "point1": 32,
-      "point2": 33,
-      "characteristics": [],
-      "distance": 139.0
-    },
-    {
-      "point1": 32,
-      "point2": 45,
-      "characteristics": [],
-      "distance": 494.0011013202501
-    },
-    {
-      "point1": 34,
-      "point2": 61,
-      "characteristics": [],
-      "distance": 161.3968295572929
-    },
-    {
-      "point1": 35,
-      "point2": 36,
-      "characteristics": [],
-      "distance": 167.2731853408954
-    },
-    {
-      "point1": 35,
-      "point2": 61,
-      "characteristics": [],
-      "distance": 96.96752561957543
-    },
-    {
-      "point1": 36,
-      "point2": 61,
-      "characteristics": [],
-      "distance": 91.71709649683788
-    },
-    {
-      "point1": 36,
-      "point2": 67,
-      "characteristics": [],
-      "distance": 116.87620966986684
-    },
-    {
-      "point1": 37,
-      "point2": 51,
-      "characteristics": [],
-      "distance": 162.8397853963424
-    },
-    {
-      "point1": 37,
-      "point2": 63,
-      "characteristics": [],
-      "distance": 134.0701538527936
-    },
-    {
-      "point1": 38,
-      "point2": 39,
-      "characteristics": [],
-      "distance": 245.85836269662454
-    },
-    {
-      "point1": 38,
-      "point2": 51,
-      "characteristics": [],
-      "distance": 146.7040599250805
-    },
-    {
-      "point1": 39,
-      "point2": 40,
-      "characteristics": [],
-      "distance": 224.11212016137713
-    },
-    {
-      "point1": 39,
-      "point2": 50,
-      "characteristics": [],
-      "distance": 179.5313584826006
-    },
-    {
-      "point1": 39,
-      "point2": 60,
-      "characteristics": [],
-      "distance": 420.0597517435721
-    },
-    {
-      "point1": 40,
-      "point2": 41,
-      "characteristics": [],
-      "distance": 160.356688476182
-    },
-    {
-      "point1": 40,
-      "point2": 67,
-      "characteristics": [],
-      "distance": 134.84390253432485
-    },
-    {
-      "point1": 41,
-      "point2": 42,
-      "characteristics": [],
-      "distance": 120.45361017187261
-    },
-    {
-      "point1": 41,
-      "point2": 48,
-      "characteristics": [],
-      "distance": 173.22011031974526
-    },
-    {
-      "point1": 41,
-      "point2": 67,
-      "characteristics": [],
-      "distance": 121.51847122568385
-    },
-    {
-      "point1": 42,
-      "point2": 62,
-      "characteristics": [],
-      "distance": 138.26818553942798
-    },
-    {
-      "point1": 43,
-      "point2": 44,
-      "characteristics": [],
-      "distance": 177.90621564255585
-    },
-    {
-      "point1": 44,
-      "point2": 45,
-      "characteristics": [],
-      "distance": 114.93807697875924
-    },
-    {
-      "point1": 45,
-      "point2": 55,
-      "characteristics": [],
-      "distance": 454.31670754496406
-    },
-    {
-      "point1": 46,
-      "point2": 54,
-      "characteristics": [],
-      "distance": 170.80137613954986
-    },
-    {
-      "point1": 46,
-      "point2": 62,
-      "characteristics": [],
-      "distance": 187.2800050864699
-    },
-    {
-      "point1": 47,
-      "point2": 53,
-      "characteristics": [],
-      "distance": 121.80339887498948
-    },
-    {
-      "point1": 47,
-      "point2": 57,
-      "characteristics": [],
-      "distance": 173.41664064126334
-    },
-    {
-      "point1": 47,
-      "point2": 62,
-      "characteristics": [],
-      "distance": 109.00505037623081
-    },
-    {
-      "point1": 48,
-      "point2": 49,
-      "characteristics": [],
-      "distance": 148.72657663724664
-    },
-    {
-      "point1": 48,
-      "point2": 62,
-      "characteristics": [],
-      "distance": 175.08062419270823
-    },
-    {
-      "point1": 49,
-      "point2": 50,
-      "characteristics": [],
-      "distance": 162.3411395205195
-    },
-    {
-      "point1": 49,
-      "point2": 52,
-      "characteristics": [],
-      "distance": 176.73200069437868
-    },
-    {
-      "point1": 52,
-      "point2": 58,
-      "characteristics": [],
-      "distance": 213.5755975068582
-    },
-    {
-      "point1": 52,
-      "point2": 59,
-      "characteristics": [],
-      "distance": 149.12378292562994
-    },
-    {
-      "point1": 53,
-      "point2": 54,
-      "characteristics": [],
-      "distance": 170.0
-    },
-    {
-      "point1": 54,
-      "point2": 55,
-      "characteristics": [],
-      "distance": 132.1567423129771
-    },
-    {
-      "point1": 55,
-      "point2": 56,
-      "characteristics": [],
-      "distance": 176.57408897558773
-    },
-    {
-      "point1": 56,
-      "point2": 57,
-      "characteristics": [],
-      "distance": 173.65583872575453
-    },
-    {
-      "point1": 57,
-      "point2": 58,
-      "characteristics": [],
-      "distance": 151.24404748406687
-    },
-    {
-      "point1": 58,
-      "point2": 59,
-      "characteristics": [],
-      "distance": 229.79988876526036
-    },
-    {
-      "point1": 59,
-      "point2": 60,
-      "characteristics": [],
-      "distance": 234.43969204051496
+[
+    {
+        "id": 0,
+        "point_1": 0,
+        "point_2": 1,
+        "distance": 1.4394147114027966,
+        "characteristics": [
+            0,
+            0.4,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 1,
+        "point_1": 0,
+        "point_2": 7,
+        "distance": 1.8221462653327893,
+        "characteristics": [
+            0,
+            0,
+            0.6,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 2,
+        "point_1": 1,
+        "point_2": 10,
+        "distance": 2.3300259065618785,
+        "characteristics": [
+            0.1,
+            0,
+            0.3,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 3,
+        "point_1": 2,
+        "point_2": 3,
+        "distance": 1.3848857801796106,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 4,
+        "point_1": 3,
+        "point_2": 4,
+        "distance": 1.5510864433221336,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 5,
+        "point_1": 3,
+        "point_2": 6,
+        "distance": 1.1307764064044152,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 6,
+        "point_1": 4,
+        "point_2": 5,
+        "distance": 1.25524865872714,
+        "characteristics": [
+            0.4,
+            0,
+            0.6,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 7,
+        "point_1": 5,
+        "point_2": 66,
+        "distance": 1.553993620398445,
+        "characteristics": [
+            0.4,
+            0,
+            0,
+            0.8,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 8,
+        "point_1": 6,
+        "point_2": 8,
+        "distance": 1.8812494725737456,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 9,
+        "point_1": 6,
+        "point_2": 17,
+        "distance": 1.570875632579411,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 10,
+        "point_1": 7,
+        "point_2": 8,
+        "distance": 1.3151681487560518,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 11,
+        "point_1": 7,
+        "point_2": 9,
+        "distance": 1.467261752992875,
+        "characteristics": [
+            0.4,
+            0.3,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 12,
+        "point_1": 8,
+        "point_2": 13,
+        "distance": 1.4227622613304327,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 13,
+        "point_1": 9,
+        "point_2": 10,
+        "distance": 2.3262658175859325,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 14,
+        "point_1": 9,
+        "point_2": 11,
+        "distance": 1.472953021774598,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 15,
+        "point_1": 10,
+        "point_2": 24,
+        "distance": 2.771919054268084,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 16,
+        "point_1": 11,
+        "point_2": 12,
+        "distance": 1.3567627241573788,
+        "characteristics": [
+            0,
+            0.2,
+            0.1,
+            0.3,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 17,
+        "point_1": 11,
+        "point_2": 24,
+        "distance": 1.5432618388738553,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 18,
+        "point_1": 12,
+        "point_2": 22,
+        "distance": 2.021085138971517,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 19,
+        "point_1": 12,
+        "point_2": 23,
+        "distance": 2.1190120444270946,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 20,
+        "point_1": 13,
+        "point_2": 14,
+        "distance": 1.9117365193264642,
+        "characteristics": [
+            0,
+            0.4,
+            0.5,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 21,
+        "point_1": 14,
+        "point_2": 64,
+        "distance": 1.75,
+        "characteristics": [
+            0.9,
+            0,
+            0.7,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 21,
+        "point_1": 15,
+        "point_2": 64,
+        "distance": 1.75,
+        "characteristics": [
+            0,
+            0.5,
+            0.2,
+            0.1,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 22,
+        "point_1": 16,
+        "point_2": 17,
+        "distance": 2.3505896544378575,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 23,
+        "point_1": 16,
+        "point_2": 18,
+        "distance": 1.7175795661885922,
+        "characteristics": [
+            0,
+            0,
+            0.8,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 24,
+        "point_1": 16,
+        "point_2": 64,
+        "distance": 1.3067971810589327,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 25,
+        "point_1": 17,
+        "point_2": 31,
+        "distance": 2.2023236501624806,
+        "characteristics": [
+            0.7,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 26,
+        "point_1": 19,
+        "point_2": 20,
+        "distance": 1.2319855767980596,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 27,
+        "point_1": 20,
+        "point_2": 21,
+        "distance": 1.5149485585818028,
+        "characteristics": [
+            0.8,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 28,
+        "point_1": 21,
+        "point_2": 28,
+        "distance": 2.345480967119412,
+        "characteristics": [
+            0,
+            0.7,
+            0,
+            0.7,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 29,
+        "point_1": 21,
+        "point_2": 64,
+        "distance": 2.0620819440733573,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 30,
+        "point_1": 22,
+        "point_2": 23,
+        "distance": 1.73,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 31,
+        "point_1": 23,
+        "point_2": 25,
+        "distance": 1.6571793825862722,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 32,
+        "point_1": 24,
+        "point_2": 25,
+        "distance": 2.9907227866625385,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 33,
+        "point_1": 25,
+        "point_2": 26,
+        "distance": 2.6348601745970597,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 34,
+        "point_1": 26,
+        "point_2": 27,
+        "distance": 1.898311609167624,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 35,
+        "point_1": 26,
+        "point_2": 38,
+        "distance": 3.491070042643602,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 36,
+        "point_1": 26,
+        "point_2": 63,
+        "distance": 1.9811144452742335,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 37,
+        "point_1": 27,
+        "point_2": 65,
+        "distance": 1.0687620966986684,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 38,
+        "point_1": 28,
+        "point_2": 29,
+        "distance": 1.6800362314084367,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 39,
+        "point_1": 28,
+        "point_2": 63,
+        "distance": 1.7873616430513999,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 40,
+        "point_1": 29,
+        "point_2": 33,
+        "distance": 1.8788686666919483,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 41,
+        "point_1": 29,
+        "point_2": 34,
+        "distance": 1.997779709471866,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 42,
+        "point_1": 30,
+        "point_2": 33,
+        "distance": 1.4980981915623333,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 43,
+        "point_1": 31,
+        "point_2": 32,
+        "distance": 3.9122172026263144,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 44,
+        "point_1": 32,
+        "point_2": 33,
+        "distance": 1.39,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 45,
+        "point_1": 32,
+        "point_2": 45,
+        "distance": 4.940011013202501,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 46,
+        "point_1": 34,
+        "point_2": 61,
+        "distance": 1.613968295572929,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 47,
+        "point_1": 35,
+        "point_2": 36,
+        "distance": 1.672731853408954,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 48,
+        "point_1": 35,
+        "point_2": 61,
+        "distance": 0.9696752561957542,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 49,
+        "point_1": 36,
+        "point_2": 61,
+        "distance": 0.9171709649683788,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 50,
+        "point_1": 36,
+        "point_2": 67,
+        "distance": 1.1687620966986685,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 51,
+        "point_1": 37,
+        "point_2": 51,
+        "distance": 1.6283978539634238,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 52,
+        "point_1": 37,
+        "point_2": 63,
+        "distance": 1.340701538527936,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 53,
+        "point_1": 38,
+        "point_2": 39,
+        "distance": 2.4585836269662455,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 54,
+        "point_1": 38,
+        "point_2": 51,
+        "distance": 1.4670405992508049,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 55,
+        "point_1": 39,
+        "point_2": 40,
+        "distance": 2.241121201613771,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 56,
+        "point_1": 39,
+        "point_2": 50,
+        "distance": 1.795313584826006,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 57,
+        "point_1": 39,
+        "point_2": 60,
+        "distance": 4.200597517435721,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 58,
+        "point_1": 40,
+        "point_2": 41,
+        "distance": 1.60356688476182,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 59,
+        "point_1": 40,
+        "point_2": 67,
+        "distance": 1.3484390253432486,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 60,
+        "point_1": 41,
+        "point_2": 42,
+        "distance": 1.2045361017187262,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 61,
+        "point_1": 41,
+        "point_2": 48,
+        "distance": 1.7322011031974527,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 62,
+        "point_1": 41,
+        "point_2": 67,
+        "distance": 1.2151847122568384,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 63,
+        "point_1": 42,
+        "point_2": 62,
+        "distance": 1.3826818553942797,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 64,
+        "point_1": 43,
+        "point_2": 44,
+        "distance": 1.7790621564255584,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 65,
+        "point_1": 44,
+        "point_2": 45,
+        "distance": 1.1493807697875924,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 66,
+        "point_1": 45,
+        "point_2": 55,
+        "distance": 4.543167075449641,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 67,
+        "point_1": 46,
+        "point_2": 54,
+        "distance": 1.7080137613954987,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 68,
+        "point_1": 46,
+        "point_2": 62,
+        "distance": 1.8728000508646991,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 69,
+        "point_1": 47,
+        "point_2": 53,
+        "distance": 1.2180339887498948,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 70,
+        "point_1": 47,
+        "point_2": 57,
+        "distance": 1.7341664064126334,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 71,
+        "point_1": 47,
+        "point_2": 62,
+        "distance": 1.090050503762308,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 72,
+        "point_1": 48,
+        "point_2": 49,
+        "distance": 1.4872657663724664,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 73,
+        "point_1": 48,
+        "point_2": 62,
+        "distance": 1.7508062419270822,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 74,
+        "point_1": 49,
+        "point_2": 50,
+        "distance": 1.623411395205195,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 75,
+        "point_1": 49,
+        "point_2": 52,
+        "distance": 1.7673200069437869,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 76,
+        "point_1": 52,
+        "point_2": 58,
+        "distance": 2.135755975068582,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 77,
+        "point_1": 52,
+        "point_2": 59,
+        "distance": 1.4912378292562993,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 78,
+        "point_1": 53,
+        "point_2": 54,
+        "distance": 1.7,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 79,
+        "point_1": 54,
+        "point_2": 55,
+        "distance": 1.321567423129771,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 80,
+        "point_1": 55,
+        "point_2": 56,
+        "distance": 1.7657408897558773,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 81,
+        "point_1": 56,
+        "point_2": 57,
+        "distance": 1.7365583872575454,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 82,
+        "point_1": 57,
+        "point_2": 58,
+        "distance": 1.5124404748406688,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 83,
+        "point_1": 58,
+        "point_2": 59,
+        "distance": 2.2979988876526036,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 84,
+        "point_1": 59,
+        "point_2": 60,
+        "distance": 2.3443969204051496,
+        "characteristics": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
     }
-  ]
-}
+]

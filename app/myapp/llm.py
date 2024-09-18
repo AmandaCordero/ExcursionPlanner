@@ -1,6 +1,6 @@
 from mistralai import Mistral
 
-def phind(points):
+def show_info_route(points):
     MISTRAL_API_KEY='amk4WhcFI6dXBHJUzcjhQhwUhmgjMqlP'
     client = Mistral(api_key=MISTRAL_API_KEY)
 
@@ -77,4 +77,4 @@ if __name__ == "__main__":
         "height": 6
     }]
     
-    print(phind(points))
+    print(show_info_route(points))

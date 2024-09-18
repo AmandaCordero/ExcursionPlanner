@@ -116,7 +116,7 @@
                 })
                 .then(response => {
                     if (!response.ok) {
-                        alert('Fallo guardar los caminos.');
+                        alert('Caminos guardados.');
                     }
                 })
                 .catch(error => {
@@ -130,36 +130,37 @@
     <body class="p-5">
         <div class="row">
             <div class="col-md-4 mr-5">
-                <h1 class="mb-4">Guardar un camino</h1>
+                <h1>Guardar un camino</h1>
+                <p class="mb-4">Los valores de las características deben estar entre 0 y 1</p>
                 <form method="post" action="{% if edge %}{% url 'edit_edge' edge.id %}{% else %}{% url 'create_edge' %}{% endif %}" onsubmit="handleFormSubmit(event)" class="mb-4 text-right">
                     {% csrf_token %}
-                    <div class="form-group">
-                        <label for="id_point1">Punto 1</label>
-                        {{ form.point1|add_class:"form-control" }}
+                    <div class="form-group d-flex justify-content-end">
+                        <label class="mr-3" for="id_point1">Punto 1</label>
+                        {{ form.point1|add_class:"form-control w-50" }}
                     </div>
-                    <div class="form-group">
-                        <label for="id_point2">Punto 2</label>
-                        {{ form.point2|add_class:"form-control" }}
+                    <div class="form-group d-flex justify-content-end">
+                        <label class="mr-3" for="id_point2">Punto 2</label>
+                        {{ form.point2|add_class:"form-control w-50" }}
                     </div>
-                    <div class="form-group">
-                        <label for="id_distance">Distancia</label>
-                        {{ form.distance|add_class:"form-control" }}
+                    <div class="form-group d-flex justify-content-end">
+                        <label class="mr-3" for="id_distance">Distancia</label>
+                        {{ form.distance|add_class:"form-control w-50" }}
                     </div>
-                    <div class="form-group">
-                        <label for="id_characteristic_1">Característica 1</label>
-                        {{ form.characteristic_1|add_class:"form-control" }}
+                    <div class="form-group d-flex justify-content-end">
+                        <label class="mr-3" for="id_characteristic_1">Poco transitado</label>
+                        {{ form.characteristic_1|add_class:"form-control w-50" }}
                     </div>
-                    <div class="form-group">
-                        <label for="id_characteristic_2">Característica 2</label>
-                        {{ form.characteristic_2|add_class:"form-control" }}
+                    <div class="form-group d-flex justify-content-end">
+                        <label class="mr-3" for="id_characteristic_2">Superación física</label>
+                        {{ form.characteristic_2|add_class:"form-control w-50" }}
                     </div>
-                    <div class="form-group">
-                        <label for="id_characteristic_3">Característica 3</label>
-                        {{ form.characteristic_3|add_class:"form-control" }}
+                    <div class="form-group d-flex justify-content-end">
+                        <label class="mr-3" for="id_characteristic_3">Variedad de flora</label>
+                        {{ form.characteristic_3|add_class:"form-control w-50" }}
                     </div>
-                    <div class="form-group">
-                        <label for="id_characteristic_4">Característica 4</label>
-                        {{ form.characteristic_4|add_class:"form-control" }}
+                    <div class="form-group d-flex justify-content-end">
+                        <label class="mr-3" for="id_characteristic_4">Variedad de fauna</label>
+                        {{ form.characteristic_4|add_class:"form-control w-50" }}
                     </div>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
