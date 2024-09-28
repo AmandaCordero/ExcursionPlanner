@@ -2,7 +2,11 @@ import heapq
 import random
 import math
 
-def plan_route(map_data):
+temperature = 1000
+best_solution = []
+best_cost = None
+
+def plan_route(map_data, last_route=[], cost=None):    
     """
     Planifica una ruta basada en las preferencias de los turistas y características del mapa.
 
@@ -17,29 +21,44 @@ def plan_route(map_data):
         Este método utiliza Simulated Annealing para encontrar la mejor ruta considerando las preferencias de los turistas,
         las características de los puntos de interés y la topografía del mapa.
     """
+    global temperature
+    global best_solution
+    global best_cost
 
     # Parámetros del algoritmo
-    initial_temp = 1000
+    # la temperatura está global
     cooling_rate = 0.99
-    max_iterations = 1000
+    
+    if not last_route:
+        return generate_minimal_solution(map_data)
+    elif not best_solution:
+        best_solution = last_route
+        best_cost = cost
+        return generate_neighbor_solution(map_data, last_route)
+    
+    cost_diff = cost - best_cost
+    if cost_diff < 0 or random.uniform(0, 1) < math.exp(-cost_diff / temperature):
 
-    # Inicializar el grafo y ejecutar el algoritmo ACO
-    best_path, _ = simulated_annealing(map_data, initial_temp, cooling_rate, max_iterations)
-    print(f"Mejor camino: {best_path}")
-    return best_path
+        if cost < best_cost:
+            best_solution = last_route
+            best_cost = cost
+
+    temperature *= cooling_rate
+    
+    return generate_neighbor_solution(map_data, last_route)
 
 def simulated_annealing(graph, initial_temp, cooling_rate, max_iterations):
     # Inicializar la temperatura
     temperature = initial_temp
     
     # Obtener una solución inical
-    current_solution,current_cost = generate_initial_solution(graph)
+    current_solution,current_cost = generate_minimal_solution(graph)
     
     best_solution = current_solution
     best_cost = current_cost
     
     for i in range(max_iterations):
-        new_solution = generate_neighbor_solution(graph, current_solution, current_solution[1])
+        new_solution = generate_neighbor_solution(graph, current_solution)
         new_cost = 15
         cost_diff = new_cost - current_cost
 
@@ -56,7 +75,7 @@ def simulated_annealing(graph, initial_temp, cooling_rate, max_iterations):
     return best_solution, best_cost
 
 # Dijkstra
-def generate_initial_solution(graph, initial_nodes=[], exclude_node=None):
+def generate_minimal_solution(graph, initial_nodes=[], exclude_node=None):
     # Inicialización
     distances = {node.id: float('infinity') for node in graph.points.values()}
     
