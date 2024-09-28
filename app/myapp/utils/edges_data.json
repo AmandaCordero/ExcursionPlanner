@@ -1,1206 +1,2722 @@
 [
-    {
-        "id": 0,
-        "point1": 0,
-        "point2": 1,
-        "distance": 1.4394147114027966,
-        "characteristics": [
-            0,
-            0.4,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 1,
-        "point1": 0,
-        "point2": 7,
-        "distance": 1.8221462653327893,
-        "characteristics": [
-            0,
-            0,
-            0.6,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 2,
-        "point1": 1,
-        "point2": 10,
-        "distance": 2.3300259065618785,
-        "characteristics": [
-            0.1,
-            0,
-            0.3,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 3,
-        "point1": 2,
-        "point2": 3,
-        "distance": 1.3848857801796106,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 4,
-        "point1": 3,
-        "point2": 4,
-        "distance": 1.5510864433221336,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 5,
-        "point1": 3,
-        "point2": 6,
-        "distance": 1.1307764064044152,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 6,
-        "point1": 4,
-        "point2": 5,
-        "distance": 1.25524865872714,
-        "characteristics": [
-            0.4,
-            0,
-            0.6,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 7,
-        "point1": 5,
-        "point2": 66,
-        "distance": 1.553993620398445,
-        "characteristics": [
-            0.4,
-            0,
-            0,
-            0.8,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 8,
-        "point1": 6,
-        "point2": 8,
-        "distance": 1.8812494725737456,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 9,
-        "point1": 6,
-        "point2": 17,
-        "distance": 1.570875632579411,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 10,
-        "point1": 7,
-        "point2": 8,
-        "distance": 1.3151681487560518,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 11,
-        "point1": 7,
-        "point2": 9,
-        "distance": 1.467261752992875,
-        "characteristics": [
-            0.4,
-            0.3,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 12,
-        "point1": 8,
-        "point2": 13,
-        "distance": 1.4227622613304327,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 13,
-        "point1": 9,
-        "point2": 10,
-        "distance": 2.3262658175859325,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 14,
-        "point1": 9,
-        "point2": 11,
-        "distance": 1.472953021774598,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 15,
-        "point1": 10,
-        "point2": 24,
-        "distance": 2.771919054268084,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 16,
-        "point1": 11,
-        "point2": 12,
-        "distance": 1.3567627241573788,
-        "characteristics": [
-            0,
-            0.2,
-            0.1,
-            0.3,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 17,
-        "point1": 11,
-        "point2": 24,
-        "distance": 1.5432618388738553,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 18,
-        "point1": 12,
-        "point2": 22,
-        "distance": 2.021085138971517,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 19,
-        "point1": 12,
-        "point2": 23,
-        "distance": 2.1190120444270946,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 20,
-        "point1": 13,
-        "point2": 14,
-        "distance": 1.9117365193264642,
-        "characteristics": [
-            0,
-            0.4,
-            0.5,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 21,
-        "point1": 14,
-        "point2": 64,
-        "distance": 1.75,
-        "characteristics": [
-            0.9,
-            0,
-            0.7,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 21,
-        "point1": 15,
-        "point2": 64,
-        "distance": 1.75,
-        "characteristics": [
-            0,
-            0.5,
-            0.2,
-            0.1,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 22,
-        "point1": 16,
-        "point2": 17,
-        "distance": 2.3505896544378575,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 23,
-        "point1": 16,
-        "point2": 18,
-        "distance": 1.7175795661885922,
-        "characteristics": [
-            0,
-            0,
-            0.8,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 24,
-        "point1": 16,
-        "point2": 64,
-        "distance": 1.3067971810589327,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 25,
-        "point1": 17,
-        "point2": 31,
-        "distance": 2.2023236501624806,
-        "characteristics": [
-            0.7,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 26,
-        "point1": 19,
-        "point2": 20,
-        "distance": 1.2319855767980596,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 27,
-        "point1": 20,
-        "point2": 21,
-        "distance": 1.5149485585818028,
-        "characteristics": [
-            0.8,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 28,
-        "point1": 21,
-        "point2": 28,
-        "distance": 2.345480967119412,
-        "characteristics": [
-            0,
-            0.7,
-            0,
-            0.7,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 29,
-        "point1": 21,
-        "point2": 64,
-        "distance": 2.0620819440733573,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 30,
-        "point1": 22,
-        "point2": 23,
-        "distance": 1.73,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 31,
-        "point1": 23,
-        "point2": 25,
-        "distance": 1.6571793825862722,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 32,
-        "point1": 24,
-        "point2": 25,
-        "distance": 2.9907227866625385,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 33,
-        "point1": 25,
-        "point2": 26,
-        "distance": 2.6348601745970597,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 34,
-        "point1": 26,
-        "point2": 27,
-        "distance": 1.898311609167624,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 35,
-        "point1": 26,
-        "point2": 38,
-        "distance": 3.491070042643602,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 36,
-        "point1": 26,
-        "point2": 63,
-        "distance": 1.9811144452742335,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 37,
-        "point1": 27,
-        "point2": 65,
-        "distance": 1.0687620966986684,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 38,
-        "point1": 28,
-        "point2": 29,
-        "distance": 1.6800362314084367,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 39,
-        "point1": 28,
-        "point2": 63,
-        "distance": 1.7873616430513999,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 40,
-        "point1": 29,
-        "point2": 33,
-        "distance": 1.8788686666919483,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 41,
-        "point1": 29,
-        "point2": 34,
-        "distance": 1.997779709471866,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 42,
-        "point1": 30,
-        "point2": 33,
-        "distance": 1.4980981915623333,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 43,
-        "point1": 31,
-        "point2": 32,
-        "distance": 3.9122172026263144,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 44,
-        "point1": 32,
-        "point2": 33,
-        "distance": 1.39,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 45,
-        "point1": 32,
-        "point2": 45,
-        "distance": 4.940011013202501,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 46,
-        "point1": 34,
-        "point2": 61,
-        "distance": 1.613968295572929,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 47,
-        "point1": 35,
-        "point2": 36,
-        "distance": 1.672731853408954,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 48,
-        "point1": 35,
-        "point2": 61,
-        "distance": 0.9696752561957542,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 49,
-        "point1": 36,
-        "point2": 61,
-        "distance": 0.9171709649683788,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 50,
-        "point1": 36,
-        "point2": 67,
-        "distance": 1.1687620966986685,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 51,
-        "point1": 37,
-        "point2": 51,
-        "distance": 1.6283978539634238,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 52,
-        "point1": 37,
-        "point2": 63,
-        "distance": 1.340701538527936,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 53,
-        "point1": 38,
-        "point2": 39,
-        "distance": 2.4585836269662455,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 54,
-        "point1": 38,
-        "point2": 51,
-        "distance": 1.4670405992508049,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 55,
-        "point1": 39,
-        "point2": 40,
-        "distance": 2.241121201613771,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 56,
-        "point1": 39,
-        "point2": 50,
-        "distance": 1.795313584826006,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 57,
-        "point1": 39,
-        "point2": 60,
-        "distance": 4.200597517435721,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 58,
-        "point1": 40,
-        "point2": 41,
-        "distance": 1.60356688476182,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 59,
-        "point1": 40,
-        "point2": 67,
-        "distance": 1.3484390253432486,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 60,
-        "point1": 41,
-        "point2": 42,
-        "distance": 1.2045361017187262,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 61,
-        "point1": 41,
-        "point2": 48,
-        "distance": 1.7322011031974527,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 62,
-        "point1": 41,
-        "point2": 67,
-        "distance": 1.2151847122568384,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 63,
-        "point1": 42,
-        "point2": 62,
-        "distance": 1.3826818553942797,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 64,
-        "point1": 43,
-        "point2": 44,
-        "distance": 1.7790621564255584,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 65,
-        "point1": 44,
-        "point2": 45,
-        "distance": 1.1493807697875924,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 66,
-        "point1": 45,
-        "point2": 55,
-        "distance": 4.543167075449641,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 67,
-        "point1": 46,
-        "point2": 54,
-        "distance": 1.7080137613954987,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 68,
-        "point1": 46,
-        "point2": 62,
-        "distance": 1.8728000508646991,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 69,
-        "point1": 47,
-        "point2": 53,
-        "distance": 1.2180339887498948,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 70,
-        "point1": 47,
-        "point2": 57,
-        "distance": 1.7341664064126334,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 71,
-        "point1": 47,
-        "point2": 62,
-        "distance": 1.090050503762308,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 72,
-        "point1": 48,
-        "point2": 49,
-        "distance": 1.4872657663724664,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 73,
-        "point1": 48,
-        "point2": 62,
-        "distance": 1.7508062419270822,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 74,
-        "point1": 49,
-        "point2": 50,
-        "distance": 1.623411395205195,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 75,
-        "point1": 49,
-        "point2": 52,
-        "distance": 1.7673200069437869,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 76,
-        "point1": 52,
-        "point2": 58,
-        "distance": 2.135755975068582,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 77,
-        "point1": 52,
-        "point2": 59,
-        "distance": 1.4912378292562993,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 78,
-        "point1": 53,
-        "point2": 54,
-        "distance": 1.7,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 79,
-        "point1": 54,
-        "point2": 55,
-        "distance": 1.321567423129771,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 80,
-        "point1": 55,
-        "point2": 56,
-        "distance": 1.7657408897558773,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 81,
-        "point1": 56,
-        "point2": 57,
-        "distance": 1.7365583872575454,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 82,
-        "point1": 57,
-        "point2": 58,
-        "distance": 1.5124404748406688,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 83,
-        "point1": 58,
-        "point2": 59,
-        "distance": 2.2979988876526036,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    },
-    {
-        "id": 84,
-        "point1": 59,
-        "point2": 60,
-        "distance": 2.3443969204051496,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
+  {
+    "id": 2,
+    "point1": 1,
+    "point2": 2,
+    "distance": 2.3,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.93,
+        0,
+        0,
+        0.33
+      ],
+      "afternoon": [
+        0,
+        0.27,
+        0.64,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0.76,
+        0.77,
+        0
+      ]
     }
+  },
+  {
+    "id": 2,
+    "point1": 1,
+    "point2": 7,
+    "distance": 2.3,
+    "characteristics": {
+      "morning": [
+        0.78,
+        0.25,
+        0.89,
+        0,
+        0.28,
+        0.1
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0,
+        0.65,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0,
+        0.83,
+        0.74
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "point1": 1,
+    "point2": 10,
+    "distance": 2.3,
+    "characteristics": {
+      "morning": [
+        0.59,
+        0.27,
+        0,
+        0.36,
+        0,
+        0
+      ],
+      "afternoon": [
+        0.56,
+        0.11,
+        0,
+        0.27,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0.34,
+        0,
+        0.98,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "point1": 2,
+    "point2": 3,
+    "distance": 1.4,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.62,
+        0,
+        0.47,
+        0
+      ],
+      "afternoon": [
+        0,
+        0.5,
+        0.95,
+        0,
+        0,
+        0.6
+      ],
+      "night": [
+        0,
+        0,
+        0.91,
+        0,
+        0,
+        0.48
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "point1": 3,
+    "point2": 4,
+    "distance": 1.6,
+    "characteristics": {
+      "morning": [
+        0.37,
+        0,
+        0.15,
+        0,
+        0,
+        0.87
+      ],
+      "afternoon": [
+        0,
+        0.41,
+        0,
+        0,
+        0.47,
+        0.81
+      ],
+      "night": [
+        0,
+        0.47,
+        0,
+        0.11,
+        0,
+        0.09
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "point1": 3,
+    "point2": 6,
+    "distance": 1.1,
+    "characteristics": {
+      "morning": [
+        0,
+        0.69,
+        0,
+        0,
+        0,
+        0.76
+      ],
+      "afternoon": [
+        0.86,
+        0,
+        0.46,
+        0.6,
+        0,
+        0
+      ],
+      "night": [
+        0.78,
+        0.87,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "point1": 4,
+    "point2": 5,
+    "distance": 1.3,
+    "characteristics": {
+      "morning": [
+        0.6,
+        0,
+        0.85,
+        0,
+        0.62,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.46
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0,
+        0.3,
+        0
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "point1": 5,
+    "point2": 66,
+    "distance": 1.6,
+    "characteristics": {
+      "morning": [
+        0.89,
+        0.96,
+        0,
+        0,
+        0,
+        0
+      ],
+      "afternoon": [
+        0.77,
+        0.96,
+        0,
+        0,
+        0.79,
+        0
+      ],
+      "night": [
+        0.08,
+        0.6,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "point1": 6,
+    "point2": 8,
+    "distance": 1.9,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0,
+        0.93,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0,
+        0.33,
+        0
+      ],
+      "night": [
+        0.5,
+        0,
+        0,
+        0.35,
+        0,
+        0.79
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "point1": 6,
+    "point2": 17,
+    "distance": 1.6,
+    "characteristics": {
+      "morning": [
+        0,
+        0.3,
+        0,
+        0.3,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0.53,
+        0,
+        0.3,
+        0,
+        0.62
+      ],
+      "night": [
+        0,
+        0.04,
+        0.91,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "point1": 7,
+    "point2": 8,
+    "distance": 1.3,
+    "characteristics": {
+      "morning": [
+        0,
+        0.56,
+        0,
+        0,
+        0,
+        0
+      ],
+      "afternoon": [
+        0.74,
+        0.13,
+        0,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0.12,
+        0,
+        0.08,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "point1": 7,
+    "point2": 9,
+    "distance": 1.5,
+    "characteristics": {
+      "morning": [
+        0,
+        0.1,
+        0.15,
+        0,
+        0.14,
+        0.3
+      ],
+      "afternoon": [
+        0.57,
+        0,
+        0,
+        0.99,
+        0,
+        0.31
+      ],
+      "night": [
+        0.59,
+        0,
+        0,
+        0.73,
+        0,
+        0.13
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "point1": 8,
+    "point2": 13,
+    "distance": 1.4,
+    "characteristics": {
+      "morning": [
+        0.79,
+        0.98,
+        0,
+        0.74,
+        0,
+        0
+      ],
+      "afternoon": [
+        0.34,
+        0,
+        0.1,
+        0.02,
+        0.23,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0.98,
+        0.26,
+        0
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "point1": 9,
+    "point2": 10,
+    "distance": 2.3,
+    "characteristics": {
+      "morning": [
+        0.86,
+        0,
+        0.37,
+        0,
+        0.62,
+        0.77
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0.97,
+        0.62,
+        0.12
+      ],
+      "night": [
+        0.29,
+        0,
+        0,
+        0,
+        0.38,
+        0
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "point1": 9,
+    "point2": 11,
+    "distance": 1.5,
+    "characteristics": {
+      "morning": [
+        0,
+        0.05,
+        0.31,
+        0,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.66
+      ],
+      "night": [
+        0,
+        0.1,
+        0,
+        0.42,
+        0.79,
+        0
+      ]
+    }
+  },
+  {
+    "id": 15,
+    "point1": 10,
+    "point2": 24,
+    "distance": 2.8,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0,
+        0,
+        0.18,
+        0.12
+      ],
+      "afternoon": [
+        0,
+        0,
+        0.02,
+        0.53,
+        0,
+        0.13
+      ],
+      "night": [
+        0,
+        0.8,
+        0,
+        0.07,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "point1": 11,
+    "point2": 12,
+    "distance": 1.4,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.79,
+        0.97,
+        0,
+        0.38
+      ],
+      "afternoon": [
+        0.3,
+        0.58,
+        0,
+        0,
+        0,
+        0.09
+      ],
+      "night": [
+        0,
+        0,
+        0.2,
+        0.72,
+        0,
+        0.4
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "point1": 11,
+    "point2": 24,
+    "distance": 1.5,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0,
+        0.64,
+        0,
+        0.77
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0.04,
+        0,
+        0
+      ],
+      "night": [
+        0.98,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "point1": 12,
+    "point2": 22,
+    "distance": 2.0,
+    "characteristics": {
+      "morning": [
+        0.45,
+        1.0,
+        0.9,
+        0,
+        0.61,
+        0.8
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0,
+        0.08,
+        0.88
+      ],
+      "night": [
+        0.24,
+        0.52,
+        0.32,
+        0.41,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "point1": 12,
+    "point2": 23,
+    "distance": 2.1,
+    "characteristics": {
+      "morning": [
+        0,
+        0.75,
+        0.58,
+        0.87,
+        0,
+        0.1
+      ],
+      "afternoon": [
+        0.08,
+        0,
+        0,
+        0.3,
+        0.59,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0.48,
+        0.94,
+        0.07
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "point1": 13,
+    "point2": 14,
+    "distance": 1.9,
+    "characteristics": {
+      "morning": [
+        0.74,
+        0,
+        0,
+        0.86,
+        0,
+        0
+      ],
+      "afternoon": [
+        0.42,
+        0,
+        0.92,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0.65,
+        0.35,
+        0,
+        0,
+        0,
+        0.09
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "point1": 14,
+    "point2": 64,
+    "distance": 1.8,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.22,
+        0,
+        0.05,
+        0
+      ],
+      "afternoon": [
+        0.05,
+        0,
+        0,
+        0.31,
+        0,
+        0
+      ],
+      "night": [
+        0.44,
+        0.01,
+        0,
+        0,
+        0,
+        0.31
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "point1": 15,
+    "point2": 64,
+    "distance": 1.8,
+    "characteristics": {
+      "morning": [
+        0.35,
+        0,
+        0,
+        0,
+        0,
+        0.88
+      ],
+      "afternoon": [
+        0.58,
+        0,
+        0.06,
+        0,
+        0.91,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0.43,
+        0.5,
+        0,
+        0.93
+      ]
+    }
+  },
+  {
+    "id": 22,
+    "point1": 16,
+    "point2": 17,
+    "distance": 2.4,
+    "characteristics": {
+      "morning": [
+        0,
+        0.29,
+        0.48,
+        0.24,
+        0.75,
+        0
+      ],
+      "afternoon": [
+        0,
+        0.76,
+        0,
+        0.38,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0.63,
+        0,
+        0.91,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 23,
+    "point1": 16,
+    "point2": 18,
+    "distance": 1.7,
+    "characteristics": {
+      "morning": [
+        0,
+        0.38,
+        0.89,
+        0.39,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0.65,
+        0.65,
+        0.62,
+        0
+      ],
+      "night": [
+        0.06,
+        0,
+        0.88,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 24,
+    "point1": 17,
+    "point2": 31,
+    "distance": 2.2,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.11,
+        0,
+        0.44,
+        0
+      ],
+      "afternoon": [
+        0,
+        0.66,
+        0.99,
+        0,
+        0.3,
+        0.73
+      ],
+      "night": [
+        0.07,
+        0.43,
+        0,
+        0.95,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 25,
+    "point1": 19,
+    "point2": 20,
+    "distance": 1.2,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "afternoon": [
+        0.92,
+        0.47,
+        0,
+        0.9,
+        0.46,
+        0
+      ],
+      "night": [
+        0,
+        0.03,
+        0.69,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 26,
+    "point1": 20,
+    "point2": 21,
+    "distance": 1.5,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.97,
+        0,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0.55,
+        0,
+        0.58,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0.21,
+        0,
+        0.28,
+        0.07
+      ]
+    }
+  },
+  {
+    "id": 27,
+    "point1": 21,
+    "point2": 28,
+    "distance": 2.3,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0,
+        0.88,
+        0.65,
+        0.04
+      ],
+      "afternoon": [
+        0.05,
+        0,
+        0.28,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0.82,
+        0.78,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 28,
+    "point1": 21,
+    "point2": 64,
+    "distance": 2.1,
+    "characteristics": {
+      "morning": [
+        0.15,
+        0.53,
+        0,
+        0.72,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0.89,
+        0.46,
+        0
+      ],
+      "night": [
+        0.77,
+        0,
+        0.0,
+        0,
+        0.08,
+        0.49
+      ]
+    }
+  },
+  {
+    "id": 29,
+    "point1": 22,
+    "point2": 23,
+    "distance": 1.7,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.12,
+        0.31,
+        0.93,
+        0
+      ],
+      "afternoon": [
+        0.77,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0.44,
+        0,
+        0,
+        0,
+        0.65,
+        0
+      ]
+    }
+  },
+  {
+    "id": 30,
+    "point1": 23,
+    "point2": 25,
+    "distance": 1.7,
+    "characteristics": {
+      "morning": [
+        0,
+        0.98,
+        0,
+        0,
+        0.47,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0.34,
+        0.2,
+        0.88
+      ],
+      "night": [
+        0.02,
+        0.52,
+        0,
+        0.93,
+        0,
+        0.19
+      ]
+    }
+  },
+  {
+    "id": 31,
+    "point1": 24,
+    "point2": 25,
+    "distance": 3.0,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.63,
+        0,
+        0,
+        0
+      ],
+      "afternoon": [
+        0.43,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 32,
+    "point1": 25,
+    "point2": 26,
+    "distance": 2.6,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.42,
+        0,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0.63,
+        0.8,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0.88,
+        0,
+        0.99,
+        0.61,
+        0.55
+      ]
+    }
+  },
+  {
+    "id": 33,
+    "point1": 26,
+    "point2": 27,
+    "distance": 1.9,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.49,
+        0.65,
+        0,
+        0.5
+      ],
+      "afternoon": [
+        0,
+        0.11,
+        0.16,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0,
+        0.91,
+        0
+      ]
+    }
+  },
+  {
+    "id": 34,
+    "point1": 26,
+    "point2": 38,
+    "distance": 3.5,
+    "characteristics": {
+      "morning": [
+        0,
+        0.78,
+        0,
+        0.32,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0.52,
+        0.59,
+        0,
+        0.25,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 35,
+    "point1": 26,
+    "point2": 63,
+    "distance": 2.0,
+    "characteristics": {
+      "morning": [
+        0,
+        0.88,
+        0,
+        0,
+        0.09,
+        0
+      ],
+      "afternoon": [
+        0.27,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0,
+        0.59,
+        0.09
+      ]
+    }
+  },
+  {
+    "id": 36,
+    "point1": 27,
+    "point2": 65,
+    "distance": 1.1,
+    "characteristics": {
+      "morning": [
+        0,
+        0.35,
+        0,
+        0.82,
+        0,
+        0.51
+      ],
+      "afternoon": [
+        0,
+        0,
+        0.3,
+        0,
+        0.65,
+        0.54
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0.07,
+        0.51,
+        0.0
+      ]
+    }
+  },
+  {
+    "id": 37,
+    "point1": 28,
+    "point2": 29,
+    "distance": 1.7,
+    "characteristics": {
+      "morning": [
+        0,
+        0.78,
+        0.1,
+        0,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0.45,
+        0.01,
+        0,
+        0.65,
+        0
+      ],
+      "night": [
+        0,
+        0.6,
+        0,
+        0,
+        0,
+        0.7
+      ]
+    }
+  },
+  {
+    "id": 38,
+    "point1": 28,
+    "point2": 63,
+    "distance": 1.8,
+    "characteristics": {
+      "morning": [
+        0,
+        0.29,
+        0,
+        0.05,
+        0.71,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0.63,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0.52,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 39,
+    "point1": 29,
+    "point2": 33,
+    "distance": 1.9,
+    "characteristics": {
+      "morning": [
+        0.77,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "afternoon": [
+        0.13,
+        0.8,
+        0,
+        0.41,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0.38,
+        0.64,
+        0
+      ]
+    }
+  },
+  {
+    "id": 40,
+    "point1": 29,
+    "point2": 34,
+    "distance": 2.0,
+    "characteristics": {
+      "morning": [
+        0.51,
+        0,
+        0,
+        0.28,
+        0,
+        0.66
+      ],
+      "afternoon": [
+        0,
+        0.01,
+        0,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0.13,
+        0,
+        0,
+        0.01,
+        0
+      ]
+    }
+  },
+  {
+    "id": 41,
+    "point1": 30,
+    "point2": 33,
+    "distance": 1.5,
+    "characteristics": {
+      "morning": [
+        0.5,
+        0,
+        0.95,
+        0.65,
+        0.97,
+        0.97
+      ],
+      "afternoon": [
+        0.28,
+        0.05,
+        0,
+        0,
+        0.63,
+        0
+      ],
+      "night": [
+        0.71,
+        0,
+        0.47,
+        0,
+        0.32,
+        0.05
+      ]
+    }
+  },
+  {
+    "id": 42,
+    "point1": 31,
+    "point2": 32,
+    "distance": 3.9,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0,
+        0,
+        0.55,
+        0.82
+      ],
+      "afternoon": [
+        0.99,
+        0,
+        0,
+        0.16,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0.13,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 43,
+    "point1": 32,
+    "point2": 33,
+    "distance": 1.4,
+    "characteristics": {
+      "morning": [
+        0.86,
+        0,
+        0,
+        0,
+        0.09,
+        0.52
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0.37,
+        0,
+        0
+      ],
+      "night": [
+        0.11,
+        0.15,
+        0,
+        0,
+        0.39,
+        0.91
+      ]
+    }
+  },
+  {
+    "id": 44,
+    "point1": 32,
+    "point2": 45,
+    "distance": 4.9,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.29,
+        0.66,
+        0.79,
+        0
+      ],
+      "afternoon": [
+        0,
+        0.99,
+        0,
+        0,
+        0,
+        0.94
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0,
+        0.3,
+        0.37
+      ]
+    }
+  },
+  {
+    "id": 45,
+    "point1": 34,
+    "point2": 61,
+    "distance": 1.6,
+    "characteristics": {
+      "morning": [
+        0.69,
+        0,
+        0.89,
+        0,
+        0.06,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0.99,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0.24,
+        0,
+        0,
+        0.63,
+        0
+      ]
+    }
+  },
+  {
+    "id": 46,
+    "point1": 35,
+    "point2": 36,
+    "distance": 1.7,
+    "characteristics": {
+      "morning": [
+        0.81,
+        0.56,
+        0,
+        0,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0.28,
+        0.14,
+        0
+      ],
+      "night": [
+        0.47,
+        0,
+        0,
+        0,
+        0,
+        0.07
+      ]
+    }
+  },
+  {
+    "id": 47,
+    "point1": 35,
+    "point2": 61,
+    "distance": 1.0,
+    "characteristics": {
+      "morning": [
+        0.81,
+        0,
+        0.82,
+        0,
+        0,
+        0.07
+      ],
+      "afternoon": [
+        0.71,
+        0.84,
+        0,
+        0.69,
+        0,
+        0.36
+      ],
+      "night": [
+        0.53,
+        0,
+        0.67,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 48,
+    "point1": 36,
+    "point2": 61,
+    "distance": 0.9,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0.75,
+        0,
+        0.44,
+        0.77,
+        0.35
+      ],
+      "night": [
+        0.15,
+        0,
+        0,
+        0,
+        0.42,
+        0.21
+      ]
+    }
+  },
+  {
+    "id": 49,
+    "point1": 36,
+    "point2": 67,
+    "distance": 1.2,
+    "characteristics": {
+      "morning": [
+        0,
+        0.31,
+        0,
+        0,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0.44,
+        0.36,
+        0.44
+      ],
+      "night": [
+        0,
+        0.48,
+        0,
+        0,
+        0.73,
+        0
+      ]
+    }
+  },
+  {
+    "id": 50,
+    "point1": 37,
+    "point2": 51,
+    "distance": 1.6,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.69,
+        0,
+        0.31,
+        0.12
+      ],
+      "afternoon": [
+        0.01,
+        0.38,
+        0.19,
+        0,
+        0.93,
+        0
+      ],
+      "night": [
+        0.39,
+        0,
+        0.03,
+        0.92,
+        0,
+        0.16
+      ]
+    }
+  },
+  {
+    "id": 51,
+    "point1": 37,
+    "point2": 63,
+    "distance": 1.3,
+    "characteristics": {
+      "morning": [
+        0,
+        0.7,
+        0.01,
+        0.57,
+        0.47,
+        0.66
+      ],
+      "afternoon": [
+        0.01,
+        0,
+        0,
+        0.19,
+        0,
+        0.35
+      ],
+      "night": [
+        0,
+        0.82,
+        0.71,
+        0.88,
+        0.57,
+        0
+      ]
+    }
+  },
+  {
+    "id": 52,
+    "point1": 38,
+    "point2": 39,
+    "distance": 2.5,
+    "characteristics": {
+      "morning": [
+        0.99,
+        0,
+        0,
+        0.25,
+        0,
+        0
+      ],
+      "afternoon": [
+        0.85,
+        0.43,
+        0,
+        0,
+        0.58,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0.86,
+        0.86,
+        0,
+        0.57
+      ]
+    }
+  },
+  {
+    "id": 54,
+    "point1": 38,
+    "point2": 51,
+    "distance": 1.5,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.07,
+        0.35,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0.52,
+        0.3,
+        0.65,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0.43,
+        0,
+        0.73
+      ]
+    }
+  },
+  {
+    "id": 55,
+    "point1": 39,
+    "point2": 40,
+    "distance": 2.2,
+    "characteristics": {
+      "morning": [
+        0.19,
+        0,
+        0.79,
+        0,
+        0,
+        0.53
+      ],
+      "afternoon": [
+        0,
+        0.2,
+        0,
+        0,
+        0.31,
+        0.62
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0.04,
+        0.58,
+        0.38
+      ]
+    }
+  },
+  {
+    "id": 56,
+    "point1": 39,
+    "point2": 50,
+    "distance": 1.8,
+    "characteristics": {
+      "morning": [
+        0,
+        0.21,
+        0,
+        0,
+        0.14,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0.2,
+        0.24,
+        0
+      ],
+      "night": [
+        0,
+        0.09,
+        0,
+        0.1,
+        0,
+        0.5
+      ]
+    }
+  },
+  {
+    "id": 57,
+    "point1": 39,
+    "point2": 60,
+    "distance": 4.2,
+    "characteristics": {
+      "morning": [
+        0,
+        0.18,
+        0,
+        0,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0.52,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0.76,
+        0,
+        0.28,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 58,
+    "point1": 40,
+    "point2": 41,
+    "distance": 1.6,
+    "characteristics": {
+      "morning": [
+        0.42,
+        0,
+        0,
+        0.12,
+        0.09,
+        0
+      ],
+      "afternoon": [
+        0,
+        0.61,
+        0,
+        0.98,
+        0,
+        0.96
+      ],
+      "night": [
+        0.04,
+        0.33,
+        0.13,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 59,
+    "point1": 40,
+    "point2": 67,
+    "distance": 1.3,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0,
+        0.56,
+        0.78,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.65
+      ],
+      "night": [
+        0,
+        0.96,
+        0,
+        0.89,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 60,
+    "point1": 41,
+    "point2": 42,
+    "distance": 1.2,
+    "characteristics": {
+      "morning": [
+        0.59,
+        0,
+        0,
+        0.61,
+        0,
+        0
+      ],
+      "afternoon": [
+        0.06,
+        0.25,
+        0.29,
+        0.51,
+        0.49,
+        0
+      ],
+      "night": [
+        0.29,
+        0.75,
+        0,
+        0.41,
+        0.03,
+        0.29
+      ]
+    }
+  },
+  {
+    "id": 61,
+    "point1": 41,
+    "point2": 48,
+    "distance": 1.7,
+    "characteristics": {
+      "morning": [
+        0.02,
+        0.27,
+        0.05,
+        0,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0.52,
+        0,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0.34,
+        0,
+        0,
+        0.56,
+        0
+      ]
+    }
+  },
+  {
+    "id": 62,
+    "point1": 41,
+    "point2": 67,
+    "distance": 1.2,
+    "characteristics": {
+      "morning": [
+        0,
+        0.7,
+        0.51,
+        0.66,
+        0,
+        0
+      ],
+      "afternoon": [
+        0.94,
+        0,
+        0.69,
+        0.16,
+        0.28,
+        0.65
+      ],
+      "night": [
+        0.67,
+        0,
+        0.0,
+        0,
+        0.3,
+        0
+      ]
+    }
+  },
+  {
+    "id": 63,
+    "point1": 42,
+    "point2": 62,
+    "distance": 1.4,
+    "characteristics": {
+      "morning": [
+        0,
+        0.9,
+        0,
+        0,
+        0,
+        0
+      ],
+      "afternoon": [
+        0.78,
+        0,
+        0,
+        0.53,
+        0,
+        0.86
+      ],
+      "night": [
+        0,
+        0,
+        0.12,
+        0.04,
+        0.69,
+        0
+      ]
+    }
+  },
+  {
+    "id": 64,
+    "point1": 43,
+    "point2": 44,
+    "distance": 1.8,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0,
+        0.31,
+        0.25,
+        0
+      ],
+      "afternoon": [
+        0.99,
+        0,
+        0.49,
+        0,
+        0.23,
+        0
+      ],
+      "night": [
+        0.38,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 65,
+    "point1": 44,
+    "point2": 45,
+    "distance": 1.1,
+    "characteristics": {
+      "morning": [
+        0,
+        0.28,
+        0,
+        0.96,
+        0.14,
+        0
+      ],
+      "afternoon": [
+        0.22,
+        0,
+        0.7,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0.42,
+        0.77,
+        0.51,
+        0.63,
+        0.61
+      ]
+    }
+  },
+  {
+    "id": 66,
+    "point1": 45,
+    "point2": 55,
+    "distance": 4.5,
+    "characteristics": {
+      "morning": [
+        0.71,
+        0,
+        0,
+        0,
+        0.74,
+        0.51
+      ],
+      "afternoon": [
+        0.7,
+        0.85,
+        0.26,
+        0.78,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0.2,
+        0.45,
+        0,
+        0.68
+      ]
+    }
+  },
+  {
+    "id": 67,
+    "point1": 46,
+    "point2": 54,
+    "distance": 1.7,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0,
+        0.03,
+        0.0,
+        0
+      ],
+      "afternoon": [
+        0.71,
+        0.98,
+        0,
+        0,
+        0.65,
+        0
+      ],
+      "night": [
+        0.18,
+        0.77,
+        0.84,
+        0,
+        0,
+        0.05
+      ]
+    }
+  },
+  {
+    "id": 68,
+    "point1": 46,
+    "point2": 62,
+    "distance": 1.9,
+    "characteristics": {
+      "morning": [
+        0.05,
+        0.05,
+        0.63,
+        0.99,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0.38,
+        0,
+        0,
+        0.15,
+        0.25
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 69,
+    "point1": 47,
+    "point2": 53,
+    "distance": 1.2,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.45,
+        0.36,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0.06,
+        0.22,
+        0,
+        0,
+        0.47
+      ]
+    }
+  },
+  {
+    "id": 70,
+    "point1": 47,
+    "point2": 57,
+    "distance": 1.7,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.84
+      ],
+      "afternoon": [
+        0.23,
+        0.96,
+        0,
+        0.3,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0.94,
+        0,
+        0.72,
+        0,
+        0.2
+      ]
+    }
+  },
+  {
+    "id": 71,
+    "point1": 47,
+    "point2": 62,
+    "distance": 1.1,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0,
+        0.08,
+        0,
+        0
+      ],
+      "afternoon": [
+        0.05,
+        0.96,
+        0.36,
+        0,
+        0.3,
+        0.6
+      ],
+      "night": [
+        0.57,
+        0,
+        0,
+        0.79,
+        0.6,
+        0
+      ]
+    }
+  },
+  {
+    "id": 72,
+    "point1": 48,
+    "point2": 49,
+    "distance": 1.5,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0.6,
+        0.7,
+        0.39,
+        0.35,
+        0.45
+      ],
+      "night": [
+        0,
+        0,
+        0.69,
+        0,
+        0.98,
+        0
+      ]
+    }
+  },
+  {
+    "id": 73,
+    "point1": 48,
+    "point2": 62,
+    "distance": 1.8,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.78,
+        0,
+        0.25,
+        0
+      ],
+      "afternoon": [
+        0,
+        0.33,
+        0,
+        0.15,
+        0.41,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0.15,
+        0.23,
+        0.28,
+        0
+      ]
+    }
+  },
+  {
+    "id": 74,
+    "point1": 49,
+    "point2": 50,
+    "distance": 1.6,
+    "characteristics": {
+      "morning": [
+        0.53,
+        0,
+        0,
+        0,
+        0,
+        0.35
+      ],
+      "afternoon": [
+        0,
+        0,
+        0.0,
+        0.93,
+        0.63,
+        0.6
+      ],
+      "night": [
+        0,
+        0.39,
+        0,
+        0.3,
+        0.95,
+        0
+      ]
+    }
+  },
+  {
+    "id": 75,
+    "point1": 49,
+    "point2": 52,
+    "distance": 1.8,
+    "characteristics": {
+      "morning": [
+        0,
+        0.85,
+        0,
+        0,
+        0.22,
+        0.7
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0.86,
+        0,
+        0.1,
+        0,
+        0,
+        0.13
+      ]
+    }
+  },
+  {
+    "id": 76,
+    "point1": 52,
+    "point2": 58,
+    "distance": 2.1,
+    "characteristics": {
+      "morning": [
+        0.38,
+        0,
+        0.98,
+        0,
+        0,
+        0.84
+      ],
+      "afternoon": [
+        0,
+        0.33,
+        0.57,
+        0.64,
+        0,
+        0.46
+      ],
+      "night": [
+        0.43,
+        0,
+        0.79,
+        0,
+        0,
+        0.04
+      ]
+    }
+  },
+  {
+    "id": 77,
+    "point1": 52,
+    "point2": 59,
+    "distance": 1.5,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.1,
+        0.55,
+        0,
+        0.88
+      ],
+      "afternoon": [
+        0.19,
+        0,
+        0,
+        0,
+        0.29,
+        0.33
+      ],
+      "night": [
+        0.24,
+        0.61,
+        0,
+        0.57,
+        0.53,
+        0.23
+      ]
+    }
+  },
+  {
+    "id": 78,
+    "point1": 53,
+    "point2": 54,
+    "distance": 1.7,
+    "characteristics": {
+      "morning": [
+        0,
+        0.59,
+        0.69,
+        0,
+        0.86,
+        0
+      ],
+      "afternoon": [
+        0,
+        0.52,
+        0.8,
+        0.45,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0.7,
+        0,
+        0.84,
+        0.42,
+        0
+      ]
+    }
+  },
+  {
+    "id": 79,
+    "point1": 54,
+    "point2": 55,
+    "distance": 1.3,
+    "characteristics": {
+      "morning": [
+        0.87,
+        0,
+        0,
+        0,
+        0,
+        0.61
+      ],
+      "afternoon": [
+        0.27,
+        0,
+        0,
+        0.23,
+        0.51,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0.81,
+        0,
+        0.07
+      ]
+    }
+  },
+  {
+    "id": 80,
+    "point1": 55,
+    "point2": 56,
+    "distance": 1.8,
+    "characteristics": {
+      "morning": [
+        0,
+        0.84,
+        0,
+        0,
+        0.37,
+        0.79
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0,
+        0.26,
+        0
+      ],
+      "night": [
+        0,
+        0.5,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 81,
+    "point1": 56,
+    "point2": 57,
+    "distance": 1.7,
+    "characteristics": {
+      "morning": [
+        0,
+        0,
+        0.73,
+        0.23,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0.64,
+        0.28,
+        0.2,
+        0.16
+      ]
+    }
+  },
+  {
+    "id": 82,
+    "point1": 57,
+    "point2": 58,
+    "distance": 1.5,
+    "characteristics": {
+      "morning": [
+        0.19,
+        0,
+        0,
+        0.75,
+        0,
+        0.47
+      ],
+      "afternoon": [
+        0,
+        0.63,
+        0.79,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0.27,
+        0,
+        0,
+        0.4,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": 83,
+    "point1": 58,
+    "point2": 59,
+    "distance": 2.3,
+    "characteristics": {
+      "morning": [
+        0.76,
+        0,
+        0,
+        0.07,
+        0,
+        0.26
+      ],
+      "afternoon": [
+        0.02,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "night": [
+        0,
+        0,
+        0.87,
+        0.96,
+        0.33,
+        0.47
+      ]
+    }
+  },
+  {
+    "id": 84,
+    "point1": 59,
+    "point2": 60,
+    "distance": 2.3,
+    "characteristics": {
+      "morning": [
+        0.79,
+        0.13,
+        0,
+        0.88,
+        0,
+        0
+      ],
+      "afternoon": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.91
+      ],
+      "night": [
+        0,
+        0,
+        0,
+        0,
+        0.63,
+        0.43
+      ]
+    }
+  }
 ]
