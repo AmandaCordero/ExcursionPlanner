@@ -1,30 +1,25 @@
 import heapq
-import random
 import math
+import random
 
-def plan_route(map_data):
-    """
-    Planifica una ruta basada en las preferencias de los turistas y características del mapa.
+def plan_route(map_data, tourist_preferences): 
 
-    Args:
-        map_data (object): Datos del mapa, incluyendo información sobre puntos de interés y caminos.
-        tourist_preferences (list): Lista de preferencias de los turistas, donde cada elemento es una lista de 6 valores.
-
-    Returns:
-        list: Ruta planificada utilizando A* Search.
-
-    Note:
-        Este método utiliza Simulated Annealing para encontrar la mejor ruta considerando las preferencias de los turistas,
-        las características de los puntos de interés y la topografía del mapa.
-    """
-
+    tourist_average = [0,0,0,0,0,0]
+    
+    for tourist in tourist_preferences:
+        for i in range(6):
+            tourist_average[i] += tourist[i]
+    
+    for i in range(6):
+        tourist_average[i] = tourist_average[i]/6
+        
     # Parámetros del algoritmo
     initial_temp = 1000
     cooling_rate = 0.99
     max_iterations = 1000
 
     # Inicializar el grafo y ejecutar el algoritmo ACO
-    best_path, _ = simulated_annealing(map_data, initial_temp, cooling_rate, max_iterations)
+    best_path, best_cost = simulated_annealing(map_data, tourist_average, initial_temp, cooling_rate, max_iterations)
     print(f"Mejor camino: {best_path}")
     return best_path
 
@@ -224,5 +219,3 @@ def isNextinPath(path,node,neightbor):
                 return False
     
     return False
-
-

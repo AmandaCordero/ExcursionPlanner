@@ -1,1090 +1,1208 @@
 [
-    {
-        "id": 0,
-        "point_id": 0,
-        "x": 40,
-        "y": 385,
-        "height": 0,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": true,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 1,
-        "point_id": 1,
-        "x": 80,
-        "y": 300,
-        "height": 10,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 2,
-        "point_id": 2,
-        "x": 95,
-        "y": 445,
-        "height": 20,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 3,
-        "point_id": 3,
-        "x": 135,
-        "y": 535,
-        "height": 30,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 4,
-        "point_id": 4,
-        "x": 70,
-        "y": 630,
-        "height": 10,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 5,
-        "point_id": 5,
-        "x": 135,
-        "y": 700,
-        "height": 30,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 6,
-        "point_id": 6,
-        "x": 215,
-        "y": 600,
-        "height": 35,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 7,
-        "point_id": 7,
-        "x": 180,
-        "y": 360,
-        "height": 35,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 8,
-        "point_id": 8,
-        "x": 240,
-        "y": 454,
-        "height": 38,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 9,
-        "point_id": 9,
-        "x": 260,
-        "y": 275,
-        "height": 40,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 10,
-        "point_id": 10,
-        "x": 147,
-        "y": 119,
-        "height": 30,
-        "characteristics": [
-            0.3,
-            0.4,
-            0.4,
-            0.1
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": true
-    },
-    {
-        "id": 11,
-        "point_id": 11,
-        "x": 335,
-        "y": 160,
-        "height": 50,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 12,
-        "point_id": 12,
-        "x": 430,
-        "y": 226,
-        "height": 60,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 13,
-        "point_id": 13,
-        "x": 336,
-        "y": 363,
-        "height": 55,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 14,
-        "point_id": 14,
-        "x": 415,
-        "y": 480,
-        "height": 80,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 15,
-        "point_id": 15,
-        "x": 520,
-        "y": 390,
-        "height": 90,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 16,
-        "point_id": 16,
-        "x": 535,
-        "y": 585,
-        "height": 85,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 17,
-        "point_id": 17,
-        "x": 347,
-        "y": 637,
-        "height": 55,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 18,
-        "point_id": 18,
-        "x": 575,
-        "y": 700,
-        "height": 35,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 19,
-        "point_id": 19,
-        "x": 721,
-        "y": 641,
-        "height": 55,
-        "characteristics": [
-            0.7,
-            0.8,
-            0.4,
-            0.2
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": true
-    },
-    {
-        "id": 20,
-        "point_id": 20,
-        "x": 740,
-        "y": 560,
-        "height": 80,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 21,
-        "point_id": 21,
-        "x": 721,
-        "y": 440,
-        "height": 85,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 22,
-        "point_id": 22,
-        "x": 574,
-        "y": 275,
-        "height": 65,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 23,
-        "point_id": 23,
-        "x": 574,
-        "y": 152,
-        "height": 50,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 24,
-        "point_id": 24,
-        "x": 371,
-        "y": 41,
-        "height": 6,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 25,
-        "point_id": 25,
-        "x": 620,
-        "y": 35,
-        "height": 0,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 26,
-        "point_id": 26,
-        "x": 835,
-        "y": 96,
-        "height": 30,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 27,
-        "point_id": 27,
-        "x": 720,
-        "y": 207,
-        "height": 58,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 28,
-        "point_id": 28,
-        "x": 878,
-        "y": 343,
-        "height": 60,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 29,
-        "point_id": 29,
-        "x": 911,
-        "y": 477,
-        "height": 63,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 30,
-        "point_id": 30,
-        "x": 1021,
-        "y": 581,
-        "height": 80,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 31,
-        "point_id": 31,
-        "x": 505,
-        "y": 760,
-        "height": 0,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 32,
-        "point_id": 32,
-        "x": 886,
-        "y": 747,
-        "height": 10,
-        "characteristics": [
-            0.1,
-            0.2,
-            0.3,
-            0.5
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": true
-    },
-    {
-        "id": 33,
-        "point_id": 33,
-        "x": 942,
-        "y": 642,
-        "height": 50,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 34,
-        "point_id": 34,
-        "x": 1051,
-        "y": 400,
-        "height": 85,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 35,
-        "point_id": 35,
-        "x": 1222,
-        "y": 530,
-        "height": 95,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 36,
-        "point_id": 36,
-        "x": 1230,
-        "y": 413,
-        "height": 120,
-        "characteristics": [
-            0.4,
-            0.6,
-            0.7,
-            0.9
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": true
-    },
-    {
-        "id": 37,
-        "point_id": 37,
-        "x": 1030,
-        "y": 216,
-        "height": 82,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 38,
-        "point_id": 38,
-        "x": 1134,
-        "y": 104,
-        "height": 30,
-        "characteristics": [
-            0.3,
-            0.2,
-            0.4,
-            0.1
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": true
-    },
-    {
-        "id": 39,
-        "point_id": 39,
-        "x": 1350,
-        "y": 38,
-        "height": 0,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 40,
-        "point_id": 40,
-        "x": 1380,
-        "y": 250,
-        "height": 90,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 41,
-        "point_id": 41,
-        "x": 1390,
-        "y": 390,
-        "height": 92,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 42,
-        "point_id": 42,
-        "x": 1400,
-        "y": 500,
-        "height": 88,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 43,
-        "point_id": 43,
-        "x": 1212,
-        "y": 700,
-        "height": 34,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 44,
-        "point_id": 44,
-        "x": 1326,
-        "y": 642,
-        "height": 60,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 45,
-        "point_id": 45,
-        "x": 1340,
-        "y": 746,
-        "height": 10,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 46,
-        "point_id": 46,
-        "x": 1545,
-        "y": 612,
-        "height": 60,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 47,
-        "point_id": 47,
-        "x": 1600,
-        "y": 460,
-        "height": 50,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 48,
-        "point_id": 48,
-        "x": 1506,
-        "y": 306,
-        "height": 68,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 49,
-        "point_id": 49,
-        "x": 1570,
-        "y": 206,
-        "height": 60,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 50,
-        "point_id": 50,
-        "x": 1475,
-        "y": 100,
-        "height": 32,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 51,
-        "point_id": 51,
-        "x": 1182,
-        "y": 232,
-        "height": 90,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 52,
-        "point_id": 52,
-        "x": 1655,
-        "y": 300,
-        "height": 30,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 53,
-        "point_id": 53,
-        "x": 1650,
-        "y": 560,
-        "height": 30,
-        "characteristics": [
-            0.5,
-            0.6,
-            0.3,
-            0.4
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": true
-    },
-    {
-        "id": 54,
-        "point_id": 54,
-        "x": 1650,
-        "y": 690,
-        "height": 32,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 55,
-        "point_id": 55,
-        "x": 1744,
-        "y": 730,
-        "height": 10,
-        "characteristics": [
-            0.5,
-            0.6,
-            0.3,
-            0.2
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": true
-    },
-    {
-        "id": 56,
-        "point_id": 56,
-        "x": 1799,
-        "y": 616,
-        "height": 6,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 57,
-        "point_id": 57,
-        "x": 1730,
-        "y": 490,
-        "height": 13,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 58,
-        "point_id": 58,
-        "x": 1815,
-        "y": 390,
-        "height": 0,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": true,
-        "interesting": false
-    },
-    {
-        "id": 59,
-        "point_id": 59,
-        "x": 1737,
-        "y": 228,
-        "height": 10,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 60,
-        "point_id": 60,
-        "x": 1760,
-        "y": 45,
-        "height": 6,
-        "characteristics": [
-            0.3,
-            0.1,
-            0.6,
-            0.6
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": true
-    },
-    {
-        "id": 61,
-        "point_id": 61,
-        "x": 1190,
-        "y": 460,
-        "height": 110,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 62,
-        "point_id": 62,
-        "x": 1501,
-        "y": 461,
-        "height": 70,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 63,
-        "point_id": 63,
-        "x": 916,
-        "y": 220,
-        "height": 68,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    },
-    {
-        "id": 64,
-        "point_id": 64,
-        "x": 570,
-        "y": 480,
-        "height": 100,
-        "characteristics": [
-            0.6,
-            0.8,
-            0.4,
-            0.8
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": true
-    },
-    {
-        "id": 65,
-        "point_id": 65,
-        "x": 707,
-        "y": 303,
-        "height": 78,
-        "characteristics": [
-            0.8,
-            0.5,
-            0.1,
-            0.4
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": true
-    },
-    {
-        "id": 66,
-        "point_id": 66,
-        "x": 250,
-        "y": 750,
-        "height": 10,
-        "characteristics": [
-            0.4,
-            0.5,
-            0.5,
-            0.6
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": true
-    },
-    {
-        "id": 67,
-        "point_id": 67,
-        "x": 1299,
-        "y": 345,
-        "height": 106,
-        "characteristics": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "begin": false,
-        "finish": false,
-        "interesting": false
-    }
+  {
+    "id": 1,
+    "point_id": 1,
+    "location": [
+      80,
+      300
+    ],
+    "height": 10,
+    "type": "begin",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0.6,
+        0
+      ]
+  },
+  {
+    "id": 2,
+    "point_id": 2,
+    "location": [
+      95,
+      445
+    ],
+    "height": 20,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 3,
+    "point_id": 3,
+    "location": [
+      135,
+      535
+    ],
+    "height": 30,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.56,
+        0.47,
+        0
+      ]
+  },
+  {
+    "id": 4,
+    "point_id": 4,
+    "location": [
+      70,
+      630
+    ],
+    "height": 10,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.37,
+        0.87,
+        0.38
+      ]
+  },
+  {
+    "id": 5,
+    "point_id": 5,
+    "location": [
+      135,
+      700
+    ],
+    "height": 30,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.4,
+        0.32,
+        0.72,
+        0
+      ]
+  },
+  {
+    "id": 6,
+    "point_id": 6,
+    "location": [
+      215,
+      600
+    ],
+    "height": 35,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.1,
+        0,
+        0.95,
+        0
+      ]
+  },
+  {
+    "id": 7,
+    "point_id": 7,
+    "location": [
+      180,
+      360
+    ],
+    "height": 35,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.87,
+        0,
+        0,
+        0.24
+      ]
+  },
+  {
+    "id": 8,
+    "point_id": 8,
+    "location": [
+      240,
+      454
+    ],
+    "height": 38,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 9,
+    "point_id": 9,
+    "location": [
+      260,
+      275
+    ],
+    "height": 40,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.09,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 10,
+    "point_id": 10,
+    "location": [
+      147,
+      119
+    ],
+    "height": 30,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0.72,
+        0.47
+      ]
+  },
+  {
+    "id": 11,
+    "point_id": 11,
+    "location": [
+      335,
+      160
+    ],
+    "height": 50,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.17,
+        0,
+        0.12,
+        0
+      ]
+  },
+  {
+    "id": 12,
+    "point_id": 12,
+    "location": [
+      430,
+      226
+    ],
+    "height": 60,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0.3,
+        0
+      ]
+  },
+  {
+    "id": 13,
+    "point_id": 13,
+    "location": [
+      336,
+      363
+    ],
+    "height": 55,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.41,
+        0,
+        0.67
+      ]
+  },
+  {
+    "id": 14,
+    "point_id": 14,
+    "location": [
+      415,
+      480
+    ],
+    "height": 80,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.47,
+        0,
+        0.26
+      ]
+  },
+  {
+    "id": 15,
+    "point_id": 15,
+    "location": [
+      520,
+      390
+    ],
+    "height": 90,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.71,
+        0.21,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 16,
+    "point_id": 16,
+    "location": [
+      535,
+      585
+    ],
+    "height": 85,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.88,
+        0.33,
+        0.87,
+        0
+      ]
+  },
+  {
+    "id": 17,
+    "point_id": 17,
+    "location": [
+      347,
+      637
+    ],
+    "height": 55,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.4
+      ]
+  },
+  {
+    "id": 18,
+    "point_id": 18,
+    "location": [
+      575,
+      700
+    ],
+    "height": 35,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0.74,
+        0
+      ]
+  },
+  {
+    "id": 19,
+    "point_id": 19,
+    "location": [
+      721,
+      641
+    ],
+    "height": 55,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.14
+      ]
+  },
+  {
+    "id": 20,
+    "point_id": 20,
+    "location": [
+      740,
+      560
+    ],
+    "height": 80,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.38,
+        0,
+        0.15
+      ]
+  },
+  {
+    "id": 21,
+    "point_id": 21,
+    "location": [
+      721,
+      440
+    ],
+    "height": 85,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.7,
+        0,
+        0.31,
+        0
+      ]
+  },
+  {
+    "id": 22,
+    "point_id": 22,
+    "location": [
+      574,
+      275
+    ],
+    "height": 65,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.48,
+        0,
+        0,
+        0.06
+      ]
+  },
+  {
+    "id": 23,
+    "point_id": 23,
+    "location": [
+      574,
+      152
+    ],
+    "height": 50,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.2,
+        0.99,
+        0,
+        0.18
+      ]
+  },
+  {
+    "id": 24,
+    "point_id": 24,
+    "location": [
+      371,
+      41
+    ],
+    "height": 6,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.38,
+        0,
+        0,
+        0.81
+      ]
+  },
+  {
+    "id": 25,
+    "point_id": 25,
+    "location": [
+      620,
+      35
+    ],
+    "height": 0,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.96,
+        0,
+        1.0,
+        0
+      ]
+  },
+  {
+    "id": 26,
+    "point_id": 26,
+    "location": [
+      835,
+      96
+    ],
+    "height": 30,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.24,
+        0,
+        0.21,
+        0.9
+      ]
+  },
+  {
+    "id": 27,
+    "point_id": 27,
+    "location": [
+      720,
+      207
+    ],
+    "height": 58,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.16,
+        0,
+        0.16,
+        0.51
+      ]
+  },
+  {
+    "id": 28,
+    "point_id": 28,
+    "location": [
+      878,
+      343
+    ],
+    "height": 60,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.21
+      ]
+  },
+  {
+    "id": 29,
+    "point_id": 29,
+    "location": [
+      911,
+      477
+    ],
+    "height": 63,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.6,
+        0.38,
+        0,
+        0.14
+      ]
+  },
+  {
+    "id": 30,
+    "point_id": 30,
+    "location": [
+      1021,
+      581
+    ],
+    "height": 80,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.09,
+        0.99,
+        0.11,
+        0
+      ]
+  },
+  {
+    "id": 31,
+    "point_id": 31,
+    "location": [
+      505,
+      760
+    ],
+    "height": 0,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 32,
+    "point_id": 32,
+    "location": [
+      886,
+      747
+    ],
+    "height": 10,
+    "type": "begin",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.03,
+        0,
+        0.65
+      ]
+  },
+  {
+    "id": 33,
+    "point_id": 33,
+    "location": [
+      942,
+      642
+    ],
+    "height": 50,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.61,
+        0.4,
+        0
+      ]
+  },
+  {
+    "id": 34,
+    "point_id": 34,
+    "location": [
+      1051,
+      400
+    ],
+    "height": 85,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.93,
+        0,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 35,
+    "point_id": 35,
+    "location": [
+      1222,
+      530
+    ],
+    "height": 95,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.73,
+        0,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 36,
+    "point_id": 36,
+    "location": [
+      1230,
+      413
+    ],
+    "height": 120,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.85,
+        0,
+        0.03,
+        0
+      ]
+  },
+  {
+    "id": 37,
+    "point_id": 37,
+    "location": [
+      1030,
+      216
+    ],
+    "height": 82,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.21,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 38,
+    "point_id": 38,
+    "location": [
+      1134,
+      104
+    ],
+    "height": 30,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.22,
+        0.95,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 39,
+    "point_id": 39,
+    "location": [
+      1350,
+      38
+    ],
+    "height": 0,
+    "type": "begin",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.93
+      ]
+  },
+  {
+    "id": 40,
+    "point_id": 40,
+    "location": [
+      1380,
+      250
+    ],
+    "height": 90,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.76,
+        0,
+        0.54,
+        0
+      ]
+  },
+  {
+    "id": 41,
+    "point_id": 41,
+    "location": [
+      1390,
+      390
+    ],
+    "height": 92,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0.55,
+        0
+      ]
+  },
+  {
+    "id": 42,
+    "point_id": 42,
+    "location": [
+      1400,
+      500
+    ],
+    "height": 88,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.64,
+        0,
+        0,
+        0.02
+      ]
+  },
+  {
+    "id": 43,
+    "point_id": 43,
+    "location": [
+      1212,
+      700
+    ],
+    "height": 34,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.04,
+        0.42,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 44,
+    "point_id": 44,
+    "location": [
+      1326,
+      642
+    ],
+    "height": 60,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.93,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 45,
+    "point_id": 45,
+    "location": [
+      1340,
+      746
+    ],
+    "height": 10,
+    "type": "finish",
+    "characteristics": [
+        0,
+        0,
+        0.39,
+        0,
+        0,
+        0.05
+      ]
+  },
+  {
+    "id": 46,
+    "point_id": 46,
+    "location": [
+      1545,
+      612
+    ],
+    "height": 60,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 47,
+    "point_id": 47,
+    "location": [
+      1600,
+      460
+    ],
+    "height": 50,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.52,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 48,
+    "point_id": 48,
+    "location": [
+      1506,
+      306
+    ],
+    "height": 68,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.48,
+        0,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 49,
+    "point_id": 49,
+    "location": [
+      1570,
+      206
+    ],
+    "height": 60,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        1.0,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 50,
+    "point_id": 50,
+    "location": [
+      1475,
+      100
+    ],
+    "height": 32,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.87,
+        0,
+        0.63,
+        0
+      ]
+  },
+  {
+    "id": 51,
+    "point_id": 51,
+    "location": [
+      1182,
+      232
+    ],
+    "height": 90,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.92,
+        0.57,
+        0.17
+      ]
+  },
+  {
+    "id": 52,
+    "point_id": 52,
+    "location": [
+      1655,
+      300
+    ],
+    "height": 30,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 53,
+    "point_id": 53,
+    "location": [
+      1650,
+      560
+    ],
+    "height": 30,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.54,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 54,
+    "point_id": 54,
+    "location": [
+      1650,
+      690
+    ],
+    "height": 32,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 55,
+    "point_id": 55,
+    "location": [
+      1744,
+      730
+    ],
+    "height": 10,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 56,
+    "point_id": 56,
+    "location": [
+      1799,
+      616
+    ],
+    "height": 6,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.03,
+        0.78,
+        0
+      ]
+  },
+  {
+    "id": 57,
+    "point_id": 57,
+    "location": [
+      1730,
+      490
+    ],
+    "height": 13,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0.24,
+        0.19
+      ]
+  },
+  {
+    "id": 58,
+    "point_id": 58,
+    "location": [
+      1815,
+      390
+    ],
+    "height": 0,
+    "type": "finish",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.58
+      ]
+  },
+  {
+    "id": 59,
+    "point_id": 59,
+    "location": [
+      1737,
+      228
+    ],
+    "height": 10,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0.48,
+        0
+      ]
+  },
+  {
+    "id": 60,
+    "point_id": 60,
+    "location": [
+      1760,
+      45
+    ],
+    "height": 6,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0.84,
+        0
+      ]
+  },
+  {
+    "id": 61,
+    "point_id": 61,
+    "location": [
+      1190,
+      460
+    ],
+    "height": 110,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.57,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 62,
+    "point_id": 62,
+    "location": [
+      1501,
+      461
+    ],
+    "height": 70,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0.18,
+        0,
+        0.14,
+        0
+      ]
+  },
+  {
+    "id": 63,
+    "point_id": 63,
+    "location": [
+      916,
+      220
+    ],
+    "height": 68,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+  },
+  {
+    "id": 64,
+    "point_id": 64,
+    "location": [
+      570,
+      480
+    ],
+    "height": 100,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.24,
+        0.43,
+        0
+      ]
+  },
+  {
+    "id": 65,
+    "point_id": 65,
+    "location": [
+      707,
+      303
+    ],
+    "height": 78,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.04,
+        0.15,
+        0.99
+      ]
+  },
+  {
+    "id": 66,
+    "point_id": 66,
+    "location": [
+      250,
+      750
+    ],
+    "height": 10,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0,
+        0.38,
+        0
+      ]
+  },
+  {
+    "id": 67,
+    "point_id": 67,
+    "location": [
+      1299,
+      345
+    ],
+    "height": 106,
+    "type": "middle",
+    "characteristics": [
+        0,
+        0,
+        0,
+        0.97,
+        0,
+        0.69
+      ]
+  }
 ]
