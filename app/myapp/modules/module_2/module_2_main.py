@@ -1,6 +1,6 @@
 import simpy
 import numpy as np
-from .defuzzification_module import compute_fuzzy_output
+from defuzzification_module import compute_fuzzy_output
 
 class Simulation:
 
@@ -33,8 +33,7 @@ class Simulation:
         excursion_agents = []
 
         for i in range(len(desires)):
-            excursion_agents.append(ExcursionAgent(f'exc{i}', None,desires[i], precomputed_data[i]))
-
+            excursion_agents.append(ExcursionAgent(f'exc{i}', None, desires[i], precomputed_data))
 
         environment = Enviroment(guide, excursion_agents, path, env, map)
 
@@ -50,7 +49,7 @@ class Simulation:
 
         env.run()
 
-        return self.camp_points,self.reagroup_points, self.launch_points
+        return self.camp_points, self.reagroup_points, self.launch_points
 
 
 class Enviroment:
@@ -79,39 +78,39 @@ class Enviroment:
     def regroup(self, point):
         # Verificar si todos los excursionistas han llegado al punto de reagrupación
         self.regroup_count += 1
-        if self.regroup_count == len(self.excur)+1:
+        if self.regroup_count == len(self.excur) + 1:
             print(f"Todos los excursionistas han llegado al punto de reagrupación {point}.")
             self.regroup_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
-            self.env.process(self.guide.move(point, point +1, self.env,self.path))
+            self.env.process(self.guide.move(point, point + 1, self.env, self.path))
             for exc in self.excur:
                 exc.reanudar(self.env, point, point + 1, self.path)
     
     def lunch(self, point):
         # Verificar si todos los excursionistas han llegado al punto de almuerzo
         self.lunch_count += 1
-        if self.lunch_count == len(self.excur)+1:
+        if self.lunch_count == len(self.excur) + 1:
             print(f"Todos los excursionistas han llegado al punto de almuerzo {point}.")
             self.had_lunch = True
             self.lunch_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
             
             yield self.env.timeout(0.5)
-            self.env.process(self.guide.move(point, point +1, self.env,self.path))
+            self.env.process(self.guide.move(point, point + 1, self.env, self.path))
             for exc in self.excur:
                 exc.reanudar(self.env, point, point + 1, self.path)
     
     def camp(self, point):
         # Verificar si todos los excursionistas han llegado al punto de campamento
         self.camp_count += 1
-        if self.camp_count == len(self.excur) +1:
+        if self.camp_count == len(self.excur) + 1:
             print(f"Todos los excursionistas han llegado al campamento en {point}.")
             self.camp_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
             
             yield self.env.timeout(10)
             self.had_lunch = False
-            self.env.process(self.guide.move(point, point +1, self.env,self.path))
+            self.env.process(self.guide.move(point, point + 1, self.env, self.path))
             for exc in self.excur:
                 exc.reanudar(self.env, point, point + 1, self.path)
 
@@ -119,7 +118,6 @@ class Enviroment:
 class GuideAgent:
     def __init__(self, enviroment, simulation):
         self.name = "el guia"
-        self.vel = np.random.uniform(3, 4)
         self.beliefs = {}
         self.desires = {}
         self.intentions = []
@@ -128,9 +126,21 @@ class GuideAgent:
         self.simulation = simulation
         
     def move(self, point1, point2, env, ma):
-        yield env.timeout(ma.size[point1] / self.vel)
+        # Calcular quién es el excursionista más adelantado y su tiempo estimado de llegada
+        fastest_time = None
+        for exc in self.enviroment.excur:
+            time_to_next_point = ma.size[point1] / exc.vel
+            if fastest_time is None or time_to_next_point < fastest_time:
+                fastest_time = time_to_next_point
+
+        # El guía debe llegar un segundo antes que el más adelantado
+        guide_time = max(0, fastest_time - 1 / 60)  # Evitar tiempos negativos
+
+        # Esperar el tiempo ajustado
+        yield env.timeout(guide_time)
         print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
         self.current_position = point2
+
         if point2 != len(ma.points) - 1:
             self.intentions = []
             self.update_beliefs()
@@ -182,11 +192,11 @@ class ExcursionAgent:
             'user_flora': desires[2],
             'user_fauna': desires[3],
             'user_history': desires[4],
-            'user_rivers':desires[5]
+            'user_rivers': desires[5]
         }
         self.desires["path"] = {
             'user_isolation': desires[0],
-            'user_challenge':desires[1],
+            'user_challenge': desires[1],
             'user_flora': desires[2],
             'user_fauna': desires[3]
         }
@@ -212,7 +222,7 @@ class ExcursionAgent:
                 env.process(self.enviroment.camp(point2))
             else:
                 # Si no es reagrupación, camp o almuerzo, continuar el movimiento normal
-                yield env.timeout(waiting_time/60)
+                yield env.timeout(waiting_time / 60)
                 env.process(self.move(point2, point2 + 1, env, ma))
 
     def reanudar(self, env, point1, point2, ma):
@@ -224,4 +234,52 @@ class ExcursionAgent:
 class Path:
     def __init__(self):
         self.points = []
-        self.size = []  
+        self.size = [] 
+
+
+def main():
+    # Definición del mapa y la ruta
+    map = Map()
+    map.edges_size = {('A', 'B'): 10, ('B', 'C'): 15, ('C', 'D'): 20}  # Distancias entre los puntos del mapa
+    map.points = ['A', 'B', 'C', 'D']
+
+    # Definir la ruta que tomarán los excursionistas
+    route = ['A', 'B', 'C', 'D']
+
+    # Definir deseos de los excursionistas: [isolation, challenge, flora, fauna, history, rivers]
+    desires = [
+        [3, 2, 4, 3, 1, 2],  # Excursionista 1
+        [2, 3, 3, 4, 2, 1],  # Excursionista 2
+        [4, 1, 2, 3, 3, 2]   # Excursionista 3
+    ]
+
+    # Datos precomputados de los excursionistas (tiempos de espera en cada punto)
+    precomputed_data = {
+    0: {"waiting_time": [5, 6, 7]},  # Tiempos de espera en el punto 0 para cada excursionista
+    1: {"waiting_time": [3, 4, 5]},  # Tiempos de espera en el punto 1 para cada excursionista
+    2: {"waiting_time": [4, 5, 6]},  # Tiempos de espera en el punto 2 para cada excursionista
+    3: {"waiting_time": [2, 3, 4]}   # Tiempos de espera en el punto 3 para cada excursionista
+}
+
+
+
+    # Crear instancia de la simulación
+    simulation = Simulation()
+
+    # Ejecutar la simulación con los deseos, la ruta, el mapa y los datos precomputados
+    camp_points, reagroup_points, launch_points = simulation.simulate_excursion(desires, route, map, precomputed_data)
+
+    # Imprimir resultados de la simulación
+    print("Puntos de campamento:", camp_points)
+    print("Puntos de reagrupamiento:", reagroup_points)
+    print("Puntos de almuerzo:", launch_points)
+
+
+class Map:
+    def __init__(self):
+        self.points = []
+        self.edges_size = {}
+
+
+if __name__ == "__main__":
+    main()
