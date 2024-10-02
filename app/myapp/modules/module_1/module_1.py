@@ -15,7 +15,7 @@ def plan_route(map_data, last_route=[], cost=None):
         tourist_preferences (list): Lista de preferencias de los turistas, donde cada elemento es una lista de 6 valores.
 
     Returns:
-        list: Ruta planificada utilizando A* Search.
+        list: Ruta planificada].
 
     Note:
         Este método utiliza Simulated Annealing para encontrar la mejor ruta considerando las preferencias de los turistas,
@@ -46,33 +46,6 @@ def plan_route(map_data, last_route=[], cost=None):
     temperature *= cooling_rate
     
     return generate_neighbor_solution(map_data, last_route)
-
-def simulated_annealing(graph, initial_temp, cooling_rate, max_iterations):
-    # Inicializar la temperatura
-    temperature = initial_temp
-    
-    # Obtener una solución inical
-    current_solution,current_cost = generate_minimal_solution(graph)
-    
-    best_solution = current_solution
-    best_cost = current_cost
-    
-    for i in range(max_iterations):
-        new_solution = generate_neighbor_solution(graph, current_solution)
-        new_cost = 15
-        cost_diff = new_cost - current_cost
-
-        if cost_diff < 0 or random.uniform(0, 1) < math.exp(-cost_diff / temperature):
-            current_solution = new_solution
-            current_cost = new_cost
-
-            if current_cost < best_cost:
-                best_solution = current_solution
-                best_cost = current_cost
-
-        temperature *= cooling_rate
-
-    return best_solution, best_cost
 
 # Dijkstra
 def generate_minimal_solution(graph, initial_nodes=[], exclude_node=None):
