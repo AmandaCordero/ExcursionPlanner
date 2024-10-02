@@ -2,11 +2,7 @@ import heapq
 import random
 import math
 
-temperature = 1000
-best_solution = []
-best_cost = None
-
-def plan_route(map_data, last_route=[], cost=None):    
+def plan_route(map_data, temperature, best_solution, best_cost, last_route, cost):    
     """
     Planifica una ruta basada en las preferencias de los turistas y características del mapa.
 
@@ -21,9 +17,6 @@ def plan_route(map_data, last_route=[], cost=None):
         Este método utiliza Simulated Annealing para encontrar la mejor ruta considerando las preferencias de los turistas,
         las características de los puntos de interés y la topografía del mapa.
     """
-    global temperature
-    global best_solution
-    global best_cost
 
     # Parámetros del algoritmo
     # la temperatura está global
@@ -45,7 +38,7 @@ def plan_route(map_data, last_route=[], cost=None):
 
     temperature *= cooling_rate
     
-    return generate_neighbor_solution(map_data, last_route)
+    return generate_neighbor_solution(map_data, last_route), temperature, best_solution, best_cost
 
 # Dijkstra
 def generate_minimal_solution(graph, initial_nodes=[], exclude_node=None):

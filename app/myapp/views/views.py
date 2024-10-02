@@ -19,39 +19,8 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import numpy as np
 
-def plan_route_info(request):
-    # Cargamos los datos del mapa
-    map_data = Map()
-    
-    # Cargamos los datos de los turistas
-    with open('./myapp/utils/tourists_data.json', 'r') as file:
-        tourists = json.load(file)
-    
-    characteristics = []
-    for tourist in tourists:
-        characteristics.append(tourist['characteristics'])
-    
-    route, goals = plan_route(map_data, characteristics)
-    
-    with open('./myapp/utils/route_data.json', 'w') as file:
-            json.dump(route, file, indent=4)
-
-    interesting_points = []
-    for goal in goals:
-        interesting_points.append({
-            'id': goal,
-            'location': map_data.points[goal].location,
-            'height': map_data.points[goal].height,
-            'characteristics':map_data.points[goal].characteristics
-        }) 
-    
-    return render(request, 'route_info.html', {'data': route})
-
 def run_simulate(request):
 
-    with open('./myapp/utils/route_data.json', 'r') as file:
-        route = json.load(file)
-    
     with open('./myapp/utils/tourists_data.json', 'r') as file:
         tourists = json.load(file)
 
@@ -71,14 +40,25 @@ def run_simulate(request):
 
     map = Mapa(points, edges_size, edges=edges)
 
-    precomputed_data = precompute_excursion_data(desires, route, map)
     
     simulate = Simulation()
 
     camp_points_data = []
     reagroup_points_data = []
     launch_points_data = []
-    for _ in range(100):
+    
+    temperature = 1000
+    best_solution = []
+    best_cost = None
+    route=[]
+    cost = None
+    map_data = Map()
+    while temperatute > 0.1:
+        
+        route, temperature, best_solution, best_cost, cost = plan_route(map_data, temperature, best_solution, best_cost, route, cost)
+            
+        precomputed_data = precompute_excursion_data(desires, route, map)
+        
         camp_points, reagroup_points,  launch_points = simulate.simulate_excursion(desires, route, map, precomputed_data)
         camp_points_data.append(camp_points)
         reagroup_points_data.append(reagroup_points)
@@ -132,7 +112,8 @@ def precompute_excursion_data(desires, route, map):
 
             waiting_time = compute_fuzzy_output(context='waiting_time', **(beliefs | his_desires["point"]))
             agent_data.append({
-                "waiting_time": waiting_time
+                "waiting_time": waiting_time,
+                "beliefs": beliefs
             })
         precomputed_data.append(agent_data)
     

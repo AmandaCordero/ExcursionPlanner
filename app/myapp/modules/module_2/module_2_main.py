@@ -1,6 +1,8 @@
 import simpy
 import numpy as np
 from .defuzzification_module import compute_fuzzy_output
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
 
 class Simulation:
 
@@ -8,6 +10,7 @@ class Simulation:
         self.camp_points = []
         self.reagroup_points = []
         self.launch_points = []
+        self.cost = 0
 
     def simulate_excursion(self, desires, route, map, precomputed_data):
 
@@ -33,7 +36,7 @@ class Simulation:
         excursion_agents = []
 
         for i in range(len(desires)):
-            excursion_agents.append(ExcursionAgent(f'exc{i}', None,desires[i], precomputed_data[i]))
+            excursion_agents.append(ExcursionAgent(f'exc{i}', None,desires[i], precomputed_data[i], self))
 
 
         environment = Enviroment(guide, excursion_agents, path, env, map)
@@ -50,7 +53,7 @@ class Simulation:
 
         env.run()
 
-        return self.camp_points,self.reagroup_points, self.launch_points
+        return self.camp_points,self.reagroup_points, self.launch_points, self.cost
 
 
 class Enviroment:
@@ -173,7 +176,7 @@ class GuideAgent:
 
 
 class ExcursionAgent:
-    def __init__(self, name, enviroment, desires, precomputed_data):
+    def __init__(self, name, enviroment, desires, precomputed_data, simulation):
         self.name = name
         self.vel = np.random.uniform(2, 3)
         self.beliefs = {}
@@ -195,6 +198,8 @@ class ExcursionAgent:
         self.current_position = 0
         self.enviroment = enviroment
         self.precomputed_data = precomputed_data
+        self.simulation = simulation
+        
 
     def move(self, point1, point2, env, ma):
         waiting_time = self.precomputed_data[point1]["waiting_time"]
@@ -202,6 +207,11 @@ class ExcursionAgent:
         yield env.timeout(ma.size[point1] / self.vel)
         print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
         self.current_position = point2
+        
+        lists = np.array([self.desires['point'], self.precomputed_data[point2]["beliefs"]])
+        similarity = cosine_similarity(lists)
+
+        self.simulation.cost += -(similarity)
         if point2 != len(ma.points) - 1:
             
             if self.enviroment.mark[point2] == "regroup":
