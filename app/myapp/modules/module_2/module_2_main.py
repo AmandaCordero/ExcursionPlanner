@@ -205,7 +205,7 @@ class ExcursionAgent:
         waiting_time = self.precomputed_data[point1]["waiting_time"]
 
         yield env.timeout(ma.size[point1] / self.vel)
-        print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
+        # print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
         self.current_position = point2
         
         desires_values = np.array(list(self.desires['point'].values())).reshape(1, -1)
@@ -230,7 +230,7 @@ class ExcursionAgent:
 
     def reanudar(self, env, point1, point2, ma):
         # Reanudar el movimiento después de reagruparse, almorzar o acampar
-        print(f"{self.name} reanuda el movimiento desde {ma.points[point1]} hacia {ma.points[point2]}.")
+        # print(f"{self.name} reanuda el movimiento desde {ma.points[point1]} hacia {ma.points[point2]}.")
         env.process(self.move(point1, point2, env, ma))
 
 

@@ -41,16 +41,24 @@ def run_simulate(request):
     best_cost = None
     route=[]
     cost = None
+
+    count = 0
     while temperature > 0.1:
         
-        route, temperature, best_solution, best_cost = plan_route(map_data, temperature, best_solution, best_cost, route, cost)
-            
+        route, temperature, best_solution, best_cost = plan_route(map_data, temperature, best_solution, best_cost, route, cost)   
         precomputed_data = precompute_excursion_data(desires, route, map)
         
+        print("#############################################################################")
+        print("#############################################################################")
+        print(f'                    COMIENZA LA SIMULACION {count}')
+        print("#############################################################################")
+        print("#############################################################################")
         camp_points, reagroup_points,  launch_points, cost = simulate.simulate_excursion(desires, route, map, precomputed_data)
         camp_points_data.append(camp_points)
         reagroup_points_data.append(reagroup_points)
         launch_points_data.append(launch_points)
+
+        count += 1
 
     camp_stats = calculate_statistics(camp_points_data)
     reagroup_stats = calculate_statistics(reagroup_points_data)
