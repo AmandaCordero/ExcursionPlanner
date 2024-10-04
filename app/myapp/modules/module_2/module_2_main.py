@@ -24,7 +24,6 @@ class Simulation:
         path = Path()
         # Ampliar la cantidad de puntos y tamaños en el camino
         path.points = route
-        print(f'Ruta: {route}')
         path.size = []  # Distancias entre los puntos
         for i in range(len(route)):
             if i == 0:
@@ -54,7 +53,6 @@ class Simulation:
 
         env.run()
 
-        print(f'Costo: {self.cost}')
         return self.camp_points, self.reagroup_points, self.launch_points, self.cost
 
 
