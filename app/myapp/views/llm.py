@@ -21,20 +21,21 @@ def view_route_description(request):
     for tourist in tourists:
         characteristics.append(tourist['characteristics'])
         
-    route, goals = plan_route(map_data, characteristics)
+    # route, goals = plan_route(map_data, characteristics)
     
-    interesting_points = []
-    for goal in goals:
-        interesting_points.append({
-            'id': goal,
-            'location': map_data.points[goal].location,
-            'height': map_data.points[goal].height,
-            'characteristics':map_data.points[goal].characteristics
-        }) 
+    # interesting_points = []
+    # for goal in goals:
+    #     interesting_points.append({
+    #         'id': goal,
+    #         'location': map_data.points[goal].location,
+    #         'height': map_data.points[goal].height,
+    #         'characteristics':map_data.points[goal].characteristics
+    #     }) 
     
-    info = show_info_route(interesting_points)
+    # info = show_info_route(interesting_points)
 
-    return render(request, 'route_info.html', {'info': info})
+    # return render(request, 'route_info.html', {'info': info})
+    return render(request, 'route_info.html', {'info': 'lorem'})
 
     
 def ver_encuesta(request):

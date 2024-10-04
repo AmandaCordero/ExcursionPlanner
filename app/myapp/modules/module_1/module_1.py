@@ -2,7 +2,7 @@ import heapq
 import random
 import math
 
-def plan_route(map_data, temperature, best_solution, best_cost, last_route, cost):    
+def plan_route(map_data, temperature, best_solution=None, best_cost=None, last_route=None, cost=None):    
     """
     Planifica una ruta basada en las preferencias de los turistas y características del mapa.
 
@@ -131,7 +131,7 @@ def generate_neighbors_by_add(graph, path):
                     begin_solution.append(point)
                     if point == selected_point:
                         break
-                return begin_solution + generate_initial_solution(graph, [neighbor], selected_point)
+                return begin_solution + generate_minimal_solution(graph, [neighbor], selected_point)
         
     return None
 
@@ -169,7 +169,7 @@ def generate_neighbors_by_delete(graph, path):
         
         start = begin_solution[len(begin_solution)-1]
             
-        return begin_solution[0:len(begin_solution)-1] + generate_initial_solution(graph, [start], selected_point)
+        return begin_solution[0:len(begin_solution)-1] + generate_minimal_solution(graph, [start], selected_point)
         
     return None
 
