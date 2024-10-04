@@ -1,10 +1,10 @@
 import json
-from map_utils.points.point_utils import Point
-from map_utils.edges.edge_utils import Edge
+from .point_utils import Point
+from .edge_utils import Edge
 import matplotlib.pyplot as plt
 import networkx as nx
 import random
-from map_utils.utils.random_variables import get_lower_number
+from .random_variables import get_lower_number
 import math
 
 class Map:

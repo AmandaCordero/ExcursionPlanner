@@ -1,23 +1,12 @@
-import json
+from django.shortcuts import render
 from django.http import JsonResponse
 
-from django.shortcuts import get_object_or_404, render
+import json
 import markdown
 
-from .modules.module_2.defuzzification_module import compute_fuzzy_output
-
-from .modules.module_2.module_2_main import Simulation
-
-from .models import Point, Edge, Tourist
-from .llm import show_info_route
-from django.shortcuts import render, redirect
-from .forms import PointForm, EdgeForm, TouristForm
-from django.views.generic.edit import CreateView
-from .utils.map_utils import Map
-from .modules.module_1.module_1 import plan_route
-import networkx as nx
-import matplotlib.pyplot as plt
-import numpy as np
+from ..llm import show_info_route
+from ..utils.map_utils import Map
+from ..modules.module_1.module_1 import plan_route
 
 
 def view_route_description(request):

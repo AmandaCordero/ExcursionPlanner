@@ -1,23 +1,12 @@
+from django.shortcuts import render
+
 import json
-from django.http import JsonResponse
 
-from django.shortcuts import get_object_or_404, render
-import markdown
-
-from .modules.module_2.defuzzification_module import compute_fuzzy_output
-
-from .modules.module_2.module_2_main import Simulation
-
-from .models import Point, Edge, Tourist
-from .llm import show_info_route
-from django.shortcuts import render, redirect
-from .forms import PointForm, EdgeForm, TouristForm
-from django.views.generic.edit import CreateView
-from .utils.map_utils import Map
-from .modules.module_1.module_1 import plan_route
-import networkx as nx
-import matplotlib.pyplot as plt
-import numpy as np
+from .statistics import calculate_statistics
+from ..modules.module_2.defuzzification_module import compute_fuzzy_output
+from ..modules.module_2.module_2_main import Simulation
+from ..utils.map_utils import Map
+from ..modules.module_1.module_1 import plan_route
 
 def run_simulate(request):
 
@@ -53,7 +42,7 @@ def run_simulate(request):
     route=[]
     cost = None
     map_data = Map()
-    while temperatute > 0.1:
+    while temperature > 0.1:
         
         route, temperature, best_solution, best_cost, cost = plan_route(map_data, temperature, best_solution, best_cost, route, cost)
             

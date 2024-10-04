@@ -3,14 +3,14 @@ from .views import edges
 from .views import points
 from .views import tourists
 from .views import llm
-from .views import statistics
+from .views import landing
 from .views import simulation
 from django.conf import settings
 from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('', views.pagina_inicio, name='pagina_inicio'),
+    path('', landing.pagina_inicio, name='pagina_inicio'),
     
     # Point urls
     path('create_point/', points.create_point, name='create_point'),
