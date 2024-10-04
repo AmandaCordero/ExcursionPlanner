@@ -7,7 +7,7 @@
       300
     ],
     "height": 10,
-    "type": "begin",
+    "type": "middle",
     "characteristics": [
         0,
         0,
@@ -259,7 +259,7 @@
       390
     ],
     "height": 90,
-    "type": "middle",
+    "type": "begin",
     "characteristics": [
         0,
         0,
@@ -385,7 +385,7 @@
       275
     ],
     "height": 65,
-    "type": "middle",
+    "type": "finish",
     "characteristics": [
         0,
         0,
@@ -565,7 +565,7 @@
       747
     ],
     "height": 10,
-    "type": "begin",
+    "type": "middle",
     "characteristics": [
         0,
         0,
@@ -691,7 +691,7 @@
       38
     ],
     "height": 0,
-    "type": "begin",
+    "type": "middle",
     "characteristics": [
         0,
         0,
@@ -799,7 +799,7 @@
       746
     ],
     "height": 10,
-    "type": "finish",
+    "type": "middle",
     "characteristics": [
         0,
         0,
@@ -1177,7 +1177,7 @@
       750
     ],
     "height": 10,
-    "type": "middle",
+    "type": "begin",
     "characteristics": [
         0,
         0,

@@ -24,6 +24,7 @@ class Simulation:
         path = Path()
         # Ampliar la cantidad de puntos y tamaños en el camino
         path.points = route
+        print(f'Ruta: {route}')
         path.size = []  # Distancias entre los puntos
         for i in range(len(route)):
             if i == 0:
@@ -47,12 +48,13 @@ class Simulation:
             exc.enviroment = environment
 
         # Ejecutar los procesos de movimiento
-        env.process(guide.move(1, 2, env, path))
+        env.process(guide.move(0, 1, env, path))
         for exc in excursion_agents:
-            env.process(exc.move(1, 2, env, path))
+            env.process(exc.move(0, 1, env, path))
 
         env.run()
 
+        print(f'Costo: {self.cost}')
         return self.camp_points, self.reagroup_points, self.launch_points, self.cost
 
 
@@ -83,7 +85,7 @@ class Enviroment:
         # Verificar si todos los excursionistas han llegado al punto de reagrupación
         self.regroup_count += 1
         if self.regroup_count == len(self.excur)+1:
-            print(f"Todos los excursionistas han llegado al punto de reagrupación {point}.")
+            # print(f"Todos los excursionistas han llegado al punto de reagrupación {point}.")
             self.regroup_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
             self.env.process(self.guide.move(point, point +1, self.env,self.path))
@@ -94,7 +96,7 @@ class Enviroment:
         # Verificar si todos los excursionistas han llegado al punto de almuerzo
         self.lunch_count += 1
         if self.lunch_count == len(self.excur)+1:
-            print(f"Todos los excursionistas han llegado al punto de almuerzo {point}.")
+            # print(f"Todos los excursionistas han llegado al punto de almuerzo {point}.")
             self.had_lunch = True
             self.lunch_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
@@ -108,7 +110,7 @@ class Enviroment:
         # Verificar si todos los excursionistas han llegado al punto de campamento
         self.camp_count += 1
         if self.camp_count == len(self.excur) +1:
-            print(f"Todos los excursionistas han llegado al campamento en {point}.")
+            # print(f"Todos los excursionistas han llegado al campamento en {point}.")
             self.camp_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
             
@@ -132,7 +134,7 @@ class GuideAgent:
         
     def move(self, point1, point2, env, ma):
         yield env.timeout(ma.size[point1] / self.vel)
-        print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
+        # print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
         self.current_position = point2
         if point2 != len(ma.points) - 1:
             self.intentions = []
@@ -202,15 +204,14 @@ class ExcursionAgent:
         
 
     def move(self, point1, point2, env, ma):
-        # print(self.precomputed_data[point1])
-        waiting_time = self.precomputed_data[point1]["waiting_time"]
+        waiting_time = self.precomputed_data[ma.points[point1]]["waiting_time"]
 
         yield env.timeout(ma.size[point1] / self.vel)
         # print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
         self.current_position = point2
         
         desires_values = np.array(list(self.desires['point'].values())).reshape(1, -1)
-        beliefs_values = np.array(list(self.precomputed_data[point2]["beliefs"].values())).reshape(1, -1)
+        beliefs_values = np.array(list(self.precomputed_data[ma.points[point2]]["beliefs"].values())).reshape(1, -1)
 
         # Calcular la similitud coseno entre los dos vectores
         similarity = cosine_similarity(desires_values, beliefs_values)

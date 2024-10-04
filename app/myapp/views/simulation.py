@@ -61,6 +61,11 @@ def run_simulate(request):
 
         count += 1
 
+    
+    print("\n\n\n")
+    print(f"Mejor solucion: {best_solution}")
+    print(f"Mejor costo: {best_cost}")
+
     camp_stats = calculate_statistics(camp_points_data)
     reagroup_stats = calculate_statistics(reagroup_points_data)
     launch_stats = calculate_statistics(launch_points_data)
