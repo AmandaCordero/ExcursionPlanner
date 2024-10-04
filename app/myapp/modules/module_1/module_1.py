@@ -11,7 +11,7 @@ def plan_route(map_data, temperature, best_solution, best_cost, last_route, cost
         tourist_preferences (list): Lista de preferencias de los turistas, donde cada elemento es una lista de 6 valores.
 
     Returns:
-        list: Ruta planificada].
+        list: Ruta planificada.
 
     Note:
         Este método utiliza Simulated Annealing para encontrar la mejor ruta considerando las preferencias de los turistas,
@@ -27,7 +27,7 @@ def plan_route(map_data, temperature, best_solution, best_cost, last_route, cost
     elif not best_solution:
         best_solution = last_route
         best_cost = cost
-        return generate_neighbor_solution(map_data, last_route)
+        return generate_neighbor_solution(map_data, last_route), temperature, best_solution, best_cost
     
     cost_diff = cost - best_cost
     if cost_diff < 0 or random.uniform(0, 1) < math.exp(-cost_diff / temperature):
@@ -131,7 +131,7 @@ def generate_neighbors_by_add(graph, path):
                     begin_solution.append(point)
                     if point == selected_point:
                         break
-                return begin_solution + generate_initial_solution(graph, [neighbor], selected_point)
+                return begin_solution + generate_minimal_solution(graph, [neighbor], selected_point)
         
     return None
 
@@ -169,7 +169,7 @@ def generate_neighbors_by_delete(graph, path):
         
         start = begin_solution[len(begin_solution)-1]
             
-        return begin_solution[0:len(begin_solution)-1] + generate_initial_solution(graph, [start], selected_point)
+        return begin_solution[0:len(begin_solution)-1] + generate_minimal_solution(graph, [start], selected_point)
         
     return None
 
