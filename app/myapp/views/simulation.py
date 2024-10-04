@@ -42,11 +42,12 @@ def run_simulate(request):
     route=[]
     cost = None
 
+    precomputed_data = precompute_excursion_data(desires, map)
+    
     count = 0
     while temperature > 0.1:
         
         route, temperature, best_solution, best_cost = plan_route(map_data, temperature, best_solution, best_cost, route, cost)   
-        precomputed_data = precompute_excursion_data(desires, route, map)
         
         print("#############################################################################")
         print("#############################################################################")
@@ -78,14 +79,13 @@ def run_simulate(request):
         info += f"{stat}: {value}" 
     return render(request, 'run_simulate.html', {'info': info})
 
-def precompute_excursion_data(desires, route, map):
+def precompute_excursion_data(desires, map):
     # Precompute the waiting times and intentions for each tourist at each point
     precomputed_data = []
     
     for i in range(len(desires)):
-        agent_data = []
-        for point in route:
-            point_data = map.points[point]
+        agent_data = {}
+        for key, point_data in map.points.items():
             beliefs = {
                 "point_flora": point_data[2],
                 "point_fauna": point_data[3],
@@ -107,10 +107,10 @@ def precompute_excursion_data(desires, route, map):
             }
 
             waiting_time = compute_fuzzy_output(context='waiting_time', **(beliefs | his_desires["point"]))
-            agent_data.append({
+            agent_data[key] = {
                 "waiting_time": waiting_time,
                 "beliefs": beliefs
-            })
+            }
         precomputed_data.append(agent_data)
     
     return precomputed_data

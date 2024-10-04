@@ -36,7 +36,7 @@ class Simulation:
         excursion_agents = []
 
         for i in range(len(desires)):
-            excursion_agents.append(ExcursionAgent(f'exc{i}', None,desires[i], precomputed_data[i], self))
+            excursion_agents.append(ExcursionAgent(f'exc{i}', None, desires[i], precomputed_data[i], self))
 
 
         environment = Enviroment(guide, excursion_agents, path, env, map)
@@ -47,9 +47,9 @@ class Simulation:
             exc.enviroment = environment
 
         # Ejecutar los procesos de movimiento
-        env.process(guide.move(0, 1, env, path))
+        env.process(guide.move(1, 2, env, path))
         for exc in excursion_agents:
-            env.process(exc.move(0, 1, env, path))
+            env.process(exc.move(1, 2, env, path))
 
         env.run()
 
@@ -202,6 +202,7 @@ class ExcursionAgent:
         
 
     def move(self, point1, point2, env, ma):
+        # print(self.precomputed_data[point1])
         waiting_time = self.precomputed_data[point1]["waiting_time"]
 
         yield env.timeout(ma.size[point1] / self.vel)
