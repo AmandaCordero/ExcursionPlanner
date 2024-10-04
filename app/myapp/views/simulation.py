@@ -20,9 +20,9 @@ def run_simulate(request):
     edges = {}
     edges_size = {}
     points = {}
-    for key in map_data.paths_details.keys():
-        edges[key] = map_data.paths_details[key]["characteristics"] 
-        edges_size[key] = map_data.paths_details[key]["distance"]
+    for key in map_data.edges.keys():
+        edges[key] = map_data.edges[key].characteristics
+        edges_size[key] = map_data.edges[key].distance
     
     for key in map_data.points.keys():
         points[key] = map_data.points[key].characteristics
