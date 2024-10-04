@@ -33,7 +33,9 @@ def view_route_description(request):
         }) 
     
     info = show_info_route(interesting_points)
-    return JsonResponse(info, safe=False)
+
+    return render(request, 'route_info.html', {'info': info})
+
     
 def ver_encuesta(request):
     # Leer el contenido del archivo Markdown

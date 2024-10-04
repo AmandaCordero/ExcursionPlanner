@@ -34,7 +34,7 @@ urlpatterns = [
     path('save_tourists/', tourists.save_tourists, name='save_tourists'),
     
     # path('plan_route/', simulation.plan_route_info, name='plan_route'),
-    path('plan_route/get_info/', llm.view_route_description, name='get_info'),
+    path('view_route_description/', llm.view_route_description, name='view_route_description'),
     path('mostrar_markdown/', llm.ver_encuesta, name='mostrar_markdown'),
     path('run_simulate/', simulation.run_simulate, name='run_simulate'),
 ]
