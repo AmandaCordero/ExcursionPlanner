@@ -53,7 +53,7 @@ class Simulation:
 
         env.run()
 
-        return self.camp_points,self.reagroup_points, self.launch_points, self.cost
+        return self.camp_points, self.reagroup_points, self.launch_points, self.cost
 
 
 class Enviroment:
@@ -208,8 +208,11 @@ class ExcursionAgent:
         print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
         self.current_position = point2
         
-        lists = np.array([self.desires['point'], self.precomputed_data[point2]["beliefs"]])
-        similarity = cosine_similarity(lists)
+        desires_values = np.array(list(self.desires['point'].values())).reshape(1, -1)
+        beliefs_values = np.array(list(self.precomputed_data[point2]["beliefs"].values())).reshape(1, -1)
+
+        # Calcular la similitud coseno entre los dos vectores
+        similarity = cosine_similarity(desires_values, beliefs_values)
 
         self.simulation.cost += -(similarity)
         if point2 != len(ma.points) - 1:

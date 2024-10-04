@@ -43,11 +43,11 @@ def run_simulate(request):
     cost = None
     while temperature > 0.1:
         
-        route, temperature, best_solution, best_cost, cost = plan_route(map_data, temperature, best_solution, best_cost, route, cost)
+        route, temperature, best_solution, best_cost = plan_route(map_data, temperature, best_solution, best_cost, route, cost)
             
         precomputed_data = precompute_excursion_data(desires, route, map)
         
-        camp_points, reagroup_points,  launch_points = simulate.simulate_excursion(desires, route, map, precomputed_data)
+        camp_points, reagroup_points,  launch_points, cost = simulate.simulate_excursion(desires, route, map, precomputed_data)
         camp_points_data.append(camp_points)
         reagroup_points_data.append(reagroup_points)
         launch_points_data.append(launch_points)

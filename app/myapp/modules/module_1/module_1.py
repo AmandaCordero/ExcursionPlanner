@@ -23,7 +23,7 @@ def plan_route(map_data, temperature, best_solution, best_cost, last_route, cost
     cooling_rate = 0.99
     
     if not last_route:
-        return generate_minimal_solution(map_data)
+        return generate_minimal_solution(map_data), temperature, best_solution, best_cost
     elif not best_solution:
         best_solution = last_route
         best_cost = cost
@@ -117,7 +117,7 @@ def generate_neighbors_by_add(graph, path):
         copy_path.append(item)
     
     
-    for i in range(len(path)):
+    for _ in range(len(path)):
         selected_point = random.choice(copy_path)
 
         if all(isNextinPath(path,selected_point,neighbor) for neighbor in graph.paths[selected_point]):
@@ -154,9 +154,8 @@ def generate_neighbors_by_delete(graph, path):
     for item in path:
         copy_path.append(item)
     
-    for i in range(len(path)):
+    for _ in range(len(path)):
         selected_point = random.choice(copy_path)
-        print(selected_point)
         if selected_point==path[0] or selected_point==path[len(path)-1]:
             copy_path.remove(selected_point)
             continue
