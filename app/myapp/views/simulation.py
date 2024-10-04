@@ -41,7 +41,6 @@ def run_simulate(request):
     best_cost = None
     route=[]
     cost = None
-    map_data = Map()
     while temperature > 0.1:
         
         route, temperature, best_solution, best_cost, cost = plan_route(map_data, temperature, best_solution, best_cost, route, cost)
