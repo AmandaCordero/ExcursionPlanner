@@ -5,7 +5,7 @@ class Edge:
         self.distance = distance
         
         if characteristics is None:
-            self.characteristics = {"morning":[0,0,0,0,0,0], "afternoon":[0,0,0,0,0,0], "night":[0,0,0,0,0,0]}
+            self.characteristics = [0,0,0,0,0,0]
         else:
             self.characteristics = characteristics
 
