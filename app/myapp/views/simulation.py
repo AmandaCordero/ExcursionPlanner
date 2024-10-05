@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 import json
 
-from .statistics import calculate_statistics
+from .statistics import calculate_statistics, calculate_statistics2, calculate_statistics3
 from ..modules.module_2.defuzzification_module import compute_fuzzy_output
 from ..modules.module_2.module_2_main import Simulation
 from ..utils.map_utils import Map
@@ -10,7 +10,7 @@ from ..modules.module_1.module_1 import plan_route
 
 def run_simulate(request):
 
-    verbose = True
+    verbose = False
 
     with open('./myapp/utils/tourists_data.json', 'r') as file:
         tourists = json.load(file)
@@ -37,6 +37,8 @@ def run_simulate(request):
     camp_points_data = []
     reagroup_points_data = []
     launch_points_data = []
+    costs_data = []
+    routes_data = []
     
     temperature = 1000
     cooling_rate = 0.99
@@ -68,6 +70,8 @@ def run_simulate(request):
         camp_points_data.append(camp_points)
         reagroup_points_data.append(reagroup_points)
         launch_points_data.append(launch_points)
+        costs_data.append(cost)
+        routes_data.append(route)
 
         count += 1
 
@@ -80,11 +84,13 @@ def run_simulate(request):
     with open('./myapp/utils/route_data.json', 'w') as file:
         json.dump(best_solution, file, indent=4)    
 
-    camp_stats = calculate_statistics(camp_points_data)
-    reagroup_stats = calculate_statistics(reagroup_points_data)
-    launch_stats = calculate_statistics(launch_points_data)
+    calculate_statistics(camp_points_data, filename="camp_stats")
+    calculate_statistics(reagroup_points_data, filename="reagroup_stats")
+    calculate_statistics(launch_points_data, filename="launch_stats")
+    calculate_statistics2(costs_data, filename="costs_stats")
+    calculate_statistics3(routes_data, filename="routes_stats.png")
 
-    info = ""
+    info = f"Mejor solucion: {best_solution}"
     return render(request, 'run_simulate.html', {'info': info})
 
 def precompute_excursion_data(desires, map):

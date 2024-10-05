@@ -163,17 +163,17 @@ class GuideAgent:
             elif "setup_camp" in self.intentions:
                 self.enviroment.mark[point2] = "camp"
                 env.process(self.enviroment.camp(point2))  # Lógica para acampar
-                self.simulation.camp_points.append(point2)
+                self.simulation.camp_points.append(ma.points[point2])
                 self.simulation.cost += -4000
             elif "have_lunch" in self.intentions:
                 self.enviroment.mark[point2] = "lunch"
                 env.process(self.enviroment.lunch(point2))  # Lógica para almorzar
-                self.simulation.launch_points.append(point2)
+                self.simulation.launch_points.append(ma.points[point2])
                 self.simulation.cost += -3000
             elif "regroup" in self.intentions:
                 self.enviroment.mark[point2] = "regroup"
                 self.enviroment.regroup(point2)  # Reagrupar
-                self.simulation.reagroup_points.append(point2)
+                self.simulation.reagroup_points.append(ma.points[point2])
                 self.simulation.cost += -2000
 
     def update_beliefs(self):

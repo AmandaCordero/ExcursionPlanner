@@ -4,6 +4,8 @@ from django.shortcuts import get_object_or_404, render
 
 import json
 
+from .points import save_map_img
+
 from ..models import Edge
 from ..forms import EdgeForm
 
