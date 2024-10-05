@@ -11,8 +11,11 @@ class Simulation:
         self.reagroup_points = []
         self.launch_points = []
         self.cost = 0
+        self.verbose = False
 
-    def simulate_excursion(self, desires, route, map, precomputed_data):
+    def simulate_excursion(self, desires, route, map, precomputed_data, verbose):
+
+        self.verbose = verbose
 
         self.camp_points = []
         self.reagroup_points = []
@@ -39,7 +42,7 @@ class Simulation:
             excursion_agents.append(ExcursionAgent(f'exc{i}', None, desires[i], precomputed_data[i], self))
 
 
-        environment = Enviroment(guide, excursion_agents, path, env, map)
+        environment = Enviroment(guide, excursion_agents, path, env, map, verbose)
 
         # Asignar el entorno a los agentes
         guide.enviroment = environment
@@ -57,7 +60,7 @@ class Simulation:
 
 
 class Enviroment:
-    def __init__(self, guide, excur, path, env, map):
+    def __init__(self, guide, excur, path, env, map, verbose):
         self.guide = guide
         self.excur = excur
         self.path = path
@@ -68,6 +71,7 @@ class Enviroment:
         self.lunch_count = 0  # Contador de excursionistas que llegaron al almuerzo
         self.camp_count = 0   # Contador de excursionistas que llegaron al campamento
         self.map = map
+        self.verbose = verbose
 
     def get_time_of_day(self):
         return round((self.env.now + 7) % 24, 2)
@@ -83,7 +87,10 @@ class Enviroment:
         # Verificar si todos los excursionistas han llegado al punto de reagrupación
         self.regroup_count += 1
         if self.regroup_count == len(self.excur)+1:
-            # print(f"Todos los excursionistas han llegado al punto de reagrupación {point}.")
+            
+            if self.verbose:
+                print(f"Todos los excursionistas han llegado al punto de reagrupación {point}.")
+
             self.regroup_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
             self.env.process(self.guide.move(point, point +1, self.env,self.path))
@@ -94,7 +101,10 @@ class Enviroment:
         # Verificar si todos los excursionistas han llegado al punto de almuerzo
         self.lunch_count += 1
         if self.lunch_count == len(self.excur)+1:
-            # print(f"Todos los excursionistas han llegado al punto de almuerzo {point}.")
+            
+            if self.verbose:
+                print(f"Todos los excursionistas han llegado al punto de almuerzo {point}.")
+
             self.had_lunch = True
             self.lunch_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
@@ -108,7 +118,10 @@ class Enviroment:
         # Verificar si todos los excursionistas han llegado al punto de campamento
         self.camp_count += 1
         if self.camp_count == len(self.excur) +1:
-            # print(f"Todos los excursionistas han llegado al campamento en {point}.")
+            
+            if self.verbose:
+                print(f"Todos los excursionistas han llegado al campamento en {point}.")
+
             self.camp_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
             
@@ -132,7 +145,10 @@ class GuideAgent:
         
     def move(self, point1, point2, env, ma):
         yield env.timeout(ma.size[point1] / self.vel)
-        # print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
+        
+        if self.simulation.verbose:
+            print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
+
         self.current_position = point2
         if point2 != len(ma.points) - 1:
             self.intentions = []
@@ -142,18 +158,22 @@ class GuideAgent:
             if "keep_walking" in self.intentions:
                 self.enviroment.mark[point2] = "continue"
                 env.process(self.move(point2, point2 + 1, env, ma))
+                self.simulation.cost += -1000
             elif "setup_camp" in self.intentions:
                 self.enviroment.mark[point2] = "camp"
                 env.process(self.enviroment.camp(point2))  # Lógica para acampar
                 self.simulation.camp_points.append(point2)
+                self.simulation.cost += 5000
             elif "have_lunch" in self.intentions:
                 self.enviroment.mark[point2] = "lunch"
                 env.process(self.enviroment.lunch(point2))  # Lógica para almorzar
                 self.simulation.launch_points.append(point2)
+                self.simulation.cost += 3000
             elif "regroup" in self.intentions:
                 self.enviroment.mark[point2] = "regroup"
                 self.enviroment.regroup(point2)  # Reagrupar
                 self.simulation.reagroup_points.append(point2)
+                self.simulation.cost += 2000
 
     def update_beliefs(self):
         self.beliefs["time_of_day"] = self.enviroment.get_time_of_day()
@@ -205,7 +225,10 @@ class ExcursionAgent:
         waiting_time = self.precomputed_data[ma.points[point1]]["waiting_time"]
 
         yield env.timeout(ma.size[point1] / self.vel)
-        # print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
+        
+        if self.simulation.verbose:
+            print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
+
         self.current_position = point2
         
         desires_values = np.array(list(self.desires['point'].values())).reshape(1, -1)
@@ -230,7 +253,10 @@ class ExcursionAgent:
 
     def reanudar(self, env, point1, point2, ma):
         # Reanudar el movimiento después de reagruparse, almorzar o acampar
-        # print(f"{self.name} reanuda el movimiento desde {ma.points[point1]} hacia {ma.points[point2]}.")
+        
+        if self.simulation.verbose:
+            print(f"{self.name} reanuda el movimiento desde {ma.points[point1]} hacia {ma.points[point2]}.")
+
         env.process(self.move(point1, point2, env, ma))
 
 

@@ -16,11 +16,11 @@ def calculate_statistics(simulations):
     # Convertir a array
     heatmap_data = np.array(heatmap_data)
 
-    # Crear el heatmap
-    plt.figure(figsize=(10, 6))
-    sns.heatmap(heatmap_data, annot=True, xticklabels=unique_points, cmap="YlGnBu", cbar_kws={'label': 'Uso del punto'})
-    plt.ylabel('Simulaciones')
-    plt.xlabel('Puntos de acampada')
-    plt.title('Mapa de Calor de uso de puntos de acampada en cada simulación')
-    plt.show()
+    # # Crear el heatmap
+    # plt.figure(figsize=(10, 6))
+    # sns.heatmap(heatmap_data, annot=True, xticklabels=unique_points, cmap="YlGnBu", cbar_kws={'label': 'Uso del punto'})
+    # plt.ylabel('Simulaciones')
+    # plt.xlabel('Puntos de acampada')
+    # plt.title('Mapa de Calor de uso de puntos de acampada en cada simulación')
+    # plt.show()
     
