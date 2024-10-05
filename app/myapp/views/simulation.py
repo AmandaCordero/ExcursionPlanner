@@ -49,7 +49,7 @@ def run_simulate(request):
     
     count = 0
     while temperature > 0.1:
-        
+
         route, temperature, best_solution, best_cost = plan_route(map_data, temperature, cooling_rate, best_solution, best_cost, route, cost)   
 
         if verbose:
@@ -63,7 +63,7 @@ def run_simulate(request):
         camp_points, reagroup_points,  launch_points, cost = simulate.simulate_excursion(desires, route, map, precomputed_data, verbose)
         
         if verbose:
-            print(f'Costo: {cost}')
+            print(f'Costo: {cost}')        
 
         camp_points_data.append(camp_points)
         reagroup_points_data.append(reagroup_points)
@@ -81,17 +81,17 @@ def run_simulate(request):
     launch_stats = calculate_statistics(launch_points_data)
 
     info = ""
-    info += "Camp Points Data Statistics:"
-    for stat, value in camp_stats.items():
-        info += f"{stat}: {value}"
+    # info += "Camp Points Data Statistics:"
+    # for stat, value in camp_stats.items():
+    #     info += f"{stat}: {value}"
 
-    info += "\nReagroup Points Data Statistics:"
-    for stat, value in reagroup_stats.items():
-        info += f"{stat}: {value}"
+    # info += "\nReagroup Points Data Statistics:"
+    # for stat, value in reagroup_stats.items():
+    #     info += f"{stat}: {value}"
 
-    info += "\nLaunch Points Data Statistics:"
-    for stat, value in launch_stats.items():
-        info += f"{stat}: {value}" 
+    # info += "\nLaunch Points Data Statistics:"
+    # for stat, value in launch_stats.items():
+    #     info += f"{stat}: {value}" 
     return render(request, 'run_simulate.html', {'info': info})
 
 def precompute_excursion_data(desires, map):

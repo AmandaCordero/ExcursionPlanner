@@ -15,6 +15,7 @@ class Simulation:
 
     def simulate_excursion(self, desires, route, map, precomputed_data, verbose):
 
+        self.cost = 0
         self.verbose = verbose
 
         self.camp_points = []
@@ -158,22 +159,22 @@ class GuideAgent:
             if "keep_walking" in self.intentions:
                 self.enviroment.mark[point2] = "continue"
                 env.process(self.move(point2, point2 + 1, env, ma))
-                self.simulation.cost += -1000
+                self.simulation.cost += 1000
             elif "setup_camp" in self.intentions:
                 self.enviroment.mark[point2] = "camp"
                 env.process(self.enviroment.camp(point2))  # Lógica para acampar
                 self.simulation.camp_points.append(point2)
-                self.simulation.cost += 5000
+                self.simulation.cost += -4000
             elif "have_lunch" in self.intentions:
                 self.enviroment.mark[point2] = "lunch"
                 env.process(self.enviroment.lunch(point2))  # Lógica para almorzar
                 self.simulation.launch_points.append(point2)
-                self.simulation.cost += 3000
+                self.simulation.cost += -3000
             elif "regroup" in self.intentions:
                 self.enviroment.mark[point2] = "regroup"
                 self.enviroment.regroup(point2)  # Reagrupar
                 self.simulation.reagroup_points.append(point2)
-                self.simulation.cost += 2000
+                self.simulation.cost += -2000
 
     def update_beliefs(self):
         self.beliefs["time_of_day"] = self.enviroment.get_time_of_day()
