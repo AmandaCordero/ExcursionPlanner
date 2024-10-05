@@ -14,24 +14,18 @@ def view_route_description(request):
     map_data = Map()
     
     # Cargamos los datos de los turistas
-    with open('./myapp/utils/tourists_data.json', 'r') as file:
-        tourists = json.load(file)
-    
-    characteristics = []
-    for tourist in tourists:
-        characteristics.append(tourist['characteristics'])
-        
-    route, goals = plan_route(map_data, characteristics)
+    with open('./myapp/utils/route_data.json', 'r') as file:
+        route = json.load(file)
     
     interesting_points = []
-    for goal in goals:
+    for goal in route:
         interesting_points.append({
             'id': goal,
             'location': map_data.points[goal].location,
             'height': map_data.points[goal].height,
             'characteristics':map_data.points[goal].characteristics
         }) 
-    
+
     info = show_info_route(interesting_points)
 
     return render(request, 'route_info.html', {'info': info})
