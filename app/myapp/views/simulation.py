@@ -50,14 +50,14 @@ def run_simulate(request):
         
         route, temperature, best_solution, best_cost = plan_route(map_data, temperature, cooling_rate, best_solution, best_cost, route, cost)   
 
-        print("#############################################################################")
-        print("#############################################################################")
-        print(f'                    COMIENZA LA SIMULACION {count}')
-        print("#############################################################################")
-        print("#############################################################################")
-        print(f'Ruta: {route}')
+        # print("#############################################################################")
+        # print("#############################################################################")
+        # print(f'                    COMIENZA LA SIMULACION {count}')
+        # print("#############################################################################")
+        # print("#############################################################################")
+        # print(f'Ruta: {route}')
         camp_points, reagroup_points,  launch_points, cost = simulate.simulate_excursion(desires, route, map, precomputed_data)
-        print(f'Costo: {cost}')
+        # print(f'Costo: {cost}')
         camp_points_data.append(camp_points)
         reagroup_points_data.append(reagroup_points)
         launch_points_data.append(launch_points)
@@ -65,9 +65,9 @@ def run_simulate(request):
         count += 1
 
     
-    print("\n\n\n")
-    print(f"Mejor solucion: {best_solution}")
-    print(f"Mejor costo: {best_cost}")
+    # print("\n\n\n")
+    # print(f"Mejor solucion: {best_solution}")
+    # print(f"Mejor costo: {best_cost}")
 
     camp_stats = calculate_statistics(camp_points_data)
     reagroup_stats = calculate_statistics(reagroup_points_data)
