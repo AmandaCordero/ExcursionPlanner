@@ -51,9 +51,9 @@ class Simulation:
             exc.enviroment = environment
 
         # Ejecutar los procesos de movimiento
-        env.process(guide.move(0, 1, env, path))
+        env.process(guide.move(1,2, env, path))
         for exc in excursion_agents:
-            env.process(exc.move(0, 1, env, path))
+            env.process(exc.move(1,2, env, path))
 
         env.run()
 
@@ -151,7 +151,7 @@ class GuideAgent:
             print(f"{self.name} llegó a {ma.points[point2]} en el tiempo {self.enviroment.get_time_of_day()}")
 
         self.current_position = point2
-        if point2 != len(ma.points) - 1:
+        if point2 != len(ma.points) - 2:
             self.intentions = []
             self.update_beliefs()
             self.generate_desires()
@@ -239,7 +239,7 @@ class ExcursionAgent:
         similarity = cosine_similarity(desires_values, beliefs_values)
 
         self.simulation.cost += -(similarity)
-        if point2 != len(ma.points) - 1:
+        if point2 != len(ma.points) - 2:
             
             if self.enviroment.mark[point2] == "regroup":
                 self.enviroment.regroup(point2)
