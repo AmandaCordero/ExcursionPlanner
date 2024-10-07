@@ -1,6 +1,9 @@
 from django.shortcuts import render
 
 import json
+import statistics
+import random
+import math
 
 from .statistics import calculate_statistics, calculate_statistics2, calculate_statistics3
 from ..modules.module_2.defuzzification_module import compute_fuzzy_output
@@ -10,7 +13,7 @@ from ..modules.module_1.module_1 import plan_route
 
 def run_simulate(request):
 
-    verbose = False
+    verbose = True
 
     with open('./myapp/utils/tourists_data.json', 'r') as file:
         tourists = json.load(file)
@@ -42,10 +45,14 @@ def run_simulate(request):
     
     temperature = 1000
     cooling_rate = 0.99
+    std_threshold = 0.05
+    min_observations = 10
+    
     best_solution = []
     best_cost = None
-    route=[]
     cost = None
+    route=[]
+    cost_history = []
 
     precomputed_data = precompute_excursion_data(desires, map)
     
@@ -63,6 +70,8 @@ def run_simulate(request):
             print(f'Ruta: {route}')
         
         camp_points, reagroup_points,  launch_points, cost = simulate.simulate_excursion(desires, route, map, precomputed_data, verbose)
+        cost = cost[0][0]
+        cost_history.append(cost)
         
         if verbose:
             print(f'Costo: {cost}')
@@ -74,6 +83,15 @@ def run_simulate(request):
         routes_data.append(route)
 
         count += 1
+        
+        # Verifica el criterio de parada si hay suficientes observaciones
+        if len(cost_history) >= min_observations:
+            std_dev = statistics.stdev(cost_history)
+            adjusted_std_dev = std_dev / math.sqrt(len(cost_history))
+            mean_cost = statistics.mean(cost_history)
+            if adjusted_std_dev < std_threshold * mean_cost:
+                break
+
 
     if verbose:
         print("\n\n\n")
