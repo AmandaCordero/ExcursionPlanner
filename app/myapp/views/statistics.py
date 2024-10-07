@@ -27,7 +27,7 @@ def calculate_statistics(simulations, filename='scatter_plot.png'):
     plt.xticks(ticks=range(len(unique_points)), labels=unique_points)
     plt.xlabel('Puntos en el mapa')
     plt.ylabel('Simulaciones')
-    plt.title('Distribución de puntos visitados por simulación')
+    plt.title('Distribución de puntos por simulación')
 
     # Guardar la imagen
     plt.savefig(filename)
@@ -119,5 +119,5 @@ def calculate_statistics3(simulations, filename='map_with_routes.svg'):
     nx.draw_networkx_labels(G, pos, font_size=10, font_color='black')
 
     # Guardar la imagen en formato SVG
-    plt.savefig(filename, format='svg', dpi=300, bbox_inches='tight')
+    plt.savefig(filename, format='png', dpi=300, bbox_inches='tight')
     plt.close()

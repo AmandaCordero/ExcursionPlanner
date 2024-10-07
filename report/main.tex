@@ -1,6 +1,6 @@
 \documentclass[10pt,twocolumn]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
+\usepackage[spanish]{babel}
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{graphicx, subfigure, epsfig}
 \usepackage{geometry}
@@ -36,14 +36,13 @@
 	\begin{@twocolumnfalse}
 		\maketitle
 		\begin{abstract}
-			Esta investigación presenta una simulación de un grupo de personas en una excursión, donde se recolectan características de los excursionistas mediante encuestas. Posteriormente, utilizando un algoritmo A*, se planifica una ruta que maximice la satisfacción de los participantes. De esta, se elabora un pequeño anuncio por medio de un modelo de lenguaje. Finalmente, se simula la excursión con un modelo basado en agentes BDI y un controlador difuso para ajustar los tiempos de espera de los excursionistas en diferentes puntos del recorrido.
+			Esta investigación presenta una simulación de un grupo de personas en una excursión, donde se recolectan características de los excursionistas mediante encuestas. Posteriormente, utilizando la metaheur\'istica Recocido simulado y varias simulaciones para computar el costo de las rutas, se planifica una ruta con elevado nivel de satisfacción de los participantes. De esta, se elabora un pequeño anuncio por medio de un modelo de lenguaje. Finalmente, se simula la excursión con un modelo basado en agentes BDI y un controlador difuso para ajustar los tiempos de espera de los excursionistas en diferentes puntos del recorrido.
 		\end{abstract}
 		\vspace{1cm}
 	\end{@twocolumnfalse}
 	]
 	\section{Introducción}
-	\subsection{Breve descripción del proyecto}
-	El objetivo de esta investigación es simular una excursión con un grupo de excursionistas basándose en sus preferencias individuales, las características del terreno y las rutas disponibles. Para ello, se recolecta información de los excursionistas a través de encuestas y se utiliza un algoritmo A* para maximizar su satisfacción durante el recorrido. Se elabora un anuncio usando el modelo de lenguaje Mistral Large 2. Se simula mediante agentes BDI, usando un controlador difuso para computar el tiempo de espera de los campistas.
+	El objetivo de esta investigación es simular una excursión con un grupo de excursionistas basándose en sus preferencias individuales, las características del terreno y las rutas disponibles. Para ello, se recolecta información de los excursionistas a través de encuestas. Se utiliza la metaheur\'istica Recocido simulado y varias simulaciones para computar el costo de las rutas y tomar la mejor en cuanto a la satisfacción de los participantes. Se elabora un anuncio usando el modelo de lenguaje Mistral Large 2. Se simula mediante agentes BDI, usando un controlador difuso para computar el tiempo de espera de los campistas.
 	
 	\subsection{Objetivos}
 	Los principales objetivos de esta investigación son:
@@ -55,24 +54,13 @@
 	\end{itemize}
 	
 	\section{Fundamento Matemático}
-	En esta sección se presentan los fundamentos matemáticos de las técnicas utilizadas para implementar la simulación: el algoritmo A*, el modelo de agentes BDI y el controlador difuso.
+	Los fundamentos matemáticos de las técnicas utilizadas para implementar la simulación: metaheur\'istica Recocido simulado, el modelo de agentes BDI y el controlador difuso.
 	
-	\subsection{Algoritmo A*}
-	El algoritmo A* es un método de búsqueda de caminos óptimos en un grafo ponderado. Se utiliza para encontrar la ruta más corta desde un punto de inicio hasta un destino, minimizando una función de evaluación \(f(n)\) que combina el costo actual y una estimación heurística:
-	\[
-	f(n) = g(n) + h(n)
-	\]
+	\subsection{Recocido simulado}
 	
-	Donde:
-	\begin{itemize}
-		\item \(g(n)\) es el costo acumulado desde el inicio hasta el nodo \(n\),
-		\item \(h(n)\) es la heurística que estima el costo restante desde \(n\) hasta el destino.
-	\end{itemize}
-	
-	La heurística debe ser admisible, es decir, nunca debe sobrestimar el costo real para asegurar la optimalidad del algoritmo:
-	\[
-	h(n) \leq h^*(n) \quad \forall n
-	\]
+	El recocido simulado (simulated annealing) es una técnica de optimización inspirada en el proceso de recocido en metalurgia. Su objetivo es encontrar una solución aproximada a problemas complejos.
+	Utiliza una búsqueda aleatoria que permite explorar soluciones vecinas, aceptando no solo mejoras, sino también soluciones peores con cierta probabilidad. Esto ayuda a evitar quedar atrapado en óptimos locales.
+	La temperatura es un parámetro que controla la aceptación de soluciones peores. Al inicio, la temperatura es alta, lo que permite explorar ampliamente el espacio de soluciones. A medida que avanza el proceso, la temperatura disminuye, restringiendo la búsqueda y favoreciendo la convergencia hacia una solución óptima.
 	
 	
 	\subsection{Modelo de Agentes BDI}
@@ -91,7 +79,6 @@
 	
 	Un controlador difuso general consiste en cuatro módulos: una base de reglas difusas, un motor de inferencia difusa, y módulos de fuzzificación/defuzzificación. Las interconexiones entre estos módulos y el proceso controlado se muestran en la Figura \ref{fig:diagram}.
 	
-
 	\begin{figure*}[h]
 		\centering
 		\includegraphics[width=\linewidth]{diagram}
@@ -100,58 +87,61 @@
 	\end{figure*}
 	
 	
-	
-	%Un controlador difuso opera repitiendo un ciclo de los siguientes cuatro pasos. Primero, se toman mediciones de todas las variables que representan las condiciones relevantes del proceso controlado. Luego, estas mediciones se convierten en conjuntos difusos apropiados para expresar incertidumbres en las mediciones. Este paso se llama fuzzificación. Las mediciones fuzzificadas luego se utilizan por el motor de inferencia para evaluar las reglas de control almacenadas en la base de reglas difusas. El resultado de esta evaluación es un conjunto difuso (o varios conjuntos difusos) definidos en el universo de posibles acciones. Este conjunto difuso se convierte, en el paso final del ciclo, en un único valor (o un vector de valores) que, en cierto sentido, es el mejor representante del conjunto difuso (o conjuntos difusos). Esta conversión se llama defuzzificación. Los valores defuzzificados representan las acciones que toma el controlador difuso en ciclos individuales de control.\cite{Fuzzy}%
-	 
 	\section{Detalles de Implementación}
 	
-	\subsection{Pasos seguidos para la implementación}
-	Se desarrolló un sitio web en Django para interactuar con el guía de la excursión. En el mismo se encuentra una encuesta para los excursionistas, con la cual se obtendrán datos sobre sus preferencias. Posteriormente, el guía puede introducir en la plataforma el mapa de la región de interés. Usamos A* para planificar una ruta óptima en función de las preferencias y características del terreno. Luego se muestra en la web un anuncio elaborado por el modelo de lenguaje Mistral Large 2, a partir de las características del camino seleccionado.\\
-	Para la simulación se modelan los excursionistas con agentes BDI. Aquí se diferencia el agente que representa al guía del resto de los excursionistas, debido a que entre los deseos del guía se encuentra también garantizar un recorrido seguro. Para los excursionistas se utiliza un controlador difuso; con las creencias de estos (características del mapa hasta el punto recorrido) y sus deseos (características recogidas en la encuesta) se aplican reglas como:
+	Se desarrolló un sitio web en Django para interactuar con el guía de la excursión. En el mismo se encuentra una encuesta para los excursionistas, con la cual se obtendrán datos sobre sus preferencias. Posteriormente, el guía puede introducir en la plataforma el mapa de la región de interés.
 	
-	$$
-	 \mu_{\text{gusto\_historia\_bajo}} \implies \mu_{\text{tiempo\_espera\_corto}}
-	$$
-	Esta regla indica que si el gusto del usuario por la historia es bajo, entonces el tiempo de espera será corto.
+	 El costo de la simulaci\'on est\'a dado por el opuesto del beneficio. El beneficio de una simulacii\'on comienza en cero. Cada excursionitsta en cada punto aporta al beneficio el resultado de calcular el producto escalar entre sus preferencias y las caracter\'isticas del sitio. Adem\'as el beneficio se ve afectado tambi\'en de forma fija por los puntos de reagrupaci\'on, almuerzo y campamento. 
+	 
+	 Usamos Recocido simulado para obtener una buena ruta. Se selecciona una ruta inicial mediante un algoritmo para hallar caminos de costo m\'inimo(Dijkstra), se eval\'ua esta hallando el costo de una simulaci\'on de la misma. Luego si la temperatura no ha rebasado un umbral, se modifica la ruta acorde a lo planteado por la metaheur\'istica. Este proceso contin\'ua hasta que el metal se haya enfriado o el costo de las simulaciones se haya estabilizado(la desviaci\'on est\'andar de los costos entre, la ra\'iz de la cantidad de observaciones por la media de las observaciones, haya alcanzado un umbral). En la figura \ref{fig:diagram} se muestra un mapa sobre el que ocurri\'o este proceso. Una arista es m\'as oscura si m\'as caminos pasaron por esta en el proceso.
+	 
+		 \begin{figure*}[h]
+		 	\centering
+		 	\includegraphics[width=\linewidth]{routes_stats.png}
+		 	\caption{}
+		 	\label{fig:routesstats}
+		 \end{figure*}
 	
-	$$
-	\mu_{\text{gusto\_historia\_medio}} \land \mu_{\text{indice\_historia\_bajo}}$$
-	$$\implies \mu_{\text{tiempo\_espera\_corto}}$$
-	
-	
-	Aquí se establece que si el gusto del usuario por la historia es medio y el índice de lugares históricos en el lugar es bajo, entonces el tiempo de espera será corto.
-	
-	$$
-		\mu_{\text{gusto\_historia\_medio}}  \land $$
-		 $$ \left( \mu_{\text{indice\_historia\_medio}}	
-		 \lor \mu_{\text{indice\_historia\_alto}} \right)$$
-		$$\implies \mu_{\text{tiempo\_espera\_medio}}$$
+	 
 
-	Esta regla señala que si el gusto del usuario por la historia es medio y el índice de lugares históricos en el lugar es medio o alto, entonces el tiempo de espera será medio.
+	 
+	 Luego se muestra en la web un anuncio elaborado por el modelo de lenguaje Mistral Large 2, a partir de las características del camino seleccionado.\\
+	Para las simulaciones se modelan los excursionistas con agentes BDI. Aquí se diferencia el agente que representa al guía del resto de los excursionistas, debido a que entre los deseos del guía se encuentra también garantizar un recorrido seguro. Para los excursionistas se utiliza un controlador difuso; con las creencias de estos (características del mapa hasta el punto recorrido) y sus deseos (características recogidas en la encuesta) se aplican reglas l\'ogicas para computar el tiempo de espera en cada punto.
 	
-	
-	
-	\textbf{Descripción de Variables}
-	\begin{itemize}
-		\item \(\mu_{\text{gusto\_historia\_bajo}}\): Función de pertenencia que describe un bajo gusto del usuario por la historia.
-		\item \(\mu_{\text{gusto\_historia\_medio}}\): Función de pertenencia que describe un gusto medio del usuario por la historia.
-		\item \(\mu_{\text{indice\_historia\_bajo}}\): Función de pertenencia que describe un índice bajo de sitios históricos en el lugar.
-		\item \(\mu{\text{indice\_historia\_medio}}\): Función de pertenencia que describe un índice medio de sitios históricos en el lugar.
-		\item \(\mu_{\text{indice\_historia\_alto}}\): Función de pertenencia que describe un índice alto de sitios históricos en el lugar.
-		\item \(\mu_{\text{tiempo\_espera\_corto}}\): Función de pertenencia que describe un tiempo de espera corto para el usuario.
-		\item \(\mu_{\text{tiempo\_espera\_medio}}\): Función de pertenencia que describe un tiempo de espera medio para el usuario.
-	\end{itemize}
 	
 	\section{Resultados y Experimentos}
 
 	El sistema desarrollado permite al guía planificar estratégicamente puntos de descanso, almuerzo y campamento basándose en las preferencias individuales de los excursionistas y las características del terreno. 
 	
-	Se realizaron diversas simulaciones con diferentes configuraciones de excursionistas, utilizando el algoritmo A* para calcular los puntos óptimos de descanso, almuerzo y campamento. Los resultados muestran que este enfoque optimiza el recorrido al seleccionar puntos estratégicos que maximicen la eficiencia de la excursión.
+	Se realizaron diversas simulaciones de la ruta seleccionada hasta que los costos de esta se estabilizaran. Con la informaci\'on recolectada se elaboraron las gr\'aficas \ref{Puntos de almuerzo}, \ref{Puntos de reagrupacion}, \ref{Puntos de campamento} para la ruta [15, 64, 21, 28, 29, 34, 61, 35, 36, 67, 41, 40, 39, 50, 49, 52, 58]. De estas se pueden inferir puntos claves para la planificaci\'on de la ruta(puntos de almuerzo, reagrupaci\'on y campamento).
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{launch_stats}
+		\caption{Puntos de almuerzo}
+		\label{Puntos de almuerzo}
+	\end{figure}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{reagroup_stats}
+		\caption{Puntos de reagrupaci\'on}
+		\label{Puntos de reagrupacion}
+	\end{figure}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{camp_stats}
+		\caption{Puntos de campamento}
+		\label{Puntos de campamento}
+	\end{figure}
+
+	
 	
 	\section{Conclusiones}
 	Esta investigación ha demostrado que es posible planificar de manera efectiva una excursión utilizando un modelo de simulación basado en las preferencias individuales de los excursionistas y las características del terreno. El sistema ayuda al guía a identificar los puntos óptimos para descansos, almuerzos y campamentos, garantizando una experiencia más organizada y satisfactoria para el grupo. 
 	
-	Mediante la recolección de datos previos a la excursión y el uso del algoritmo A*, se maximizan el disfrute de los campistas. La simulación con agentes BDI y un controlador difuso asegura que la planificación de los puntos clave se adapte a las necesidades del grupo, manteniendo a los excursionistas cohesionados bajo la guía supervisada. Este enfoque ofrece un método eficiente para gestionar excursiones de manera óptima y personalizada.
+	Mediante la recolección de datos previos a la excursión se mejora el disfrute de los campistas. La simulación con agentes BDI y un controlador difuso asegura que la planificación de los puntos clave se adapte a las necesidades del grupo, manteniendo a los excursionistas cohesionados bajo la guía supervisada. Este enfoque ofrece un método eficiente para gestionar excursiones de manera óptima y personalizada.
 	
 	
 	\begin{thebibliography}{9}
