@@ -14,7 +14,7 @@ from ..modules.module_1.module_1 import plan_route
 def run_simulate(request):
 
     little = True
-    verbose = False
+    verbose = True
 
     with open('./myapp/utils/tourists_data.json', 'r') as file:
         tourists = json.load(file)
@@ -39,7 +39,7 @@ def run_simulate(request):
 
     temperature = 1000
     cooling_rate = 0.99
-    std_threshold = 0.05
+    std_threshold = 0.03
     min_observations = 10
     
     best_solution = []
@@ -82,9 +82,9 @@ def run_simulate(request):
         # Verifica el criterio de parada si hay suficientes observaciones
         if len(cost_history) >= min_observations:
             std_dev = statistics.stdev(cost_history)
-            adjusted_std_dev = std_dev / math.sqrt(len(cost_history))
-            mean_cost = statistics.mean(cost_history)
-            if adjusted_std_dev < std_threshold * mean_cost:
+            mean_cost = abs(statistics.mean(cost_history))
+            adjusted_std_dev = std_dev / math.sqrt(len(cost_history)) / mean_cost
+            if adjusted_std_dev < std_threshold:
                 break
     
     
@@ -104,11 +104,10 @@ def run_simulate(request):
             print(f'                    COMIENZA LA SIMULACION FINAL {count}')
             print("#############################################################################")
             print("#############################################################################")
-            print(f'Ruta: {route}')
+            print(f'Ruta: {best_solution}')
         
-        camp_points, reagroup_points,  launch_points, cost = simulate.simulate_excursion(desires, route, map, precomputed_data, verbose, simulation_data)
+        camp_points, reagroup_points,  launch_points, cost = simulate.simulate_excursion(desires, best_solution, map, precomputed_data, verbose, simulation_data)
         cost = cost[0][0]
-        cost_history.append(cost)
         
         if little or verbose:
             print(f'Costo: {cost}')
@@ -123,9 +122,9 @@ def run_simulate(request):
         # Verifica el criterio de parada si hay suficientes observaciones
         if len(cost_history) >= min_observations:
             std_dev = statistics.stdev(cost_history)
-            adjusted_std_dev = std_dev / math.sqrt(len(cost_history))
-            mean_cost = statistics.mean(cost_history)
-            if adjusted_std_dev < std_threshold * mean_cost:
+            mean_cost = abs(statistics.mean(cost_history))
+            adjusted_std_dev = std_dev / math.sqrt(len(cost_history)) / mean_cost
+            if adjusted_std_dev < std_threshold:
                 break
 
     if little or verbose:
@@ -141,7 +140,7 @@ def run_simulate(request):
     calculate_statistics(reagroup_points_data, filename="reagroup_stats")
     calculate_statistics(launch_points_data, filename="launch_stats")
 
-    info = f"{', '.join(best_solution[1:-1])}"
+    info = f"{best_solution[1:-1]}"
     return render(request, 'run_simulate.html', {'info': info})
 
 def precompute_excursion_data(desires, map):

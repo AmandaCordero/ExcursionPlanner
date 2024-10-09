@@ -200,28 +200,27 @@ class GuideAgent:
             if "keep_walking" == self.intention:
                 self.enviroment.mark[point2] = "continue"
                 env.process(self.move(point2, point2 + 1, env, ma))
-                self.simulation.cost += 1000
+                self.simulation.cost += 0.5 * len(self.enviroment.excur)
             elif "setup_camp" == self.intention:
                 self.enviroment.mark[point2] = "camp"
                 env.process(self.enviroment.camp(point2)) 
                 self.simulation.camp_points.append(ma.points[point2])
-                self.simulation.cost += -4000
+                self.simulation.cost += -2 * len(self.enviroment.excur)
             elif "have_lunch" == self.intention:
                 self.enviroment.mark[point2] = "lunch"
                 env.process(self.enviroment.lunch(point2)) 
                 self.simulation.launch_points.append(ma.points[point2])
-                self.simulation.cost += -3000
+                self.simulation.cost += -1.5 * len(self.enviroment.excur)
             elif "regroup" == self.intention:
                 self.enviroment.mark[point2] = "regroup"
-                self.enviroment.regroup(point2) 
+                env.process(self.enviroment.regroup(point2))
                 self.simulation.reagroup_points.append(ma.points[point2])
-                self.simulation.cost += -2000
+                self.simulation.cost += -1 * len(self.enviroment.excur)
 
     def update_beliefs(self):
         self.beliefs["time_of_day"] = self.enviroment.get_time_of_day()
         self.beliefs["dispersion"] = self.enviroment.calculate_dispersion()
         self.beliefs["had_lunch"] = 0 if self.enviroment.had_lunch else 1
-        print(self.beliefs)
 
     def generate_desires(self):
         self.desires = {
@@ -233,7 +232,6 @@ class GuideAgent:
             if rule.evaluate(self.beliefs):
                 for d in rule.desireset:
                     self.desires[d] = True
-        print(self.desires)
 
     def form_intentions(self):
         self.intention = ""
@@ -245,14 +243,13 @@ class GuideAgent:
                 intentions.append((di.priority, di.intention))
         intentions.sort()
         self.intention = intentions[0][1] if len(intentions) > 0 else "keep_walking"
-        print(self.intention)
         
 
 
 class ExcursionAgent:
     def __init__(self, name, enviroment, desires, precomputed_data, simulation):
         self.name = name
-        self.vel = np.random.uniform(1, 3)
+        self.vel = np.random.uniform(2, 3)
         self.beliefs = {}
         self.desires = {}
         self.desires["point"] = {
@@ -295,7 +292,7 @@ class ExcursionAgent:
         if point2 != len(ma.points) - 2:
             
             if self.enviroment.mark[point2] == "regroup":
-                self.enviroment.regroup(point2)
+                env.process(self.enviroment.regroup(point2))
             elif self.enviroment.mark[point2] == "lunch":
                 env.process(self.enviroment.lunch(point2))
             elif self.enviroment.mark[point2] == "camp":
