@@ -13,7 +13,7 @@ class Simulation:
         self.cost = 0
         self.verbose = False
 
-    def simulate_excursion(self, desires, route, map, precomputed_data, verbose,time):
+    def simulate_excursion(self, desires, route, map, precomputed_data, verbose,simulation_data):
 
         self.cost = 0
         self.verbose = verbose
@@ -35,15 +35,23 @@ class Simulation:
             my_tuple = (route[i-1], route[i])
             path.size.append(map.edges_size[my_tuple])
 
+        rules = []
+        for rule in simulation_data["rules"]:
+            rules.append(Rule(rule["beliefset"], rule["desireset"]))
+
+        dis = []
+        for di in simulation_data["DI"]:
+            dis.append(DI(di["priority"], di["desires"], di["intention"]))
+
         # Crear más excursionistas para un caso más grande
-        guide = GuideAgent(None, self)  # El entorno aún no se asigna
+        guide = GuideAgent(None, self,rules, dis)  # El entorno aún no se asigna
         excursion_agents = []
 
         for i in range(len(desires)):
             excursion_agents.append(ExcursionAgent(f'exc{i}', None, desires[i], precomputed_data[i], self))
 
 
-        environment = Enviroment(guide, excursion_agents, path, env, map, verbose,time)
+        environment = Enviroment(guide, excursion_agents, path, env, map, verbose,simulation_data["time"])
 
         # Asignar el entorno a los agentes
         guide.enviroment = environment
@@ -95,7 +103,7 @@ class Enviroment:
 
             self.regroup_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
-            yield self.env.timeout(self.time[0])
+            yield self.env.timeout(self.time["regroup"])
             self.env.process(self.guide.move(point, point +1, self.env,self.path))
             for exc in self.excur:
                 exc.reanudar(self.env, point, point + 1, self.path)
@@ -112,7 +120,7 @@ class Enviroment:
             self.lunch_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
             
-            yield self.env.timeout(self.time[1])
+            yield self.env.timeout(self.time["lunch"])
             self.env.process(self.guide.move(point, point +1, self.env,self.path))
             for exc in self.excur:
                 exc.reanudar(self.env, point, point + 1, self.path)
@@ -128,7 +136,7 @@ class Enviroment:
             self.camp_count = 0  # Reiniciar el contador
             # Reanudar el movimiento de todos los excursionistas
             
-            yield self.env.timeout(self.time[2])
+            yield self.env.timeout(self.time["camp"])
             self.had_lunch = False
             self.env.process(self.guide.move(point, point +1, self.env,self.path))
             for exc in self.excur:
@@ -149,7 +157,7 @@ class DI:
     def __init__(self, priority, desires, intention):
         self.priority = priority
         self.desires = desires
-        self.intentions = intention
+        self.intention = intention
     
 
 class GuideAgent:
@@ -190,8 +198,6 @@ class GuideAgent:
             self.generate_desires()
             self.form_intentions()
 
-            
-
             if "keep_walking" == self.intention:
                 self.enviroment.mark[point2] = "continue"
                 env.process(self.move(point2, point2 + 1, env, ma))
@@ -215,17 +221,19 @@ class GuideAgent:
     def update_beliefs(self):
         self.beliefs["time_of_day"] = self.enviroment.get_time_of_day()
         self.beliefs["dispersion"] = self.enviroment.calculate_dispersion()
+        print(self.beliefs)
 
     def generate_desires(self):
+        self.desires = {
+            "keep_together": False,
+            "lunch": False,
+            "camp": False
+        }
         for rule in self.rules:
             if rule.evaluate(self.beliefs):
                 for d in rule.desireset:
                     self.desires[d] = True
-
-        
-        # self.desires["keep_together"] = self.beliefs["time_of_day"] < 18
-        # self.desires["lunch"] = self.beliefs["time_of_day"] > 11 and not self.enviroment.had_lunch
-        # self.desires["camp"] = self.beliefs["time_of_day"] > 18
+        print(self.desires)
 
     def form_intentions(self):
         self.intention = ""
@@ -234,18 +242,11 @@ class GuideAgent:
             for d in di.desires:
                 if not self.desires[d]:
                     continue
-            intentions.append((di.priority, di.intention))
+                intentions.append((di.priority, di.intention))
         intentions.sort()
-        self.intention = intentions[0] if len(intentions) > 0 else "keep_walking"
+        self.intention = intentions[0][1] if len(intentions) > 0 else "keep_walking"
+        print(self.intention)
         
-        # if self.desires["camp"]:
-        #     self.intentions.append("setup_camp")
-        # if self.desires["lunch"]:
-        #     self.intentions.append("have_lunch")
-        # if self.desires["keep_together"] and self.beliefs["dispersion"] > 1 / 5:
-        #     self.intentions.append("regroup")
-        # if len(self.intentions) == 0:
-        #     self.intentions.append("keep_walking")
 
 
 class ExcursionAgent:
@@ -319,49 +320,3 @@ class Path:
         self.size = []  
 
 
-def main():
-    # Definición del mapa y la ruta
-    mapa = Map()
-    mapa.edges_size = {('A', 'B'): 10, ('B', 'C'): 15, ('C', 'D'): 20}  # Distancias entre los puntos del mapa
-    mapa.points = ['A', 'B', 'C', 'D']
-
-    # Definir la ruta que tomarán los excursionistas
-    route = ['A', 'B', 'C', 'D']
-
-    # Definir deseos de los excursionistas: [isolation, challenge, flora, fauna, history, rivers]
-    desires = [
-        [3, 2, 4, 3, 1, 2],  # Excursionista 1
-        [2, 3, 3, 4, 2, 1],  # Excursionista 2
-        [4, 1, 2, 3, 3, 2]   # Excursionista 3
-    ]
-
-    # Datos precomputados de los excursionistas (tiempos de espera en cada punto)
-    precomputed_data = {
-    0: {"waiting_time": [5, 6, 7]},  # Tiempos de espera en el punto 0 para cada excursionista
-    1: {"waiting_time": [3, 4, 5]},  # Tiempos de espera en el punto 1 para cada excursionista
-    2: {"waiting_time": [4, 5, 6]},  # Tiempos de espera en el punto 2 para cada excursionista
-    3: {"waiting_time": [2, 3, 4]}   # Tiempos de espera en el punto 3 para cada excursionista
-}
-
-
-
-    # Crear instancia de la simulación
-    simulation = Simulation()
-
-    # Ejecutar la simulación con los deseos, la ruta, el mapa y los datos precomputados
-    camp_points, reagroup_points, launch_points = simulation.simulate_excursion(desires, route, mapa, precomputed_data)
-
-    # Imprimir resultados de la simulación
-    print("Puntos de campamento:", camp_points)
-    print("Puntos de reagrupamiento:", reagroup_points)
-    print("Puntos de almuerzo:", launch_points)
-
-
-class Map:
-    def __init__(self):
-        self.points = []
-        self.edges_size = {}
-
-
-if __name__ == "__main__":
-    main()
