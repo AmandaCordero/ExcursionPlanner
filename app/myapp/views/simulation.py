@@ -50,6 +50,10 @@ def run_simulate(request):
     route=[]
 
     precomputed_data = precompute_excursion_data(desires, map)
+
+    with open('./myapp/utils/simulation.json', 'r') as file:
+        simulation_data = json.load(file)
+
     
     count = 0
     while temperature > 0.1:
@@ -63,8 +67,8 @@ def run_simulate(request):
             print("#############################################################################")
             print("#############################################################################")
             print(f'Ruta: {route}')
-        
-        camp_points, reagroup_points,  launch_points, cost = simulate.simulate_excursion(desires, route, map, precomputed_data, verbose)
+    
+        camp_points, reagroup_points,  launch_points, cost = simulate.simulate_excursion(desires, route, map, precomputed_data, verbose, simulation_data)
         cost = cost[0][0]
         cost_history.append(cost)
         

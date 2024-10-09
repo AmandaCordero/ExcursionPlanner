@@ -1,0 +1,45 @@
+{
+    "time": {
+      "camp": 10,
+      "lunch": 0.5,
+      "regroup": 0
+    },
+    "rules": [
+      {
+        "beliefset": [
+          ["time_of_day", 12]
+        ],
+        "desireset": ["lunch"]
+      },
+      {
+        "beliefset": [
+          ["time_of_day", 16]
+        ],
+        "desireset": ["camp"]
+      },
+      {
+        "beliefset": [
+          ["dispersion", 0.15]
+        ],
+        "desireset": ["keep_together"]
+      }
+    ],
+    "DI": [
+      {
+        "priority": 1,
+        "desires": ["camp"],
+        "intention": "setup_camp"
+      },
+      {
+        "priority": 2,
+        "desires": ["lunch"],
+        "intention": "have_lunch"
+      },
+      {
+        "priority": 3,
+        "desires": ["keep_together"],
+        "intention": "regroup"
+      }
+    ]
+  }
+  
