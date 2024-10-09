@@ -5,26 +5,30 @@ import math
 def plan_route(map_data, temperature, cooling_rate, best_solution, best_cost, last_route, cost):    
     """
     Planifica una ruta basada en las preferencias de los turistas y características del mapa.
+    Implementa un criterio de parada basado en la desviación estándar de los costos recientes, ajustada por la raíz del número de observaciones.
 
     Args:
         map_data (object): Datos del mapa, incluyendo información sobre puntos de interés y caminos.
-        tourist_preferences (list): Lista de preferencias de los turistas, donde cada elemento es una lista de 6 valores.
+        temperature (float): Temperatura inicial para el proceso de Simulated Annealing.
+        cooling_rate (float): Tasa de enfriamiento para reducir gradualmente la temperatura.
+        best_solution (list): La mejor solución encontrada hasta el momento.
+        best_cost (float): El costo asociado a la mejor solución encontrada.
+        last_route (list): La última ruta generada.
+        cost (float): El costo de la última ruta generada.
+        std_threshold (float): Umbral ajustado de desviación estándar para el criterio de parada.
+        min_observations (int): Mínimo número de observaciones necesarias para calcular la desviación estándar.
 
     Returns:
-        list: Ruta planificada.
-
-    Note:
-        Este método utiliza Simulated Annealing para encontrar la mejor ruta considerando las preferencias de los turistas,
-        las características de los puntos de interés y la topografía del mapa.
+        tuple: Una tupla con la ruta generada, la temperatura actualizada, la mejor solución y el mejor costo.
     """
-    
+
     if not last_route:
         return generate_minimal_solution(map_data), temperature, best_solution, best_cost
     elif not best_solution:
         best_solution = last_route
         best_cost = cost
         return generate_neighbor_solution(map_data, last_route), temperature, best_solution, best_cost
-    
+
     cost_diff = cost - best_cost
     if cost_diff < 0 or random.uniform(0, 1) < math.exp(-cost_diff / temperature):
 
@@ -33,8 +37,9 @@ def plan_route(map_data, temperature, cooling_rate, best_solution, best_cost, la
             best_cost = cost
 
     temperature *= cooling_rate
-    
-    return generate_neighbor_solution(map_data, last_route), temperature, best_solution, best_cost
+    last_route = generate_neighbor_solution(map_data, last_route)  # Genera la nueva ruta
+
+    return last_route, temperature, best_solution, best_cost
 
 # Dijkstra
 def generate_minimal_solution(graph, initial_nodes=[], exclude_node=None):

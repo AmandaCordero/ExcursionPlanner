@@ -58,7 +58,6 @@ class Simulation:
         for exc in excursion_agents:
             exc.enviroment = environment
 
-        # Ejecutar los procesos de movimiento
         env.process(guide.move(1, 2, env, path))
         for exc in excursion_agents:
             env.process(exc.move(1, 2, env, path))

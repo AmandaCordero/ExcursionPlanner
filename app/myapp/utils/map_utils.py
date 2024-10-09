@@ -19,6 +19,28 @@ class Map:
         
         self._create_map()
         
+        self.initial_ghost=Point(-1,0,0)
+        self.points[-1] = self.initial_ghost
+        self.paths[-1] = []
+        for p in self.starts:
+            # self.paths[p].append(-1)
+            self.paths[-1].append(p)
+            
+            self.edges[(-1,p)] = Edge(-1,p,0)
+            # self.edges[(p,-1)] = self.edges[(p,-1)]
+        self.starts=[-1]
+        
+        self.final_ghost=Point(-2,0,0)
+        self.points[-2] = self.final_ghost
+        self.paths[-2] = []
+        for p in self.exits:
+            self.paths[p].append(-2)
+            # self.paths[-2].append(p)
+            
+            self.edges[(p,-2)] = Edge(p,-2,0)
+            # self.edges[(-2,p)] = self.edges[(p,-2)]
+        self.exits=[-2]
+        
     def _create_map(self):
         self._create_points()
         self._create_paths()

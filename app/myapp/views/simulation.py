@@ -1,6 +1,9 @@
 from django.shortcuts import render
 
 import json
+import statistics
+import random
+import math
 
 from .statistics import calculate_statistics, calculate_statistics2, calculate_statistics3
 from ..modules.module_2.defuzzification_module import compute_fuzzy_output
@@ -10,6 +13,7 @@ from ..modules.module_1.module_1 import plan_route
 
 def run_simulate(request):
 
+    little = True
     verbose = False
 
     with open('./myapp/utils/tourists_data.json', 'r') as file:
@@ -31,21 +35,19 @@ def run_simulate(request):
 
     map = Mapa(points, edges_size, edges=edges)
 
-    
     simulate = Simulation()
 
-    camp_points_data = []
-    reagroup_points_data = []
-    launch_points_data = []
-    costs_data = []
-    routes_data = []
-    
     temperature = 1000
     cooling_rate = 0.99
+    std_threshold = 0.05
+    min_observations = 10
+    
     best_solution = []
     best_cost = None
-    route=[]
     cost = None
+    cost_history = []
+    routes_data = []
+    route=[]
 
     precomputed_data = precompute_excursion_data(desires, map)
 
@@ -58,28 +60,75 @@ def run_simulate(request):
 
         route, temperature, best_solution, best_cost = plan_route(map_data, temperature, cooling_rate, best_solution, best_cost, route, cost)   
 
-        if verbose:
+        if little or verbose:
             print("#############################################################################")
             print("#############################################################################")
             print(f'                    COMIENZA LA SIMULACION {count}')
             print("#############################################################################")
             print("#############################################################################")
             print(f'Ruta: {route}')
-        
+    
         camp_points, reagroup_points,  launch_points, cost = simulate.simulate_excursion(desires, route, map, precomputed_data, verbose, simulation_data)
+        cost = cost[0][0]
+        cost_history.append(cost)
         
-        if verbose:
+        if little or verbose:
+            print(f'Costo: {cost}')
+
+        routes_data.append(route)
+
+        count += 1
+        
+        # Verifica el criterio de parada si hay suficientes observaciones
+        if len(cost_history) >= min_observations:
+            std_dev = statistics.stdev(cost_history)
+            adjusted_std_dev = std_dev / math.sqrt(len(cost_history))
+            mean_cost = statistics.mean(cost_history)
+            if adjusted_std_dev < std_threshold * mean_cost:
+                break
+    
+    
+    calculate_statistics3(routes_data, filename="routes_stats.png")
+    calculate_statistics2(cost_history, filename="costs_stats")
+    
+    cost_history = []
+    camp_points_data = []
+    reagroup_points_data = []
+    launch_points_data = []
+    count = 0
+    while True:
+
+        if little or verbose:
+            print("#############################################################################")
+            print("#############################################################################")
+            print(f'                    COMIENZA LA SIMULACION FINAL {count}')
+            print("#############################################################################")
+            print("#############################################################################")
+            print(f'Ruta: {route}')
+        
+        camp_points, reagroup_points,  launch_points, cost = simulate.simulate_excursion(desires, route, map, precomputed_data, verbose)
+        cost = cost[0][0]
+        cost_history.append(cost)
+        
+        if little or verbose:
             print(f'Costo: {cost}')
 
         camp_points_data.append(camp_points)
         reagroup_points_data.append(reagroup_points)
         launch_points_data.append(launch_points)
-        costs_data.append(cost)
-        routes_data.append(route)
+        cost_history.append(cost)
 
         count += 1
+        
+        # Verifica el criterio de parada si hay suficientes observaciones
+        if len(cost_history) >= min_observations:
+            std_dev = statistics.stdev(cost_history)
+            adjusted_std_dev = std_dev / math.sqrt(len(cost_history))
+            mean_cost = statistics.mean(cost_history)
+            if adjusted_std_dev < std_threshold * mean_cost:
+                break
 
-    if verbose:
+    if little or verbose:
         print("\n\n\n")
         print(f"Mejor solucion: {best_solution}")
         print(f"Mejor costo: {best_cost}")
@@ -91,8 +140,6 @@ def run_simulate(request):
     calculate_statistics(camp_points_data, filename="camp_stats")
     calculate_statistics(reagroup_points_data, filename="reagroup_stats")
     calculate_statistics(launch_points_data, filename="launch_stats")
-    calculate_statistics2(costs_data, filename="costs_stats")
-    calculate_statistics3(routes_data, filename="routes_stats.png")
 
     info = f"Mejor solucion: {best_solution}"
     return render(request, 'run_simulate.html', {'info': info})
