@@ -7,48 +7,22 @@ Facultad de Matemática y Computación, Universidad de La Habana
 📅 Septiembre, 2024
 
 ---
-
 ## 📝 Abstract
 
-Esta investigación presenta una simulación de un grupo de personas en una excursión, donde se recolectan características de los excursionistas mediante encuestas. Posteriormente, utilizando un algoritmo A*, se planifica una ruta que maximice la satisfacción de los participantes. De esta, se elabora un pequeño anuncio por medio de un modelo de lenguaje. Finalmente, se simula la excursión con un modelo basado en agentes BDI y un controlador difuso para ajustar los tiempos de espera de los excursionistas en diferentes puntos del recorrido.
+Esta investigación presenta una simulación de un grupo de personas en una excursión, donde se recolectan características de los excursionistas mediante encuestas. Posteriormente, utilizando la metaheurística de Recocido Simulado, se planifica una ruta que maximice la satisfacción de los participantes. Finalmente, se simula la excursión con un modelo basado en agentes BDI y un controlador difuso para ajustar los tiempos de espera de los excursionistas en diferentes puntos del recorrido.
+📚 Introducción
+## Breve descripción del proyecto
 
----
-
-## 📚 Introducción
-
-### Breve descripción del proyecto
-
-El objetivo de esta investigación es simular una excursión con un grupo de excursionistas basándose en sus preferencias individuales, las características del terreno y las rutas disponibles. Para ello, se recolecta información de los excursionistas a través de encuestas y se utiliza un algoritmo A* para maximizar su satisfacción durante el recorrido. Se elabora un anuncio usando el modelo de lenguaje Mistralai y se simula mediante agentes BDI, usando un controlador difuso para computar el tiempo de espera de los campistas.
-
-### 🎯 Objetivos
-
-Los principales objetivos de esta investigación son:
-
-- 🗺️ Planificar rutas óptimas que maximicen la satisfacción de los excursionistas.
-- 🎥 Elaborar un anuncio llamativo para los excursionistas.
-- 🚩 Detectar puntos críticos en el recorrido que puedan mejorar la experiencia en excursiones reales.
-- 👩‍🏫 Crear una plataforma amigable para el guía de la excursión.
-
----
+El objetivo de esta investigación es simular una excursión con un grupo de excursionistas basándose en sus preferencias individuales, las características del terreno y las rutas disponibles. Para ello, se recolecta información de los excursionistas a través de encuestas. Se utiliza la metaheurística de Recocido Simulado y varias simulaciones para computar el costo de las rutas y seleccionar la mejor opción en cuanto a la satisfacción de los participantes.
 
 ## 🔢 Fundamento Matemático
 
-En esta sección se presentan los fundamentos matemáticos de las técnicas utilizadas para implementar la simulación: el algoritmo A*, el modelo de agentes BDI y el controlador difuso.
+Esta sección presenta los fundamentos matemáticos de las técnicas utilizadas para implementar la simulación: la metaheurística de Recocido Simulado, el modelo de agentes BDI y el controlador difuso.
+### 🔍 Metaheurística de Recocido Simulado
 
-### 🔍 Algoritmo A*
+El recocido simulado es una técnica de optimización inspirada en el proceso de recocido en metalurgia. Su objetivo es encontrar una solución aproximada a problemas complejos mediante la búsqueda aleatoria de soluciones vecinas. A diferencia de otros algoritmos, acepta no solo mejoras, sino también soluciones peores con cierta probabilidad, lo cual ayuda a evitar quedar atrapado en óptimos locales.
 
-El algoritmo A* es un método de búsqueda de caminos óptimos en un grafo ponderado. Se utiliza para encontrar la ruta más corta desde un punto de inicio hasta un destino, minimizando una función de evaluación $f(n)$ que combina el costo actual y una estimación heurística:
-
-$$ f(n) = g(n) + h(n) $$
-
-Donde:
-
-- $g(n)$ es el costo acumulado desde el inicio hasta el nodo $n$,
-- $h(n)$ es la heurística que estima el costo restante desde $n$ hasta el destino.
-
-La heurística debe ser admisible, es decir, nunca debe sobrestimar el costo real para asegurar la optimalidad del algoritmo:
-
-$$ h(n) \leq h^*(n) \quad \forall n $$
+La temperatura, un parámetro clave, controla la aceptación de soluciones peores. Comienza alta para permitir una exploración amplia del espacio de soluciones y disminuye gradualmente, restringiendo la búsqueda para favorecer la convergencia hacia una solución óptima.
 
 ### 🤖 Modelo de Agentes BDI
 
