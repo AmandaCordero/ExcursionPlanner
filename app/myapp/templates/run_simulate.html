@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {% load static %}
     <title>Estadísticas de las simulaciones</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="container mt-5">
     <h2 class="mb-4">Ruta escogida</h2>
     <p>{{ info }}</p>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            Campamentos
+            <div class="col-md-6">
+                <img src="{% static 'images/camp_stats.png' %}" alt="Info" class="img-fluid w-100 h-auto">
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            Almuerzo
+            <div class="col-md-6">
+                <img src="{% static 'images/launch_stats.png' %}" alt="Info" class="img-fluid w-100 h-auto">
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            Reagrupamiento
+            <div class="col-md-6">
+                <img src="{% static 'images/reagroup_stats.png' %}" alt="Info" class="img-fluid w-100 h-auto">
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            Costos
+            <div class="col-md-6">
+                <img src="{% static 'images/costs_stats.png' %}" alt="Info" class="img-fluid w-100 h-auto">
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            Rutas
+            <div class="col-md-6">
+                <img src="{% static 'images/routes_stats.png' %}" alt="Info" class="img-fluid w-100 h-auto">
+            </div>
+        </div>
+    </div>
     <button class="btn btn-danger" onclick="window.location.href='http://127.0.0.1:8000/'">Inicio</button>
 </body>
 </html>

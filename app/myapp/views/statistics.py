@@ -4,37 +4,47 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.cm as cm
+from collections import Counter
+import shutil
+import os
 
-def calculate_statistics(simulations, filename='scatter_plot.png'):
-
+def calculate_statistics(simulations, filename='heatmap_1d_with_scale.png'):
     # Crear una lista de todos los puntos únicos
     unique_points = sorted(set(point for simulation in simulations for point in simulation))
 
-    # Crear una matriz para el scatter plot
-    scatter_data = []
-    for sim_idx, simulation in enumerate(simulations):
-        for point in simulation:
-            scatter_data.append([sim_idx, unique_points.index(point)])
+    # Contar la frecuencia de cada punto en todas las simulaciones
+    point_counts = Counter(point for simulation in simulations for point in simulation)
 
-    # Convertir a array
-    scatter_data = np.array(scatter_data)
+    # Obtener frecuencias en el orden de unique_points
+    frequencies = [point_counts[point] for point in unique_points]
 
-    # Crear el scatter plot
-    plt.figure(figsize=(10, 6))
-    plt.scatter(scatter_data[:, 1], scatter_data[:, 0], c='blue', alpha=0.6, s=100)
+    # Crear el mapa de calor unidimensional
+    plt.figure(figsize=(12, 2))
+    heatmap = plt.imshow([frequencies], cmap='YlOrRd', aspect='auto')  # Cambiado a 'YlOrRd'
 
     # Etiquetas y configuraciones del gráfico
     plt.xticks(ticks=range(len(unique_points)), labels=unique_points)
+    plt.yticks([])
     plt.xlabel('Puntos en el mapa')
-    plt.ylabel('Simulaciones')
-    plt.title('Distribución de puntos por simulación')
+    plt.title('Intensidad de puntos en simulaciones')
+
+    # Agregar una barra de color para la escala de frecuencia
+    cbar = plt.colorbar(heatmap, orientation='horizontal', pad=0.2)
+    cbar.set_label('Frecuencia de simulaciones')
 
     # Guardar la imagen
-    plt.savefig(filename)
+    plt.savefig(filename, bbox_inches='tight')
     plt.close()
 
-def calculate_statistics2(costs, filename='costs_plot.png'):
-    
+    source_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', f"{filename}.png"))
+    destination_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'static', 'images', f"{filename}.png"))
+    if not os.path.exists(source_path):
+        print(f"Error: El archivo '{source_path}' no existe.")
+        return
+    shutil.copy(source_path, destination_path)
+
+
+def calculate_statistics2(costs, filename='costs_plot.png', interval=10):
     # Crear un array de índices para las simulaciones
     simulations_idx = np.arange(len(costs))
 
@@ -42,8 +52,11 @@ def calculate_statistics2(costs, filename='costs_plot.png'):
     plt.figure(figsize=(10, 6))
     plt.scatter(simulations_idx, costs, c='blue', alpha=0.6, s=100)
 
+    # Configurar los intervalos en el eje x
+    plt.xticks(ticks=np.arange(0, len(simulations_idx), interval), 
+               labels=[f'{i}' for i in range(0, len(simulations_idx), interval)])
+    
     # Etiquetas y configuraciones del gráfico
-    plt.xticks(ticks=simulations_idx, labels=[f'Simulación {i+1}' for i in simulations_idx])
     plt.xlabel('Simulaciones')
     plt.ylabel('Costo')
     plt.title('Costo por simulación')
@@ -51,6 +64,14 @@ def calculate_statistics2(costs, filename='costs_plot.png'):
     # Guardar la imagen
     plt.savefig(filename)
     plt.close()
+
+    source_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', f"{filename}.png"))
+    destination_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'static', 'images', f"{filename}.png"))
+    if not os.path.exists(source_path):
+        print(f"Error: El archivo '{source_path}' no existe.")
+        return
+    shutil.copy(source_path, destination_path)
+
 
 
 def calculate_statistics3(simulations, filename='map_with_routes.svg'):
@@ -121,3 +142,11 @@ def calculate_statistics3(simulations, filename='map_with_routes.svg'):
     # Guardar la imagen en formato SVG
     plt.savefig(filename, format='png', dpi=300, bbox_inches='tight')
     plt.close()
+
+    source_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', filename))
+    destination_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'static', 'images', filename))
+    if not os.path.exists(source_path):
+        print(f"Error: El archivo '{source_path}' no existe.")
+        return
+    shutil.copy(source_path, destination_path)
+
