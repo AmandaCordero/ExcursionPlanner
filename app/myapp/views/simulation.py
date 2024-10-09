@@ -106,7 +106,7 @@ def run_simulate(request):
             print("#############################################################################")
             print(f'Ruta: {route}')
         
-        camp_points, reagroup_points,  launch_points, cost = simulate.simulate_excursion(desires, route, map, precomputed_data, verbose)
+        camp_points, reagroup_points,  launch_points, cost = simulate.simulate_excursion(desires, route, map, precomputed_data, verbose, simulation_data)
         cost = cost[0][0]
         cost_history.append(cost)
         
@@ -141,7 +141,7 @@ def run_simulate(request):
     calculate_statistics(reagroup_points_data, filename="reagroup_stats")
     calculate_statistics(launch_points_data, filename="launch_stats")
 
-    info = f"Mejor solucion: {best_solution}"
+    info = f"{', '.join(best_solution[1:-1])}"
     return render(request, 'run_simulate.html', {'info': info})
 
 def precompute_excursion_data(desires, map):

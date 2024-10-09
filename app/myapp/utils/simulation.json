@@ -7,13 +7,14 @@
     "rules": [
       {
         "beliefset": [
-          ["time_of_day", 12]
+          ["time_of_day", 12],
+          ["had_lunch" , 1]
         ],
         "desireset": ["lunch"]
       },
       {
         "beliefset": [
-          ["time_of_day", 16]
+          ["time_of_day", 18]
         ],
         "desireset": ["camp"]
       },

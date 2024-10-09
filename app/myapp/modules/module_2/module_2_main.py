@@ -220,6 +220,7 @@ class GuideAgent:
     def update_beliefs(self):
         self.beliefs["time_of_day"] = self.enviroment.get_time_of_day()
         self.beliefs["dispersion"] = self.enviroment.calculate_dispersion()
+        self.beliefs["had_lunch"] = 0 if self.enviroment.had_lunch else 1
         print(self.beliefs)
 
     def generate_desires(self):
@@ -251,7 +252,7 @@ class GuideAgent:
 class ExcursionAgent:
     def __init__(self, name, enviroment, desires, precomputed_data, simulation):
         self.name = name
-        self.vel = np.random.uniform(2, 3)
+        self.vel = np.random.uniform(1, 3)
         self.beliefs = {}
         self.desires = {}
         self.desires["point"] = {
